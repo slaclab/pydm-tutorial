@@ -1,0 +1,21 @@
+os: linux
+language: python
+python: 3.6
+
+env:
+  global:
+    # Doctr deploy key for hhslepicka/pydm-tutorial
+    - secure: "FpwSny/c4GqJ3wVs+bISutpvOSc6LDGb6Ut1lV0BDl/gamO3lDk/tjP3+HuBnC/Wsggwg3cCmV6PVX28M653/artyId9YKNSoQhmxOdRxKK0K2hPGpjQ0lj4YLXTWZ8o3G6jADViOqyPA5Sls+npssjFAqJAMxVA77jS8rQSQVV2ZAHAPoAhqOqtwSvqE8FrA/YqIjLUqjpQTQ3zRFLp0k70+kFwu5/um/hTJs3QZ1UsRr+25S/axK+5NH+1yhPgG4a5LrybivC1RoofUSQlWsOlburNw3lyDiOeRql7RfmaQ/jG0fS+WVqULWhXlwe8YGP/uPg/IGusgCWyVHOeppJ8Mmr8BS7w6KPId7UqYVW85jvMeK/AgJEKGbirEyDz55NvnwN55PEWGPjLFOdkHSe/stdi4T4ZuBIFlMcuGIKVk12vDpv0SaXb9W54GTR3Ehb0m31KAYglDl5TWJJMpK4tW0emPW+w22l9ANB+aeK+2EP0vAJCPR1SvBekN8Gjd8oIhHdPbLdluPH0r9iHjCxlOPB7gfW79uDoVBdsOTH5mqNJv1ps6k0jyIITBAjTm16pJT2t7PsmqFX+I6gb7zgL9micQ3zeYaPsMQq8eK2YM7vhjbOMX78mTxgsx8Klx+CHR2PoNLjn0LplqfIrg48PEo294OfFK9EFdX+Had8="
+
+script:
+  #Build docs
+  - set -e
+  - |
+    if [[ -n "$DOCTR_DEPLOY_ENCRYPTION_KEY_SLACLAB_PYDM_TUTORIAL" ]]; then
+      pip install -r docs-requirements.txt
+      pushd docs
+      make html
+      popd
+      #Publish docs.
+      doctr deploy . --built-docs docs/build/html --deploy-branch-name gh-pages
+    fi
