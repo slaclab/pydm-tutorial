@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting up the Environment &mdash; PyDM Tutorial 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Important Concepts" href="intro/important_concepts.html" />
+    <link rel="prev" title="PyDM - Python Display Manager - Tutorial" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyDM Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Before You Start</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up the Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-machine">Virtual Machine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#useful-virtual-machine-information">Useful Virtual Machine Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user-account">User Account</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python-environment">Python Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simulated-epics-iocs">Simulated EPICS IOCs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-environment">Creating your own environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-dependencies-version">Checking dependencies version</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro/important_concepts.html">Important Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/widgets.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/datasource.html">Data Sources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hands-on</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="action/tutorial.html">Tutorial - What will we do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action/designer.html">Building Your First Display with Qt Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action/little_code.html">Adding Code into the Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="action/python.html">Making Python-based Displays</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contrib/help.html">Getting Help With PyDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/requests.html">Bug and Requests</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/pydm">PyDM GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab">SLAC-wide GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyDM Tutorial</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Setting up the Environment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-the-environment">
+<h1>Setting up the Environment<a class="headerlink" href="#setting-up-the-environment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="virtual-machine">
+<h2>Virtual Machine<a class="headerlink" href="#virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>We provide a virtual machine disk that can be used to follow the tutorial section.</p>
+<p>You can download the disk using this <a class="reference external" href="https://drive.google.com/file/d/1ZrcDf2oMj_PwVFFQN-y1-ZwR_bp_5aur/view?usp=sharing">Link</a>.</p>
+<p>After downloading it, extract the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file and create a new Virtual Machine at the virtualization client of your preference.
+We used <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">Oracle VirtualBox</a> to create this machine and it is available for Windows, OS X and Linux hosts.</p>
+<div class="section" id="useful-virtual-machine-information">
+<h3>Useful Virtual Machine Information<a class="headerlink" href="#useful-virtual-machine-information" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="user-account">
+<h4>User Account<a class="headerlink" href="#user-account" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Username</th>
+<th class="head">Password</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>user</td>
+<td>tutorial</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="python-environment">
+<h4>Python Environment<a class="headerlink" href="#python-environment" title="Permalink to this headline">¶</a></h4>
+<p>On this machine we are using Miniconda to handle our Python environment and dependencies.
+To have access to the environmnet please do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> activate tutorial
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulated-epics-iocs">
+<h4>Simulated EPICS IOCs<a class="headerlink" href="#simulated-epics-iocs" title="Permalink to this headline">¶</a></h4>
+<p>This machine comes with simulated motors and cameras.
+The IOCs can be started through their launcher scripts available at:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/tutorial/iocs_launcher
+
+<span class="c1"># For the AreaDetector (cameras) simulation use</span>
+./simDetector
+
+<span class="c1"># For the simulated motor axis use</span>
+./simMotor
+</pre></div>
+</div>
+<p>For AreaDetector (cameras):</p>
+<ul class="simple">
+<li>The prefix for the PVs is <code class="docutils literal notranslate"><span class="pre">13SIM1:</span></code> so we have: <code class="docutils literal notranslate"><span class="pre">13SIM1:cam1</span></code> as well as <code class="docutils literal notranslate"><span class="pre">13SIM1:cam2</span></code> available.</li>
+</ul>
+<p>For Motor Axis:</p>
+<ul class="simple">
+<li>The prexif for the PVs is <code class="docutils literal notranslate"><span class="pre">IOC:</span></code> so we have: <code class="docutils literal notranslate"><span class="pre">IOC:m1</span> <span class="pre">..</span> <span class="pre">IOC:m8</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="creating-your-own-environment">
+<h2>Creating your own environment<a class="headerlink" href="#creating-your-own-environment" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">You will need Python 2.7 or newer (Python 3.6 is the recommended version since in the future Python 2.7 will be deprecated).</p>
+<blockquote>
+<div><p><strong>If the version is less than 2.7, please update it to meet the minimal requirements.</strong></p>
+</div></blockquote>
+</li>
+<li><p class="first">You will also need Qt 5.7 or newer and PyQt 5.7 or newer available and pyqtgraph &gt;= 0.10.0 for the plot widgets.</p>
+</li>
+<li><p class="first">Different Data Plugins require different dependencies. E.g:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>When using the Channel Access data plugin with PyEpics you will also need:</dt>
+<dd><ul class="first last">
+<li>PyEpics &gt;= 3.2.7</li>
+<li>Epics Base &gt;= 3.14.12</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>When using the Archiver Appliance data plugin you will also need:</dt>
+<dd><ul class="first last">
+<li>requests &gt;= 1.1.0</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>For up-to-date dependency list as well as detailed installation instructions please
+refer to the <a class="reference external" href="http://slaclab.github.io/pydm/">PyDM Documentation Website</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are a <a class="reference external" href="https://conda.io/docs/user-guide/install/download.html">conda</a> user,
+you can create a conda environment and easily run PyDM with the following:</p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n pydm-env <span class="s2">&quot;python &gt;= 3.6&quot;</span> pydm -c pydm-tag
+<span class="nb">source</span> activate pydm-env
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="checking-dependencies-version">
+<h2>Checking dependencies version<a class="headerlink" href="#checking-dependencies-version" title="Permalink to this headline">¶</a></h2>
+<p>From a Terminal window, check your Python version doing the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Python 2.7.x</span>
+python --version
+
+<span class="c1"># For Python 3.x</span>
+python3 --version
+</pre></div>
+</div>
+<p>In order to check your Qt and PyQt version, open a python or ipython shell and run the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QT_VERSION_STR</span>
+<span class="kn">from</span> <span class="nn">PyQt5.Qt</span> <span class="kn">import</span> <span class="n">PYQT_VERSION_STR</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Qt Version: &quot;</span><span class="p">,</span> <span class="n">QT_VERSION_STR</span><span class="p">)</span>
+<span class="c1"># Output should be something like... Qt Version:  5.9.4</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;PyQt Version: &quot;</span><span class="p">,</span> <span class="n">PYQT_VERSION_STR</span><span class="p">)</span>
+<span class="c1"># Output should be something like... PyQt Version:  5.9.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="intro/important_concepts.html" class="btn btn-neutral float-right" title="Important Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="PyDM - Python Display Manager - Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, mgibbs, hhslepicka.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Sources &mdash; PyDM Tutorial 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial - What will we do?" href="../action/tutorial.html" />
+    <link rel="prev" title="Widgets" href="widgets.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> PyDM Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Before You Start</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Setting up the Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Introduction</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="important_concepts.html">Important Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#epics">Epics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archiver">Archiver</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Hands-on</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../action/tutorial.html">Tutorial - What will we do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/designer.html">Building Your First Display with Qt Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/little_code.html">Adding Code into the Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/python.html">Making Python-based Displays</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/help.html">Getting Help With PyDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/requests.html">Bug and Requests</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab/pydm">PyDM GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/slaclab">SLAC-wide GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PyDM Tutorial</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Data Sources</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/intro/datasource.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-sources">
+<h1>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h1>
+<p>PyDM is shipped with a couple of data plugins:</p>
+<ul class="simple">
+<li>Epics</li>
+<li>Archiver</li>
+</ul>
+<div class="section" id="epics">
+<h2>Epics<a class="headerlink" href="#epics" title="Permalink to this headline">¶</a></h2>
+<p>This plugin is used to allow PyDM Widgets to access to Channel Access process variables and interact with them.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="37%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Protocol</th>
+<th class="head">Address Format</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ca</td>
+<td>ca://&lt;PV NAME&gt;</td>
+<td>ca://MTEST:Float</td>
+</tr>
+</tbody>
+</table>
+<p>For this particular data plugin two options are available for the Python interface to Channel Access.</p>
+<ul class="simple">
+<li>PyEpics: <a class="reference external" href="http://pyepics.github.io/pyepics/">http://pyepics.github.io/pyepics/</a></li>
+<li>pyca: <a class="reference external" href="https://github.com/slaclab/pyca">https://github.com/slaclab/pyca</a></li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>By default, PyEpics is selected unless configured through the <code class="docutils literal notranslate"><span class="pre">PYDM_EPICS_LIB</span></code> environment variable.</p>
+<p class="last">Possible values are <code class="docutils literal notranslate"><span class="pre">PYEPICS</span></code> and <code class="docutils literal notranslate"><span class="pre">PYCA</span></code>.</p>
+</div>
+</div>
+<div class="section" id="archiver">
+<h2>Archiver<a class="headerlink" href="#archiver" title="Permalink to this headline">¶</a></h2>
+<p>This plugin is used to allow PyDM Widgets to read data from Archiver Appliance.</p>
+<p>While still crude this data plugin works and has been tested against a real instance of the Archiver.</p>
+<p>Basically a HTTP request is sent to the archiver appliance and the address is used to form the parameters for the data
+retrieval.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="30%" />
+<col width="57%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Protocol</th>
+<th class="head">Address Format</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>archiver</td>
+<td>archiver://&lt;PARAMS&gt;</td>
+<td>archiver://pv=test:pv:123&amp;donotchunk</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Different facilities must set the <code class="docutils literal notranslate"><span class="pre">PYDM_ARCHIVER_URL</span></code> environment variable to point to their Archiver Appliance
+location or the retrieval application. If not set this variable will point to SLAC’s Archiver Appliance URL.</p>
+<p>If your Archiver Retrieval is hosted under the following address <code class="docutils literal notranslate"><span class="pre">http://lcls-archapp.slac.stanford.edu/retrieval/...</span></code>
+set the variable to <code class="docutils literal notranslate"><span class="pre">http://lcls-archapp.slac.stanford.edu</span></code>.</p>
+<p class="last">The remaining parts of the URL will be dealt with at the Data Plugin level and should not be a concern.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../action/tutorial.html" class="btn btn-neutral float-right" title="Tutorial - What will we do?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="widgets.html" class="btn btn-neutral" title="Widgets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, mgibbs, hhslepicka.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
