@@ -41,7 +41,7 @@ The finished result will look like this:
   Now that we have a layout, let's take a look at the widgets on this screen:
 
   .. figure:: /_static/action/inline/widgets.png
-     :scale: 75 %
+     :scale: 70 %
      :align: center
 
   * **Step 3.1.**
@@ -225,7 +225,7 @@ The finished result will look like this:
     The end result will be something like this:
 
     .. figure:: /_static/action/inline/inline_all_widgets_ok.png
-       :scale: 100 %
+       :scale: 75 %
        :align: center
 
 * **Step 4.**
