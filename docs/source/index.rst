@@ -31,8 +31,10 @@ tasks, and plug-ins for multiple control systems.
    :maxdepth: 2
    :caption: Hands-on
 
+   action/intro_designer.rst
    action/tutorial.rst
    action/designer.rst
+   action/intro_python.rst
    action/little_code.rst
    action/python.rst
 

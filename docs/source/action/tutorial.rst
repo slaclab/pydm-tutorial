@@ -1,2 +1,53 @@
-Tutorial - What will we do?
-===========================
+.. _Application:
+
+About the Application
+=====================
+
+In order to demonstrate concepts and capabilities of PyDM in a meaningful way
+other than just jump through a couple of examples demonstrating each widget
+individually it makes more sense to go through a Tutorial in which an
+application is developed adding together widgets to accomplish a certain goal
+and with that be closer to a daily usage of a Display Manager tool.
+
+PyDM allow users to create screens in three ways:
+
+#. Using only the Qt Designer (.ui file)
+#. Using the Qt Designer and Python Code (.ui and .py files)
+#. Using only Python code (.py file)
+
+In most of the cases users will choose between numbers 1 and 2 and in rare cases
+go with number 3.
+
+This tutorial will also cover the three scenarios above while doing the proposed
+application.
+
+The application is a beam positioning/alignment application in which the data
+from a camera will be presented along with two motor axis to position the beam
+in X and Y.
+
+.. figure:: /_static/action/application.png
+   :scale: 100 %
+   :align: center
+   :alt: Tutorial Application
+
+   Proposed Application Main Screen
+
+.. _App Components:
+
+Macro Components
+----------------
+
+.. figure:: /_static/action/components.png
+   :scale: 100 %
+   :align: center
+   :alt: Tutorial Application
+
+The ``main.ui`` file (Highlighted in Red) uses twice an embedded display
+(Highlighted in Green) which points to ``inline_motor.ui`` for **Motor X**
+and **Motor Y**.
+Inside of this embedded display there is a related display button (Highlighted
+in Orange) which launches the ``expert_motor.ui`` for configuration of motor
+parameters.
+Finally, the **View All Motors** related display button (Highlighted in Blue)
+launches the ``all_motors.py`` screen in which we can list all motor axis
+available.
