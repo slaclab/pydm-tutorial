@@ -24,7 +24,7 @@ The finished result will look like this:
   and creating a new ``Widget``.
 
   .. figure:: /_static/action/new_widget.gif
-     :scale: 75 %
+     :scale: 100 %
      :align: center
 
 * **Step 2.**
@@ -33,7 +33,7 @@ The finished result will look like this:
   fill the whole form let's select ``Layout Vertically`` for the Form.
 
   .. figure:: /_static/action/inline/inline_layout.gif
-     :scale: 75 %
+     :scale: 100 %
      :align: center
 
 * **Step 3.**
@@ -55,10 +55,11 @@ The finished result will look like this:
          using this widget in embedded displays, related displays or even when launching
          using the command line.
 
-    #. Click at the arrow near to the ``Font`` property and mark the checkbox for ``Bold``.
+    #. Set the ``displayFormat`` property of this label to: ``String``.
+    #. Expand the ``Font`` property and mark the checkbox for ``Bold``.
 
     .. figure:: /_static/action/inline/inline_desc.gif
-       :scale: 75 %
+       :scale: 100 %
        :align: center
 
   * **Step 3.2.**
@@ -81,6 +82,10 @@ The finished result will look like this:
        * This property will indicate the minimum size constrains for the widget and
          avoid this widget to be hidden or reduced to an unusable size on window resizing.
 
+    .. figure:: /_static/action/inline/inline_3_2.gif
+       :scale: 100 %
+       :align: center
+
   * **Step 3.3.**
 
     The third widget is a ``PyDMLabel`` which will be used to monitor the readback
@@ -100,6 +105,10 @@ The finished result will look like this:
        * This property will indicate the minimum size constrains for the widget and
          avoid this widget to be hidden or reduced to an unusable size on window resizing.
 
+    .. figure:: /_static/action/inline/inline_3_3.gif
+       :scale: 100 %
+       :align: center
+
   * **Step 3.4.**
 
     The forth widget is a ``PyDMByteIndicator`` which will be used for visual
@@ -117,6 +126,11 @@ The finished result will look like this:
     #. Expand the ``minimumSize`` property and set ``Width`` and ``Height`` to
        ``32``.
     #. Repeat the same previous step for the ``maximumSize`` property.
+
+    .. figure:: /_static/action/inline/inline_3_4.gif
+       :scale: 100 %
+       :align: center
+
 
   * **Step 3.5.**
 
@@ -137,6 +151,10 @@ The finished result will look like this:
        give the button a nice look and feel and bring the attention to it in case
        of emergency.
 
+    .. figure:: /_static/action/inline/inline_3_5.gif
+       :scale: 100 %
+       :align: center
+
   * **Step 3.6.**
 
     The sixty widget is also a ``PyDMPushButton`` which will be used to tweak the
@@ -146,10 +164,14 @@ The finished result will look like this:
        previously added ``PyDMPushButton``.
     #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
     #. Set the ``pressValue`` property to ``10``.
-    #. Set the ``relativeCHange`` property so instead of writing the value the
+    #. Set the ``relativeChange`` property so instead of writing the value the
        new value written to the channel will be relative to the current channel
        value.
     #. Set the ``text`` property to ``Tw +10``.
+
+    .. figure:: /_static/action/inline/inline_3_6.gif
+       :scale: 100 %
+       :align: center
 
   * **Step 3.7.**
 
@@ -191,6 +213,10 @@ The finished result will look like this:
        ``Height`` to ``24``.
     #. Repeat the same previous step for the ``maximumSize`` property.
 
+    .. figure:: /_static/action/inline/inline_3_8.gif
+       :scale: 100 %
+       :align: center
+
   * **Step 3.9.**
 
     After adding all the widgets to the layout, it will look like this:
@@ -217,10 +243,14 @@ The finished result will look like this:
        * Expand the ``sizePolicy`` property and set ``Vertical Policy`` to ``Fixed``.
        * Expand the ``minimumSize`` property and set ``Width`` to ``700`` and ``Height`` to
          ``32``.
-       * Expand the ``maximumSize`` property and set ``Height`` to ``38``.
        * Scroll all the way down on the property editor and set ``layoutLeftMargin``,
          ``layoutTopMargin``, ``layoutRightMargin``, ``layoutBottomMargin`` and
          ``layoutSpacing`` to ``0`` so the form is very tight.
+       * Expand the ``maximumSize`` property and set ``Height`` to ``38``.
+
+    .. figure:: /_static/action/inline/inline_3_9.gif
+       :scale: 100 %
+       :align: center
 
     The end result will be something like this:
 

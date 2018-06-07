@@ -198,14 +198,14 @@ replaced by the proper information depending on each motor.</p>
 <p>Let’s start by opening the <a class="reference internal" href="intro_designer.html#designer"><span class="std std-ref">Qt Designer</span></a>
 and creating a new <code class="docutils literal notranslate"><span class="pre">Widget</span></code>.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/new_widget.gif"><img alt="../_images/new_widget.gif" src="../_images/new_widget.gif" style="width: 1842.0px; height: 1122.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/new_widget.gif"><img alt="../_images/new_widget.gif" src="../_images/new_widget.gif" style="width: 552.0px; height: 340.0px;" /></a>
 </div>
 </li>
 <li><p class="first"><strong>Step 2.</strong></p>
 <p>With the new form available, let’s add a GridLayout widget to it and to make it
 fill the whole form let’s select <code class="docutils literal notranslate"><span class="pre">Layout</span> <span class="pre">Vertically</span></code> for the Form.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/inline_layout.gif"><img alt="../_images/inline_layout.gif" src="../_images/inline_layout.gif" style="width: 900.0px; height: 548.25px;" /></a>
+<a class="reference internal image-reference" href="../_images/inline_layout.gif"><img alt="../_images/inline_layout.gif" src="../_images/inline_layout.gif" style="width: 557.0px; height: 344.0px;" /></a>
 </div>
 </li>
 <li><p class="first"><strong>Step 3.</strong></p>
@@ -224,10 +224,11 @@ using this widget in embedded displays, related displays or even when launching
 using the command line.</li>
 </ul>
 </li>
-<li>Click at the arrow near to the <code class="docutils literal notranslate"><span class="pre">Font</span></code> property and mark the checkbox for <code class="docutils literal notranslate"><span class="pre">Bold</span></code>.</li>
+<li>Set the <code class="docutils literal notranslate"><span class="pre">displayFormat</span></code> property of this label to: <code class="docutils literal notranslate"><span class="pre">String</span></code>.</li>
+<li>Expand the <code class="docutils literal notranslate"><span class="pre">Font</span></code> property and mark the checkbox for <code class="docutils literal notranslate"><span class="pre">Bold</span></code>.</li>
 </ol>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/inline_desc.gif"><img alt="../_images/inline_desc.gif" src="../_images/inline_desc.gif" style="width: 612.0px; height: 372.75px;" /></a>
+<a class="reference internal image-reference" href="../_images/inline_desc.gif"><img alt="../_images/inline_desc.gif" src="../_images/inline_desc.gif" style="width: 557.0px; height: 344.0px;" /></a>
 </div>
 </li>
 <li><p class="first"><strong>Step 3.2.</strong></p>
@@ -250,6 +251,9 @@ avoid this widget to be hidden or reduced to an unusable size on window resizing
 </ul>
 </li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_2.gif"><img alt="../_images/inline_3_2.gif" src="../_images/inline_3_2.gif" style="width: 557.0px; height: 344.0px;" /></a>
+</div>
 </li>
 <li><p class="first"><strong>Step 3.3.</strong></p>
 <p>The third widget is a <code class="docutils literal notranslate"><span class="pre">PyDMLabel</span></code> which will be used to monitor the readback
@@ -270,6 +274,9 @@ avoid this widget to be hidden or reduced to an unusable size on window resizing
 </ul>
 </li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_3.gif"><img alt="../_images/inline_3_3.gif" src="../_images/inline_3_3.gif" style="width: 557.0px; height: 344.0px;" /></a>
+</div>
 </li>
 <li><p class="first"><strong>Step 3.4.</strong></p>
 <p>The forth widget is a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> which will be used for visual
@@ -287,6 +294,9 @@ color for this widget.</li>
 <code class="docutils literal notranslate"><span class="pre">32</span></code>.</li>
 <li>Repeat the same previous step for the <code class="docutils literal notranslate"><span class="pre">maximumSize</span></code> property.</li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_4.gif"><img alt="../_images/inline_3_4.gif" src="../_images/inline_3_4.gif" style="width: 557.0px; height: 344.0px;" /></a>
+</div>
 </li>
 <li><p class="first"><strong>Step 3.5.</strong></p>
 <p>The fifth widget is a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to stop the motor:</p>
@@ -306,6 +316,9 @@ and the <code class="docutils literal notranslate"><span class="pre">Vertical</s
 give the button a nice look and feel and bring the attention to it in case
 of emergency.</li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_5.gif"><img alt="../_images/inline_3_5.gif" src="../_images/inline_3_5.gif" style="width: 557.0px; height: 344.0px;" /></a>
+</div>
 </li>
 <li><p class="first"><strong>Step 3.6.</strong></p>
 <p>The sixty widget is also a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to tweak the
@@ -315,11 +328,14 @@ motor a certain distance on the positive direction:</p>
 previously added <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.VAL</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">pressValue</span></code> property to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</li>
-<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeCHange</span></code> property so instead of writing the value the
+<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeChange</span></code> property so instead of writing the value the
 new value written to the channel will be relative to the current channel
 value.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">text</span></code> property to <code class="docutils literal notranslate"><span class="pre">Tw</span> <span class="pre">+10</span></code>.</li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_6.gif"><img alt="../_images/inline_3_6.gif" src="../_images/inline_3_6.gif" style="width: 557.0px; height: 344.0px;" /></a>
+</div>
 </li>
 <li><p class="first"><strong>Step 3.7.</strong></p>
 <p>The seventh widget is also a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to tweak the
@@ -366,6 +382,9 @@ window.</p>
 <li><p class="first">Repeat the same previous step for the <code class="docutils literal notranslate"><span class="pre">maximumSize</span></code> property.</p>
 </li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_8.gif"><img alt="../_images/inline_3_8.gif" src="../_images/inline_3_8.gif" style="width: 557.0px; height: 344.0px;" /></a>
+</div>
 </li>
 <li><p class="first"><strong>Step 3.9.</strong></p>
 <p>After adding all the widgets to the layout, it will look like this:</p>
@@ -389,13 +408,16 @@ object and:<ul>
 <li>Expand the <code class="docutils literal notranslate"><span class="pre">sizePolicy</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Vertical</span> <span class="pre">Policy</span></code> to <code class="docutils literal notranslate"><span class="pre">Fixed</span></code>.</li>
 <li>Expand the <code class="docutils literal notranslate"><span class="pre">minimumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Width</span></code> to <code class="docutils literal notranslate"><span class="pre">700</span></code> and <code class="docutils literal notranslate"><span class="pre">Height</span></code> to
 <code class="docutils literal notranslate"><span class="pre">32</span></code>.</li>
-<li>Expand the <code class="docutils literal notranslate"><span class="pre">maximumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Height</span></code> to <code class="docutils literal notranslate"><span class="pre">38</span></code>.</li>
 <li>Scroll all the way down on the property editor and set <code class="docutils literal notranslate"><span class="pre">layoutLeftMargin</span></code>,
 <code class="docutils literal notranslate"><span class="pre">layoutTopMargin</span></code>, <code class="docutils literal notranslate"><span class="pre">layoutRightMargin</span></code>, <code class="docutils literal notranslate"><span class="pre">layoutBottomMargin</span></code> and
 <code class="docutils literal notranslate"><span class="pre">layoutSpacing</span></code> to <code class="docutils literal notranslate"><span class="pre">0</span></code> so the form is very tight.</li>
+<li>Expand the <code class="docutils literal notranslate"><span class="pre">maximumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Height</span></code> to <code class="docutils literal notranslate"><span class="pre">38</span></code>.</li>
 </ul>
 </li>
 </ol>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/inline_3_9.gif"><img alt="../_images/inline_3_9.gif" src="../_images/inline_3_9.gif" style="width: 596.0px; height: 338.0px;" /></a>
+</div>
 <p>The end result will be something like this:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/inline_all_widgets_ok.png"><img alt="../_images/inline_all_widgets_ok.png" src="../_images/inline_all_widgets_ok.png" style="width: 600.0px; height: 48.75px;" /></a>
