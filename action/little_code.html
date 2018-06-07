@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Adding Code into the Display &mdash; PyDM Tutorial 0.0.1 documentation</title>
+  <title>Adding Code into the Main Display &mdash; PyDM Tutorial 0.0.1 documentation</title>
   
 
   
@@ -24,13 +24,12 @@
 
   
 
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Making Python-based Displays" href="python.html" />
-    <link rel="prev" title="Building Your First Display with Qt Designer" href="designer.html" /> 
+    <link rel="next" title="Making Pure Python Displays" href="python.html" />
+    <link rel="prev" title="A Word About Python Displays" href="intro_python.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -95,10 +94,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Hands-on</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial - What will we do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_designer.html">Introduction to Qt Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">About the Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="designer.html">Building Your First Display with Qt Designer</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Code into the Display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Making Python-based Displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_python.html">A Word About Python Displays</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Adding Code into the Main Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Making Pure Python Displays</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -154,7 +155,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Adding Code into the Display</li>
+      <li>Adding Code into the Main Display</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -173,8 +174,129 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="adding-code-into-the-display">
-<h1>Adding Code into the Display<a class="headerlink" href="#adding-code-into-the-display" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="adding-code-into-the-main-display">
+<h1>Adding Code into the Main Display<a class="headerlink" href="#adding-code-into-the-main-display" title="Permalink to this headline">¶</a></h1>
+<p>For this particular application it would be of interest to not only see the beam
+image on the screen but to also calculate the maximum point on the image and display
+the coordinates in a label.</p>
+<p>To do so, we will need to add some Python code to our main screen developed at
+the <a class="reference internal" href="designer_main.html#main"><span class="std std-ref">Main Screen</span></a> section.</p>
+<p>Since we already have all the screen designed in the UI file, PyDM allows us to
+use the UI file and hook up code to interact with widgets.</p>
+<p>That is accomplished by subclassing <cite>Display</cite> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a>) for more details.</p>
+<ul>
+<li><p class="first"><strong>Step 1.</strong></p>
+<blockquote>
+<div><p>The first thing that we will do is add the imports needed for the code that
+will follow.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">pydm</span> <span class="kn">import</span> <span class="n">Display</span>
+<span class="kn">from</span> <span class="nn">scipy.ndimage.measurements</span> <span class="kn">import</span> <span class="n">maximum_position</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Step 2.</strong></p>
+<p>Let’s create our Python Class that will inherit from <code class="docutils literal notranslate"><span class="pre">Display</span></code> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BeamPositioning</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BeamPositioning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+        <span class="c1"># Attach our custom process_image method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">imageView</span><span class="o">.</span><span class="n">process_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span>
+        <span class="c1"># Hook up to the newImageSignal so we can update</span>
+        <span class="c1"># our widgets after the new image is done</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">imageView</span><span class="o">.</span><span class="n">newImageSignal</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">show_blob</span><span class="p">)</span>
+        <span class="c1"># Store blob coordinate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">blob</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">ui_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Point to our UI file</span>
+        <span class="k">return</span> <span class="s1">&#39;main.ui&#39;</span>
+
+    <span class="k">def</span> <span class="nf">ui_filepath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Return the full path to the UI file</span>
+        <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_filename</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Breaking the class constructor code into pieces we have:</p>
+<ol class="arabic simple">
+<li>Replace the default <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> method for <code class="docutils literal notranslate"><span class="pre">process_image</span></code> with our
+custom method.</li>
+<li>Hook up our <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method to the <code class="docutils literal notranslate"><span class="pre">newImageSignal</span></code> that is emitted
+by the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> every time a new image is displayed.</li>
+<li>Initialization of the <code class="docutils literal notranslate"><span class="pre">self.blob</span></code> variable with <cite>(0, 0)</cite>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> method returning the name of the <code class="docutils literal notranslate"><span class="pre">UI</span></code> file to be used and
+compose the screen.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> method returning the full path to the <code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> so PyDM
+can properly load it.</li>
+</ol>
+<ul>
+<li><p class="first"><strong>Step 2.1.</strong></p>
+<p>Adding code to the <code class="docutils literal notranslate"><span class="pre">process_image</span></code> callback method so we can calculate the
+blob position.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">process_image</span></code> method is defined at the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> widget
+and more information about it can be found at this
+<a class="reference external" href="https://slaclab.github.io/pydm/widgets/image.html">widget documentation page</a>.</p>
+<p class="last">And since this method runs in a separated <code class="docutils literal notranslate"><span class="pre">QThread</span></code> we cannot write to
+widgets since this code runs outside of the <strong>Qt Main Thread</strong>.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_image</span><span class="p">):</span>
+    <span class="c1"># Consider the maximum as the Blob since we have only</span>
+    <span class="c1"># one.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">blob</span> <span class="o">=</span> <span class="n">maximum_position</span><span class="p">(</span><span class="n">new_image</span><span class="p">)</span>
+    <span class="c1"># Send the original image data to the image widget</span>
+    <span class="k">return</span> <span class="n">new_image</span>
+</pre></div>
+</div>
+<p>At <code class="docutils literal notranslate"><span class="pre">process_image</span></code> we call the scipy method <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.measurements.maximum_position.html">maximum_position</a>
+to calculate the coordinates for the maximum spot and save it at <code class="docutils literal notranslate"><span class="pre">self.blob</span></code>.
+At the end, this method returns the unmodified image.</p>
+</li>
+<li><p class="first"><strong>Step 2.2.</strong></p>
+<p>Adding code to the <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method so we update the <code class="docutils literal notranslate"><span class="pre">QLabel</span></code> with the
+new blob position calculated at <code class="docutils literal notranslate"><span class="pre">process_image</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_blob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># If we have a blob, present the coordinates at label</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">blob_txt</span> <span class="o">=</span> <span class="s2">&quot;Blob Found:&quot;</span>
+        <span class="n">blob_txt</span> <span class="o">+=</span> <span class="s2">&quot; ({}, {})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blob</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># If no blob was found, present the &quot;Not Found&quot; message</span>
+        <span class="n">blob_txt</span> <span class="o">=</span> <span class="s2">&quot;Blob Not Found&quot;</span>
+    <span class="c1"># Update the label text</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">lbl_blobs</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">blob_txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 3.</strong></p>
+<p>Save this file as <code class="docutils literal notranslate"><span class="pre">main.py</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For this tutorial it is important to use this file name as it will be referenced
+at the other sections. If you change it please remember to also change at the
+other steps when referenced.</p>
+</div>
+</li>
+<li><p class="first"><strong>Step 4.</strong></p>
+<p>Test the Main Screen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm main.py
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/main.gif"><img alt="../_images/main.gif" src="../_images/main.gif" style="width: 517.5px; height: 561.75px;" /></a>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can download this file using <a class="reference download internal" href="../_downloads/main.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+</div>
 </div>
 
 
@@ -185,10 +307,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="python.html" class="btn btn-neutral float-right" title="Making Python-based Displays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="python.html" class="btn btn-neutral float-right" title="Making Pure Python Displays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="designer.html" class="btn btn-neutral" title="Building Your First Display with Qt Designer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="intro_python.html" class="btn btn-neutral" title="A Word About Python Displays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -233,10 +355,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

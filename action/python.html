@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Making Python-based Displays &mdash; PyDM Tutorial 0.0.1 documentation</title>
+  <title>Making Pure Python Displays &mdash; PyDM Tutorial 0.0.1 documentation</title>
   
 
   
@@ -24,13 +24,12 @@
 
   
 
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Getting Help With PyDM" href="../contrib/help.html" />
-    <link rel="prev" title="Adding Code into the Display" href="little_code.html" /> 
+    <link rel="prev" title="Adding Code into the Main Display" href="little_code.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -95,10 +94,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Hands-on</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial - What will we do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_designer.html">Introduction to Qt Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">About the Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="designer.html">Building Your First Display with Qt Designer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="little_code.html">Adding Code into the Display</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Making Python-based Displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_python.html">A Word About Python Displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="little_code.html">Adding Code into the Main Display</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Making Pure Python Displays</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -154,7 +155,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Making Python-based Displays</li>
+      <li>Making Pure Python Displays</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -173,8 +174,249 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="making-python-based-displays">
-<h1>Making Python-based Displays<a class="headerlink" href="#making-python-based-displays" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="making-pure-python-displays">
+<h1>Making Pure Python Displays<a class="headerlink" href="#making-pure-python-displays" title="Permalink to this headline">¶</a></h1>
+<p>Like we saw at the <a class="reference internal" href="intro_python.html#python"><span class="std std-ref">A Word About Python Display</span></a> section it is
+possible to make displays using Python but is also possible to make displays
+without using the Qt Designer at all and write the whole code for a user interface.</p>
+<p>To demonstrate this capability we will describe the steps to create the “All Motors”
+screen described at the <a class="reference internal" href="tutorial.html#app-components"><span class="std std-ref">Components Section</span></a>.</p>
+<p>This screen will have a <code class="docutils literal notranslate"><span class="pre">QLineEdit</span></code> and a <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> that will invoke a
+method to filter our list of motors and present at the frame below a list of
+<code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplays</span></code> pointing to the <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> file that was created
+at the <a class="reference internal" href="designer_inline.html#inline"><span class="std std-ref">Inline Motor Screen</span></a> section of this tutorial.</p>
+<p>Here is how it will look like once we are done:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/all_motors.png"><img alt="All Motors Screen" src="../_images/all_motors.png" style="width: 646.5px; height: 460.5px;" /></a>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In order to simplify this tutorial, instead of using a database or other type
+of service, the data to populate the list of motors will come to a simple file
+named <code class="docutils literal notranslate"><span class="pre">motor_db.txt</span></code> that can be downloaded <a class="reference download internal" href="../_downloads/motor_db.txt" download=""><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</div>
+<ul>
+<li><p class="first"><strong>Step 1.</strong></p>
+<blockquote>
+<div><p>The first thing that we will do is add the imports needed for the code that
+will follow.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pydm.PyQt</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">pydm</span> <span class="kn">import</span> <span class="n">Display</span>
+<span class="kn">from</span> <span class="nn">pydm.PyQt.QtGui</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span>
+    <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QScrollArea</span><span class="p">,</span> <span class="n">QFrame</span><span class="p">,</span>
+    <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pydm.widgets</span> <span class="kn">import</span> <span class="n">PyDMEmbeddedDisplay</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Step 2.</strong></p>
+<p>Let’s create our Python Class that will inherit from <code class="docutils literal notranslate"><span class="pre">Display</span></code> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AllMotorsDisplay</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[],</span> <span class="n">macros</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AllMotorsDisplay</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+        <span class="c1"># Placeholder for data to filter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Reference to the PyDMApplication</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+        <span class="c1"># Load data from file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+        <span class="c1"># Assemble the Widgets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setup_ui</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">minimumSizeHint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># This is the default recommended size</span>
+        <span class="c1"># for this screen</span>
+        <span class="k">return</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">QSize</span><span class="p">(</span><span class="mi">750</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">ui_filepath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># No UI file is being used</span>
+        <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+</div>
+<p>Breaking it down to pieces:</p>
+<ol class="arabic simple">
+<li>The constructor of the class will call the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method that is
+responsible for opening our database and adding the information to our
+placeholder, <code class="docutils literal notranslate"><span class="pre">self.data</span></code>, for later filtering, as well as the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code>
+method in which the widgets be constructed and configuered.</li>
+<li><code class="docutils literal notranslate"><span class="pre">minimulSizeHint</span></code> returns the suggested minimal dimensions for the display.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> will return <code class="docutils literal notranslate"><span class="pre">None</span></code> as no <code class="docutils literal notranslate"><span class="pre">ui</span></code> file is being used in this
+case.</li>
+</ol>
+<ul>
+<li><p class="first"><strong>Step 2.1.</strong></p>
+<p>Adding the code to the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Look at the comments over the lines for explanation on what they do.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Extract the directory of this file...</span>
+    <span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="c1"># Concatenate the directory with the file name...</span>
+    <span class="n">data_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s2">&quot;motor_db.txt&quot;</span><span class="p">)</span>
+    <span class="c1"># Open the file so we can read the data...</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># For each line in the file...</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+            <span class="c1"># Append to the list of data...</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Step 2.2.</strong></p>
+<p>Adding the code to the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code> method.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Look at the comments over the lines for explanation on what they do.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Create the main layout</span>
+    <span class="n">main_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">main_layout</span><span class="p">)</span>
+
+    <span class="c1"># Create a Label to be the title</span>
+    <span class="n">lbl_title</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Motors Diagnostic&quot;</span><span class="p">)</span>
+    <span class="c1"># Add some StyleSheet to it</span>
+    <span class="n">lbl_title</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\</span>
+<span class="s2">        QLabel {</span><span class="se">\</span>
+<span class="s2">            qproperty-alignment: AlignCenter;</span><span class="se">\</span>
+<span class="s2">            border: 1px solid #FF17365D;</span><span class="se">\</span>
+<span class="s2">            border-top-left-radius: 15px;</span><span class="se">\</span>
+<span class="s2">            border-top-right-radius: 15px;</span><span class="se">\</span>
+<span class="s2">            background-color: #FF17365D;</span><span class="se">\</span>
+<span class="s2">            padding: 5px 0px;</span><span class="se">\</span>
+<span class="s2">            color: rgb(255, 255, 255);</span><span class="se">\</span>
+<span class="s2">            max-height: 25px;</span><span class="se">\</span>
+<span class="s2">            font-size: 14px;</span><span class="se">\</span>
+<span class="s2">        }&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Add the title label to the main layout</span>
+    <span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">lbl_title</span><span class="p">)</span>
+
+    <span class="c1"># Create the Search Panel layout</span>
+    <span class="n">search_layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
+
+    <span class="c1"># Create a GroupBox with &quot;Filtering&quot; as Title</span>
+    <span class="n">gb_search</span> <span class="o">=</span> <span class="n">QGroupBox</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">gb_search</span><span class="o">.</span><span class="n">setTitle</span><span class="p">(</span><span class="s2">&quot;Filtering&quot;</span><span class="p">)</span>
+    <span class="n">gb_search</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">search_layout</span><span class="p">)</span>
+
+    <span class="c1"># Create a label, line edit and button for filtering</span>
+    <span class="n">lbl_search</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Filter: &quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">txt_filter</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">txt_filter</span><span class="o">.</span><span class="n">returnPressed</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">do_search</span><span class="p">)</span>
+    <span class="n">btn_search</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">()</span>
+    <span class="n">btn_search</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Search&quot;</span><span class="p">)</span>
+    <span class="n">btn_search</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">do_search</span><span class="p">)</span>
+
+    <span class="c1"># Add the created widgets to the layout</span>
+    <span class="n">search_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">lbl_search</span><span class="p">)</span>
+    <span class="n">search_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">txt_filter</span><span class="p">)</span>
+    <span class="n">search_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">btn_search</span><span class="p">)</span>
+
+    <span class="c1"># Add the Groupbox to the main layout</span>
+    <span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">gb_search</span><span class="p">)</span>
+
+    <span class="c1"># Create the Results Layout</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">results_layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">results_layout</span><span class="o">.</span><span class="n">setContentsMargins</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Create a Frame to host the results of search</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span> <span class="o">=</span> <span class="n">QFrame</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results_layout</span><span class="p">)</span>
+
+    <span class="c1"># Create a ScrollArea so we can properly handle</span>
+    <span class="c1"># many entries</span>
+    <span class="n">scroll_area</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+    <span class="n">scroll_area</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
+    <span class="n">scroll_area</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
+    <span class="n">scroll_area</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># Add the Frame to the scroll area</span>
+    <span class="n">scroll_area</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
+
+    <span class="c1"># Add the scroll area to the main layout</span>
+    <span class="n">main_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">scroll_area</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Step 2.3.</strong></p>
+<p>Adding the code to connect the <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> click and perform the search
+on our data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Look at the comments over the lines for explanation on what they do.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_search</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># First lets clear the old connections</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">close_widget_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
+
+    <span class="c1"># For each widget inside the results frame, lets destroy them</span>
+    <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
+
+    <span class="c1"># Grab the filter text</span>
+    <span class="n">filter_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">txt_filter</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+
+    <span class="c1"># For every entry in the dataset...</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+        <span class="c1"># Check if they match our filter</span>
+        <span class="k">if</span> <span class="n">filter_text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">entry</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="c1"># Create a PyDMEmbeddedDisplay for this entry</span>
+        <span class="n">disp</span> <span class="o">=</span> <span class="n">PyDMEmbeddedDisplay</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">disp</span><span class="o">.</span><span class="n">macros</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;MOTOR&quot;</span><span class="p">:</span><span class="n">entry</span><span class="p">})</span>
+        <span class="n">disp</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;inline_motor.ui&#39;</span>
+        <span class="n">disp</span><span class="o">.</span><span class="n">setMinimumWidth</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span>
+        <span class="n">disp</span><span class="o">.</span><span class="n">setMinimumHeight</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+        <span class="n">disp</span><span class="o">.</span><span class="n">setMaximumHeight</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="c1"># Add the Embedded Display to the Results Layout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
+    <span class="c1"># Recursively establish the connection for widgets</span>
+    <span class="c1"># inside the Results Frame</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">establish_widget_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>When constructing PyDM Widgets on the fly outside of the class constructor
+it is mandatory that you invoke <code class="docutils literal notranslate"><span class="pre">PyDMApplication.establish_widget_connections</span></code>
+for the widgets or parent widget in order to create the link between the
+<code class="docutils literal notranslate"><span class="pre">channels</span></code> used on this widget and the proper Data Plugins. (See <a class="reference internal" href="../intro/important_concepts.html#dataarchitecture"><span class="std std-ref">Data Architecture</span></a>).</p>
+<p class="last">The opposite is also available, to close connections call <code class="docutils literal notranslate"><span class="pre">PyDMApplication.close_widget_connections</span></code>.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Step 3.</strong></p>
+<p>Save this file as <code class="docutils literal notranslate"><span class="pre">all_motors.py</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For this tutorial it is important to use this file name as it will be referenced
+at the other sections. If you change it please remember to also change at the
+other steps when referenced.</p>
+</div>
+</li>
+<li><p class="first"><strong>Step 4.</strong></p>
+<p>Test the All Motors Screen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm all_motors.py
+</pre></div>
+</div>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/all_motors.gif"><img alt="../_images/all_motors.gif" src="../_images/all_motors.gif" style="width: 666.0px; height: 444.75px;" /></a>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can download this file using <a class="reference download internal" href="../_downloads/all_motors.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+</div>
 </div>
 
 
@@ -188,7 +430,7 @@
         <a href="../contrib/help.html" class="btn btn-neutral float-right" title="Getting Help With PyDM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="little_code.html" class="btn btn-neutral" title="Adding Code into the Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="little_code.html" class="btn btn-neutral" title="Adding Code into the Main Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -233,10 +475,7 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

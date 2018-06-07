@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -93,6 +92,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#pydm-launcher">PyDM Launcher</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#channels">Channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-architecture">Data Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macro-substitution">Macro Substitution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-macro-variables">Inserting Macro Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replacing-macro-variables-at-launch-time">Replacing Macro Variables at Launch Time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macros-in-python-based-displays">Macros in Python-based Displays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#macro-behavior-at-run-time">Macro Behavior at Run Time</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
@@ -100,10 +106,12 @@
 </ul>
 <p class="caption"><span class="caption-text">Hands-on</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../action/tutorial.html">Tutorial - What will we do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/intro_designer.html">Introduction to Qt Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/tutorial.html">About the Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../action/designer.html">Building Your First Display with Qt Designer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../action/little_code.html">Adding Code into the Display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../action/python.html">Making Python-based Displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/intro_python.html">A Word About Python Displays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/little_code.html">Adding Code into the Main Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../action/python.html">Making Pure Python Displays</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -233,6 +241,44 @@ as specified at the <strong>Retrieving data using other tools</strong> section o
 <a class="reference internal image-reference" href="../_images/architecture.png"><img alt="PyDM Data Plugin Architecture" src="../_images/architecture.png" style="width: 620.5px; height: 456.0px;" /></a>
 </div>
 </div>
+<div class="section" id="macro-substitution">
+<span id="macros"></span><h2>Macro Substitution<a class="headerlink" href="#macro-substitution" title="Permalink to this headline">¶</a></h2>
+<p>PyDM has support for macro substitution, which is a way to make a .ui template
+for a display, and fill in variables in the template when the display is opened.</p>
+<p>The macro system is also a good way to supply data to python-based displays when
+launching them from the command line, related display button, or as an embedded
+display.</p>
+<div class="section" id="inserting-macro-variables">
+<h3>Inserting Macro Variables<a class="headerlink" href="#inserting-macro-variables" title="Permalink to this headline">¶</a></h3>
+<p>Anywhere in a .ui file, you can insert a macro of the following form: <code class="docutils literal notranslate"><span class="pre">${variable}</span></code>.
+Note that Qt Designer will only let you use macros in string properties, but you
+can insert macros anywhere in a .ui file using a text editor.</p>
+</div>
+<div class="section" id="replacing-macro-variables-at-launch-time">
+<h3>Replacing Macro Variables at Launch Time<a class="headerlink" href="#replacing-macro-variables-at-launch-time" title="Permalink to this headline">¶</a></h3>
+<p>When launching a .ui file which contains macro variables, specify values for each
+variable using the ‘-m’ flag on the command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python pydm.py -m <span class="s1">&#39;{&quot;variable&quot;: &quot;value&quot;}&#39;</span> my_file.ui
+</pre></div>
+</div>
+</div>
+<div class="section" id="macros-in-python-based-displays">
+<h3>Macros in Python-based Displays<a class="headerlink" href="#macros-in-python-based-displays" title="Permalink to this headline">¶</a></h3>
+<p>If you open a python file and specify macros (via the command line, related display
+button, or embedded display widget), the macros will be passed as a dictionary to
+the Display class initializer, where they can be accessed and used to generate the
+display.</p>
+<p>In addition, if the Display class specifies a .ui file to generate its user
+interface, macro substitution will occur inside the .ui file.</p>
+</div>
+<div class="section" id="macro-behavior-at-run-time">
+<h3>Macro Behavior at Run Time<a class="headerlink" href="#macro-behavior-at-run-time" title="Permalink to this headline">¶</a></h3>
+<p>PyDM will remember the macros used to launch a display, and re-use them when
+navigating with the forward, back, and home buttons. When a new display is opened,
+any macros defined on the current window are also passed to the new display.
+This lets you cascade macros to child displays.</p>
+</div>
+</div>
 </div>
 
 
@@ -291,10 +337,7 @@ as specified at the <strong>Retrieving data using other tools</strong> section o
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
