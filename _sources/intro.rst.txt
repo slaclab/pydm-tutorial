@@ -48,6 +48,9 @@ The IOCs can be started through their launcher scripts available at:
     # For the simulated motor axis use
     ./simMotor
 
+    # For the linking IOC
+    ./simLinker
+
 For AreaDetector (cameras):
 
 -  The prefix for the PVs is ``13SIM1:`` so we have: ``13SIM1:cam1`` as well as ``13SIM1:cam2`` available.
