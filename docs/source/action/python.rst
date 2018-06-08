@@ -10,19 +10,21 @@ Making Pure Python Displays
     * That the :ref:`Python environment <PythonEnv>` is set.
     * That all :ref:`three IOCs <IOCS>` are running.
 
-Like we saw at the :ref:`A Word About Python Display <Python>` section it is
-possible to make displays using Python but is also possible to make displays
-without using the Qt Designer at all and write the whole code for a user interface.
+As we saw in the :ref:`A Word About Python Display <Python>` section, it is
+possible to make displays using Python code and a .ui file from Qt Designer.
+It is also possible to make displays without using the Qt Designer at all,
+and write the user interface entirely in code.
 
 To demonstrate this capability we will describe the steps to create the "All Motors"
 screen described at the :ref:`Components Section <App Components>`.
 
 This screen will have a ``QLineEdit`` and a ``QPushButton`` that will invoke a
-method to filter our list of motors and present at the frame below a list of
-``PyDMEmbeddedDisplays`` pointing to the ``inline_motor.ui`` file that was created
-at the :ref:`Inline Motor Screen <Inline>` section of this tutorial.
+method to filter our list of motors and present a list of
+``PyDMEmbeddedDisplays`` in the frame below pointing to the 
+``inline_motor.ui`` file that was created in the 
+:ref:`Inline Motor Screen <Inline>` section of this tutorial.
 
-Here is how it will look like once we are done:
+Here is how it will look once we are done:
 
 .. figure:: /_static/action/python/all_motors.png
    :scale: 75 %
@@ -32,7 +34,7 @@ Here is how it will look like once we are done:
 .. important::
 
    In order to simplify this tutorial, instead of using a database or other type
-   of service, the data to populate the list of motors will come to a simple file
+   of service, the data to populate the list of motors will come from a simple text file
    named ``motor_db.txt`` that can be downloaded :download:`here </_static/code/motor_db.txt>`.
 
 * **Step 1.**
@@ -80,14 +82,14 @@ Here is how it will look like once we are done:
              # No UI file is being used
              return None
 
-  Breaking it down to pieces:
+  Breaking it down into pieces:
 
   #. The constructor of the class will call the ``load_data`` method that is
      responsible for opening our database and adding the information to our
      placeholder, ``self.data``, for later filtering, as well as the ``setup_ui``
      method in which the widgets be constructed and configuered.
-  #. ``minimulSizeHint`` returns the suggested minimal dimensions for the display.
-  #. ``ui_filepath`` will return ``None`` as no ``ui`` file is being used in this
+  #. ``minimumSizeHint`` returns the suggested minimum dimensions for the display.
+  #. ``ui_filepath`` will return ``None``, as no ``ui`` file is being used in this
      case.
 
   * **Step 2.1.**

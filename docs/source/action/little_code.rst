@@ -11,7 +11,7 @@ Adding Code into the Main Display
     * That all :ref:`three IOCs <IOCS>` are running.
 
 For this particular application it would be of interest to not only see the beam
-image on the screen but to also calculate the maximum point on the image and display
+image on the screen, but to also calculate the maximum point on the image and display
 the coordinates in a label.
 
 To do so, we will need to add some Python code to our main screen developed at
@@ -20,7 +20,7 @@ the :ref:`Main` section.
 Since we already have all the screen designed in the UI file, PyDM allows us to
 use the UI file and hook up code to interact with widgets.
 
-That is accomplished by subclassing `Display` (See :ref:`Display`) for more details.
+That is accomplished by subclassing `Display` (See :ref:`Display` for more details).
 
 * **Step 1.**
 
@@ -67,7 +67,7 @@ That is accomplished by subclassing `Display` (See :ref:`Display`) for more deta
      custom method.
   #. Hook up our ``show_blob`` method to the ``newImageSignal`` that is emitted
      by the ``PyDMImageView`` every time a new image is displayed.
-  #. Initialization of the ``self.blob`` variable with `(0, 0)`.
+  #. Initialize the ``self.blob`` variable with `(0, 0)`.
   #. ``ui_filename`` method returning the name of the ``UI`` file to be used and
      compose the screen.
   #. ``ui_filepath`` method returning the full path to the ``ui_filename`` so PyDM
@@ -80,11 +80,11 @@ That is accomplished by subclassing `Display` (See :ref:`Display`) for more deta
 
     .. important::
 
-       The ``process_image`` method is defined at the ``PyDMImageView`` widget
+       The ``process_image`` method is defined in the ``PyDMImageView`` widget
        and more information about it can be found at this
        `widget documentation page <https://slaclab.github.io/pydm/widgets/image.html>`_.
 
-       And since this method runs in a separated ``QThread`` we cannot write to
+       And since this method runs in a separated ``QThread``, we cannot write to
        widgets since this code runs outside of the **Qt Main Thread**.
 
     .. code-block:: python
@@ -96,9 +96,9 @@ That is accomplished by subclassing `Display` (See :ref:`Display`) for more deta
             # Send the original image data to the image widget
             return new_image
 
-    At ``process_image`` we call the scipy method `maximum_position <https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.measurements.maximum_position.html>`_
-    to calculate the coordinates for the maximum spot and save it at ``self.blob``.
-    At the end, this method returns the unmodified image.
+    In ``process_image`` we call the scipy method `maximum_position <https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.measurements.maximum_position.html>`_
+    to calculate the coordinates for the maximum spot and save it to ``self.blob``.
+    At the end, this method returns the unmodified image, which the ImageView will display.
 
   * **Step 2.2.**
 
@@ -125,7 +125,7 @@ That is accomplished by subclassing `Display` (See :ref:`Display`) for more deta
 
   .. warning::
      For this tutorial it is important to use this file name as it will be referenced
-     at the other sections. If you change it please remember to also change at the
+     at the other sections. If you change it please remember to also change in the
      other steps when referenced.
 
 * **Step 4.**

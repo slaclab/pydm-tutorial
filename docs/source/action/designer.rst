@@ -4,7 +4,7 @@ Building Your First Display with Qt Designer
 This section will guide you through the work necessary to create PyDM screens
 using the Qt Designer.
 
-To make it more interesting we will develop three pieces of the
+To make it more interesting, we will develop three pieces of the
 :ref:`components <App Components>` described in our
 :ref:`tutorial application <Application>`.
 

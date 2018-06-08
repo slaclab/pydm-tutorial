@@ -4,13 +4,13 @@ Widgets
 Organization
 ------------
 
-PyDM Widgets are divided in 4 main categories:
+PyDM Widgets are divided into 4 main categories:
 
 - Display Widgets
-    Widgets used for visualization of process variables such as Label, Byte Indicator, Image Viewer, Symbol and others.
+    Widgets used for visualization of channels such as Label, Byte Indicator, Image Viewer, Symbol and others.
 
 - Input Widgets
-    Widgets used to interact with a process variable and write to it, such as Line Edit, Push Button, Combo Box,
+    Widgets used to interact with a channel and write to it, such as Line Edit, Push Button, Combo Box,
     Checkbox, among others.
 
 - Plot Widgets
@@ -22,13 +22,13 @@ PyDM Widgets are divided in 4 main categories:
        Plot scalar values versus time in a synchronous or asynchronous fashion.
 
     - Waveform Plot
-       Plot waveform (array) values versus index or another waveform (array).
+       Plot waveform (array) values versus array index, or another waveform (array) of the same length.
 
     - Scatter Plot
-       Plot one scalar channel versus a different scalar channel adding data to a buffer.
+       Plot one scalar channel versus a different scalar channel, adding each new data point to a ring buffer.
 
 - Container Widgets
-   Widgets that group other widgets like Frame, Tab Widget and Embedded Display are part of this category.
+   Widgets that group or wrap other widgets (like Frame, Tab Widget and Embedded Display) are part of this category.
 
 - Drawing Widgets
    Widgets used to display static shapes such as Rectangle, Triangle, Circle, Image, among others.
@@ -37,7 +37,7 @@ PyDM Widgets are divided in 4 main categories:
 Common Properties
 -----------------
 
-All PyDM Widgets will have the same set of base properties but not every widget use all of them.
+All PyDM Widgets will have the same set of base properties. Not every widget uses all of them.
 
 As an example, the PyDMEnumComboBox makes no use of the ``precision`` part of the base properties.
 
