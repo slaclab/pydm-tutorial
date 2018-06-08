@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Help With PyDM &mdash; PyDM Tutorial 0.0.1 documentation</title>
+  <title>Macro Substitution &mdash; PyDM Tutorial 0.0.1 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bug and Requests" href="requests.html" />
-    <link rel="prev" title="Making Pure Python Displays" href="../action/python.html" /> 
+    <link rel="next" title="Widgets" href="widgets.html" />
+    <link rel="prev" title="Data Architecture" href="data_arch.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,13 +87,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Setting up the Environment</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Introduction</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/launcher.html">PyDM Launcher</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/channels.html">Channels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/data_arch.html">Data Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/macros.html">Macro Substitution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/widgets.html">Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/datasource.html">Data Sources</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">PyDM Launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">Channels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_arch.html">Data Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Macro Substitution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#inserting-macro-variables">Inserting Macro Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#replacing-macro-variables-at-launch-time">Replacing Macro Variables at Launch Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macros-in-python-based-displays">Macros in Python-based Displays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macro-behavior-at-run-time">Macro Behavior at Run Time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasource.html">Data Sources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Hands-on</span></p>
 <ul>
@@ -105,9 +111,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../action/python.html">Making Pure Python Displays</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Help With PyDM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="requests.html">Bug and Requests</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/help.html">Getting Help With PyDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/requests.html">Bug and Requests</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Links</span></p>
 <ul>
@@ -158,13 +164,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Getting Help With PyDM</li>
+      <li>Macro Substitution</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/contrib/help.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/intro/macros.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -177,16 +183,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-help-with-pydm">
-<h1>Getting Help With PyDM<a class="headerlink" href="#getting-help-with-pydm" title="Permalink to this headline">¶</a></h1>
-<p>If you have questions of comments in general about PyDM we want to know.</p>
-<p>You can choose between the channels open for communication the one that best fit you:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://gitter.im/pydm/General">Chat channel using Gitter</a> (Public)</li>
-<li><a class="reference external" href="https://slac.slack.com/messages/C6B8GRCPQ">Stanford &amp; SLAC Slack channel</a> (Limited for users with a Stanford Account)</li>
-<li><a class="reference external" href="https://listserv.slac.stanford.edu/cgi-bin/wa?SUBED1=PYDM-USERS">PyDM Mailing List</a> (Limited for SLAC users for now)</li>
-</ul>
-<p>or you can <a class="reference external" href="https://github.com/slaclab/pydm/issues">file a bug</a> and let us know where our documentation could be improved.</p>
+  <div class="section" id="macro-substitution">
+<span id="macros"></span><h1>Macro Substitution<a class="headerlink" href="#macro-substitution" title="Permalink to this headline">¶</a></h1>
+<p>PyDM has support for macro substitution, which is a way to make a .ui template
+for a display, and fill in variables in the template when the display is opened.</p>
+<p>The macro system is also a good way to supply data to python-based displays when
+launching them from the command line, related display button, or as an embedded
+display.</p>
+<div class="section" id="inserting-macro-variables">
+<h2>Inserting Macro Variables<a class="headerlink" href="#inserting-macro-variables" title="Permalink to this headline">¶</a></h2>
+<p>Anywhere in a .ui file, you can insert a macro of the following form: <code class="docutils literal notranslate"><span class="pre">${variable}</span></code>.
+Note that Qt Designer will only let you use macros in string properties, but you
+can insert macros anywhere in a .ui file using a text editor.</p>
+</div>
+<div class="section" id="replacing-macro-variables-at-launch-time">
+<h2>Replacing Macro Variables at Launch Time<a class="headerlink" href="#replacing-macro-variables-at-launch-time" title="Permalink to this headline">¶</a></h2>
+<p>When launching a .ui file which contains macro variables, specify values for each
+variable using the ‘-m’ flag on the command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python pydm.py -m <span class="s1">&#39;{&quot;variable&quot;: &quot;value&quot;}&#39;</span> my_file.ui
+</pre></div>
+</div>
+</div>
+<div class="section" id="macros-in-python-based-displays">
+<h2>Macros in Python-based Displays<a class="headerlink" href="#macros-in-python-based-displays" title="Permalink to this headline">¶</a></h2>
+<p>If you open a python file and specify macros (via the command line, related display
+button, or embedded display widget), the macros will be passed as a dictionary to
+the Display class initializer, where they can be accessed and used to generate the
+display.</p>
+<p>In addition, if the Display class specifies a .ui file to generate its user
+interface, macro substitution will occur inside the .ui file.</p>
+</div>
+<div class="section" id="macro-behavior-at-run-time">
+<h2>Macro Behavior at Run Time<a class="headerlink" href="#macro-behavior-at-run-time" title="Permalink to this headline">¶</a></h2>
+<p>PyDM will remember the macros used to launch a display, and re-use them when
+navigating with the forward, back, and home buttons. When a new display is opened,
+any macros defined on the current window are also passed to the new display.
+This lets you cascade macros to child displays.</p>
+</div>
 </div>
 
 
@@ -197,10 +230,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="requests.html" class="btn btn-neutral float-right" title="Bug and Requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="widgets.html" class="btn btn-neutral float-right" title="Widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../action/python.html" class="btn btn-neutral" title="Making Pure Python Displays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="data_arch.html" class="btn btn-neutral" title="Data Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

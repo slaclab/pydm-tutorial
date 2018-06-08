@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="About the Application" href="tutorial.html" />
-    <link rel="prev" title="Data Sources" href="../intro/datasource.html" /> 
+    <link rel="next" title="Building Your First Display with Qt Designer" href="designer.html" />
+    <link rel="prev" title="About the Application" href="tutorial.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -88,14 +88,17 @@
 </ul>
 <p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/important_concepts.html">Important Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/launcher.html">PyDM Launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/channels.html">Channels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/data_arch.html">Data Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/macros.html">Macro Substitution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/widgets.html">Widgets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/datasource.html">Data Sources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Hands-on</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Qt Designer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">About the Application</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Qt Designer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="designer.html">Building Your First Display with Qt Designer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="intro_python.html">A Word About Python Displays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="little_code.html">Adding Code into the Main Display</a></li>
@@ -178,29 +181,30 @@
 <span id="designer"></span><h1>Introduction to Qt Designer<a class="headerlink" href="#introduction-to-qt-designer" title="Permalink to this headline">¶</a></h1>
 <p>Once you have PyDM installed, you can start making displays.  The easiest way
 to make a display is to use Qt Designer, which is Qt’s drag-and-drop tool for
-building user interfaces.  Once you open Designer, you’ll be greeted by a mostly
-blank screen, with a list of widgets on the left, and a property inspector on the
-right.</p>
+building user interfaces.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>To launch the Qt Designer do:</p>
 <div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#########</span>
 <span class="c1"># Linux #</span>
 <span class="c1">#########</span>
-designer
+$ designer
 
 <span class="c1">#########</span>
 <span class="c1"># macOS #</span>
 <span class="c1">#########</span>
-&lt;path_to_your_bin&gt;/Designer.app/Contents/MacOS/Designer
+$ &lt;path_to_your_bin&gt;/Designer.app/Contents/MacOS/Designer
 
 <span class="c1">###########</span>
 <span class="c1"># Windows #</span>
 <span class="c1">###########</span>
-designer
+C:<span class="se">\&gt;</span> designer
 </pre></div>
 </div>
 </div>
+<p>Once you open Designer, you’ll be greeted by a mostly
+blank screen, with a list of widgets on the left, and a property inspector on the
+right.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/designer.png"><img alt="Screenshot of newly-opened Qt Designer." src="../_images/designer.png" style="width: 809.82px; height: 539.88px;" /></a>
 <p class="caption"><span class="caption-text">A newly-opened Qt Designer.  Notice the PyDM widgets at the bottom of
@@ -241,10 +245,10 @@ file somewhere.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tutorial.html" class="btn btn-neutral float-right" title="About the Application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="designer.html" class="btn btn-neutral float-right" title="Building Your First Display with Qt Designer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../intro/datasource.html" class="btn btn-neutral" title="Data Sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral" title="About the Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Help With PyDM &mdash; PyDM Tutorial 0.0.1 documentation</title>
+  <title>Data Architecture &mdash; PyDM Tutorial 0.0.1 documentation</title>
   
 
   
@@ -28,8 +28,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bug and Requests" href="requests.html" />
-    <link rel="prev" title="Making Pure Python Displays" href="../action/python.html" /> 
+    <link rel="next" title="Macro Substitution" href="macros.html" />
+    <link rel="prev" title="Channels" href="channels.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,13 +87,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Setting up the Environment</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Introduction</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/launcher.html">PyDM Launcher</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/channels.html">Channels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/data_arch.html">Data Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/macros.html">Macro Substitution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/widgets.html">Widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intro/datasource.html">Data Sources</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">PyDM Launcher</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels.html">Channels</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="macros.html">Macro Substitution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasource.html">Data Sources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Hands-on</span></p>
 <ul>
@@ -105,9 +105,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../action/python.html">Making Pure Python Displays</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Contributing</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Help With PyDM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="requests.html">Bug and Requests</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/help.html">Getting Help With PyDM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/requests.html">Bug and Requests</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Links</span></p>
 <ul>
@@ -158,13 +158,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Getting Help With PyDM</li>
+      <li>Data Architecture</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/contrib/help.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/intro/data_arch.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -177,16 +177,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-help-with-pydm">
-<h1>Getting Help With PyDM<a class="headerlink" href="#getting-help-with-pydm" title="Permalink to this headline">¶</a></h1>
-<p>If you have questions of comments in general about PyDM we want to know.</p>
-<p>You can choose between the channels open for communication the one that best fit you:</p>
+  <div class="section" id="data-architecture">
+<span id="dataarchitecture"></span><h1>Data Architecture<a class="headerlink" href="#data-architecture" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference external" href="https://gitter.im/pydm/General">Chat channel using Gitter</a> (Public)</li>
-<li><a class="reference external" href="https://slac.slack.com/messages/C6B8GRCPQ">Stanford &amp; SLAC Slack channel</a> (Limited for users with a Stanford Account)</li>
-<li><a class="reference external" href="https://listserv.slac.stanford.edu/cgi-bin/wa?SUBED1=PYDM-USERS">PyDM Mailing List</a> (Limited for SLAC users for now)</li>
+<li>PyDM widgets are data-source agnostic, and communicate with the PyDM Application through Qt signals and slots.</li>
+<li>The PyDM application routes data between the widgets and data source plugins.</li>
+<li>A data source plugin speaks to a particular source of data (EPICS, HTTP, databases, etc).</li>
+<li>This system makes it possible to mix-and-match different data sources within the same display, using the same widget set.</li>
 </ul>
-<p>or you can <a class="reference external" href="https://github.com/slaclab/pydm/issues">file a bug</a> and let us know where our documentation could be improved.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/architecture.png"><img alt="PyDM Data Plugin Architecture" src="../_images/architecture.png" style="width: 620.5px; height: 456.0px;" /></a>
+</div>
 </div>
 
 
@@ -197,10 +198,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="requests.html" class="btn btn-neutral float-right" title="Bug and Requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="macros.html" class="btn btn-neutral float-right" title="Macro Substitution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../action/python.html" class="btn btn-neutral" title="Making Pure Python Displays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="channels.html" class="btn btn-neutral" title="Channels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

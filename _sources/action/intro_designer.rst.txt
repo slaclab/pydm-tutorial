@@ -5,9 +5,7 @@ Introduction to Qt Designer
 
 Once you have PyDM installed, you can start making displays.  The easiest way
 to make a display is to use Qt Designer, which is Qt's drag-and-drop tool for
-building user interfaces.  Once you open Designer, you'll be greeted by a mostly
-blank screen, with a list of widgets on the left, and a property inspector on the
-right.
+building user interfaces.
 
 .. note::
    To launch the Qt Designer do:
@@ -17,18 +15,21 @@ right.
       #########
       # Linux #
       #########
-      designer
+      $ designer
 
       #########
       # macOS #
       #########
-      <path_to_your_bin>/Designer.app/Contents/MacOS/Designer
+      $ <path_to_your_bin>/Designer.app/Contents/MacOS/Designer
 
       ###########
       # Windows #
       ###########
-      designer
+      C:\> designer
 
+Once you open Designer, you'll be greeted by a mostly
+blank screen, with a list of widgets on the left, and a property inspector on the
+right.
 
 .. figure:: /_static/action/designer.png
    :scale: 33 %
