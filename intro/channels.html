@@ -181,13 +181,13 @@
 <span id="channel"></span><h1>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h1>
 <p><strong>Channels</strong> are the bridge between PyDM Widgets and the different Data Plugins
 provided.</p>
-<p>Usually channels are specified on the following format:</p>
+<p>Usually channels are specified in the following format:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">protocol</span><span class="o">&gt;</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">channel</span> <span class="n">address</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">protocol</span></code> is a unique identifier for a given Data Plugin used with PyDM
-and <code class="docutils literal notranslate"><span class="pre">channel</span> <span class="pre">address</span></code> will vary depending on the data plugin and every plugin
-should have in its documentation the expected format for users.</p>
+and <code class="docutils literal notranslate"><span class="pre">channel</span> <span class="pre">address</span></code> will vary depending on the data plugin. Every plugin
+should document the expected address format for users.</p>
 <p>Here are some examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ca</span><span class="p">:</span><span class="o">//</span><span class="n">MTEST</span><span class="p">:</span><span class="n">Float</span>
 </pre></div>
@@ -197,7 +197,7 @@ should have in its documentation the expected format for users.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">archiver</span><span class="p">:</span><span class="o">//</span><span class="n">pv</span><span class="o">=</span><span class="n">test</span><span class="p">:</span><span class="n">pv</span><span class="p">:</span><span class="mi">123</span><span class="o">&amp;</span><span class="n">donotchunk</span>
 </pre></div>
 </div>
-<p>In which everything at the <code class="docutils literal notranslate"><span class="pre">channel</span> <span class="pre">address</span></code> section is the same as what is sent
+<p>In which everything in the <code class="docutils literal notranslate"><span class="pre">channel</span> <span class="pre">address</span></code> section is the same as what is sent
 to the <code class="docutils literal notranslate"><span class="pre">retrieval</span></code> part of the Archiver as specified at the <strong>Retrieving data **
 **using other tools</strong> section of the <a class="reference external" href="https://slacmshankar.github.io/epicsarchiver_docs/userguide.html">Archiver Appliance User Guide</a></p>
 </div>

@@ -196,11 +196,11 @@
 <li>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</li>
 </ul>
 </div>
-<p>For this screen we will want to present to the user useful information to operate
-the motors but also provide a way for them to access other parameters considered
-<strong>Expert</strong>. Also, to ensure that we can re-use this screen into other displays,
-it will be necessary to use <a class="reference internal" href="../intro/macros.html#macros"><span class="std std-ref">Macro Substitution</span></a> in this screen that will later be
-replaced by the proper information depending on each motor.</p>
+<p>For this screen we will want to present useful information to the user to operate
+the motors, and also provide a way for them to access other parameters considered
+<strong>Expert</strong>. To make this screen re-usable in other displays, it will be necessary
+to use <a class="reference internal" href="../intro/macros.html#macros"><span class="std std-ref">Macro Substitution</span></a> that will later be replaced by the proper information for
+each motor.</p>
 <p>The finished result will look like this:</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/inline.png"><img alt="Inline Motor Screen" src="../_images/inline.png" style="width: 588.0px; height: 161.25px;" /></a>
@@ -260,7 +260,7 @@ the widget will be placed on the side and not on top or under the other widget).
 </li>
 <li>Expand the <code class="docutils literal notranslate"><span class="pre">minimumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Width</span></code> to <code class="docutils literal notranslate"><span class="pre">75</span></code>.<ul>
 <li>This property will indicate the minimum size constrains for the widget and
-avoid this widget to be hidden or reduced to an unusable size on window resizing.</li>
+avoid this widget from being hidden or reduced to an unusable size on window resizing.</li>
 </ul>
 </li>
 </ol>
@@ -292,7 +292,7 @@ avoid this widget to be hidden or reduced to an unusable size on window resizing
 </div>
 </li>
 <li><p class="first"><strong>Step 3.4.</strong></p>
-<p>The forth widget is a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> which will be used for visual
+<p>The fourth widget is a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> which will be used for visual
 feedback that the motor is moving:</p>
 <ol class="arabic simple">
 <li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> at the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
@@ -300,7 +300,7 @@ previously added <code class="docutils literal notranslate"><span class="pre">Py
 <li>Set the <code class="docutils literal notranslate"><span class="pre">Channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.MOVN</span></code>.</li>
 <li>Turn off the <code class="docutils literal notranslate"><span class="pre">showLabels</span></code> property since we are only interested on the
 color for this widget.</li>
-<li>Set the <code class="docutils literal notranslate"><span class="pre">circles</span></code> property so instead of a square we have a circle.</li>
+<li>Set the <code class="docutils literal notranslate"><span class="pre">circles</span></code> property so we have a circle instead of a square.</li>
 <li>Expand the <code class="docutils literal notranslate"><span class="pre">sizePolicy</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Horizontal</span> <span class="pre">Policy</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Vertical</span> <span class="pre">Policy</span></code> to <code class="docutils literal notranslate"><span class="pre">Fixed</span></code>.</li>
 <li>Expand the <code class="docutils literal notranslate"><span class="pre">minimumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Width</span></code> and <code class="docutils literal notranslate"><span class="pre">Height</span></code> to
@@ -334,7 +334,7 @@ of emergency.</li>
 </div>
 </li>
 <li><p class="first"><strong>Step 3.6.</strong></p>
-<p>The sixty widget is also a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to tweak the
+<p>The sixth widget is also a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to tweak the
 motor a certain distance on the positive direction:</p>
 <ol class="arabic simple">
 <li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> at the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
@@ -358,7 +358,7 @@ motor a certain distance on the negative direction:</p>
 previously added <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.VAL</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">pressValue</span></code> property to <code class="docutils literal notranslate"><span class="pre">-10</span></code>.</li>
-<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeCHange</span></code> property so instead of writting the value the
+<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeChange</span></code> property so instead of writting the value the
 new value written to the channel will be relative to the current channel
 value.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">text</span></code> property to <code class="docutils literal notranslate"><span class="pre">Tw</span> <span class="pre">-10</span></code>.</li>
@@ -377,16 +377,17 @@ side of the previously added <code class="docutils literal notranslate"><span cl
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">displayFilename</span></code> property to <code class="docutils literal notranslate"><span class="pre">expert_motor.ui</span></code>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">We will create the <code class="docutils literal notranslate"><span class="pre">expert_motor.ui</span></code> file on the next section.</p>
+<p class="last">We will create the <code class="docutils literal notranslate"><span class="pre">expert_motor.ui</span></code> file in the next section.</p>
 </div>
 </li>
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">macros</span></code> property to <code class="docutils literal notranslate"><span class="pre">{&quot;MOTOR&quot;:&quot;${MOTOR}&quot;}</span></code>.</p>
 <ul class="simple">
 <li>This macro will use the received macro <code class="docutils literal notranslate"><span class="pre">${MOTOR}</span></code> and retransmit it to
-the new window.</li>
+the new window.  This is a workaround for a bug - in the future, macros
+defined on the first display will automatically be passed to new displays.</li>
 </ul>
 </li>
-<li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">openInNewWindow</span></code> property so the screen show up in a standalone
+<li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">openInNewWindow</span></code> property so the screen will show up in a standalone
 window.</p>
 </li>
 <li><p class="first">Expand the <code class="docutils literal notranslate"><span class="pre">minimumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Width</span></code> to <code class="docutils literal notranslate"><span class="pre">125</span></code> and
@@ -443,7 +444,7 @@ object and:<ul>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">For this tutorial it is important to use this file name as it will be referenced
-at the other sections. If you change it please remember to also change at the
+at the other sections. If you change it, please remember to also change it in the
 next steps when referenced.</p>
 </div>
 </li>

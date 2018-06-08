@@ -20,9 +20,9 @@ go with number 3.
 This tutorial will also cover the three scenarios above while doing the proposed
 application.
 
-The application is a beam positioning/alignment application in which the data
-from a camera will be presented along with two motor axis to position the beam
-in X and Y.
+The application is a simulated x-ray beam positioning/alignment application
+in which the data from a camera will be presented along with two mirror motor
+axes to position the beam in X and Y.
 
 .. figure:: /_static/action/application.png
    :scale: 100 %
@@ -41,8 +41,8 @@ Macro Components
    :align: center
    :alt: Tutorial Application
 
-- The ``main.ui`` file (Highlighted in Red) uses twice an embedded display
-  (Highlighted in Green) which points to ``inline_motor.ui`` for **Motor X**
+- The ``main.ui`` file (Highlighted in Red) uses an embedded display
+  (Highlighted in Green) two times, which points to ``inline_motor.ui`` for **Motor X**
   and **Motor Y**.
 
 - Inside of this embedded display there is a related display button (Highlighted
@@ -50,5 +50,5 @@ Macro Components
   parameters.
 
 - Finally, the **View All Motors** related display button (Highlighted in Blue)
-  launches the ``all_motors.py`` screen in which we can list all motor axis
+  launches the ``all_motors.py`` screen in which we can list all motor axes
   available.

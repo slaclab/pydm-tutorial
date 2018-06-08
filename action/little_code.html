@@ -190,13 +190,13 @@
 </ul>
 </div>
 <p>For this particular application it would be of interest to not only see the beam
-image on the screen but to also calculate the maximum point on the image and display
+image on the screen, but to also calculate the maximum point on the image and display
 the coordinates in a label.</p>
 <p>To do so, we will need to add some Python code to our main screen developed at
 the <a class="reference internal" href="designer_main.html#main"><span class="std std-ref">Main Screen</span></a> section.</p>
 <p>Since we already have all the screen designed in the UI file, PyDM allows us to
 use the UI file and hook up code to interact with widgets.</p>
-<p>That is accomplished by subclassing <cite>Display</cite> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a>) for more details.</p>
+<p>That is accomplished by subclassing <cite>Display</cite> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a> for more details).</p>
 <ul>
 <li><p class="first"><strong>Step 1.</strong></p>
 <blockquote>
@@ -239,7 +239,7 @@ will follow.</p>
 custom method.</li>
 <li>Hook up our <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method to the <code class="docutils literal notranslate"><span class="pre">newImageSignal</span></code> that is emitted
 by the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> every time a new image is displayed.</li>
-<li>Initialization of the <code class="docutils literal notranslate"><span class="pre">self.blob</span></code> variable with <cite>(0, 0)</cite>.</li>
+<li>Initialize the <code class="docutils literal notranslate"><span class="pre">self.blob</span></code> variable with <cite>(0, 0)</cite>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> method returning the name of the <code class="docutils literal notranslate"><span class="pre">UI</span></code> file to be used and
 compose the screen.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> method returning the full path to the <code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> so PyDM
@@ -251,10 +251,10 @@ can properly load it.</li>
 blob position.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">process_image</span></code> method is defined at the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> widget
+<p>The <code class="docutils literal notranslate"><span class="pre">process_image</span></code> method is defined in the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> widget
 and more information about it can be found at this
 <a class="reference external" href="https://slaclab.github.io/pydm/widgets/image.html">widget documentation page</a>.</p>
-<p class="last">And since this method runs in a separated <code class="docutils literal notranslate"><span class="pre">QThread</span></code> we cannot write to
+<p class="last">And since this method runs in a separated <code class="docutils literal notranslate"><span class="pre">QThread</span></code>, we cannot write to
 widgets since this code runs outside of the <strong>Qt Main Thread</strong>.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_image</span><span class="p">):</span>
@@ -265,9 +265,9 @@ widgets since this code runs outside of the <strong>Qt Main Thread</strong>.</p>
     <span class="k">return</span> <span class="n">new_image</span>
 </pre></div>
 </div>
-<p>At <code class="docutils literal notranslate"><span class="pre">process_image</span></code> we call the scipy method <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.measurements.maximum_position.html">maximum_position</a>
-to calculate the coordinates for the maximum spot and save it at <code class="docutils literal notranslate"><span class="pre">self.blob</span></code>.
-At the end, this method returns the unmodified image.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">process_image</span></code> we call the scipy method <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.ndimage.measurements.maximum_position.html">maximum_position</a>
+to calculate the coordinates for the maximum spot and save it to <code class="docutils literal notranslate"><span class="pre">self.blob</span></code>.
+At the end, this method returns the unmodified image, which the ImageView will display.</p>
 </li>
 <li><p class="first"><strong>Step 2.2.</strong></p>
 <p>Adding code to the <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method so we update the <code class="docutils literal notranslate"><span class="pre">QLabel</span></code> with the
@@ -292,7 +292,7 @@ new blob position calculated at <code class="docutils literal notranslate"><span
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">For this tutorial it is important to use this file name as it will be referenced
-at the other sections. If you change it please remember to also change at the
+at the other sections. If you change it please remember to also change in the
 other steps when referenced.</p>
 </div>
 </li>

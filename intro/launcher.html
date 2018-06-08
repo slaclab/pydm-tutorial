@@ -182,9 +182,9 @@
             
   <div class="section" id="pydm-launcher">
 <h1>PyDM Launcher<a class="headerlink" href="#pydm-launcher" title="Permalink to this headline">¶</a></h1>
-<p>PyDM provides a launcher that makes it easier for users to quickly run UI files as well as code based screens.
-The launcher is responsible for setting up the Python logging module but it mainly parses the command line parameters
-and send them to the instantiated PyDMApplication.</p>
+<p>PyDM provides a command-line launcher that makes it easier for users to quickly run UI files as well as code based screens.
+The launcher is responsible for setting up the Python logging module but it mainly just parses the command line parameters
+and sends them to the instantiated PyDMApplication.</p>
 <p>The Launcher is available for Linux, OSX and Windows and it can be called using the command line:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm
 </pre></div>
@@ -195,7 +195,7 @@ and send them to the instantiated PyDMApplication.</p>
 </div>
 <div class="section" id="command-line-arguments">
 <h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
-<p>PyDM Launcher accept many command line arguments, here they are:</p>
+<p>The PyDM Launcher accepts many command line arguments, here they are:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--perfmon<span class="o">]</span> <span class="o">[</span>--hide-nav-bar<span class="o">]</span> <span class="o">[</span>--hide-menu-bar<span class="o">]</span>
      <span class="o">[</span>--hide-status-bar<span class="o">]</span> <span class="o">[</span>--read-only<span class="o">]</span>
      <span class="o">[</span>--log_level <span class="o">{</span>DEBUG,INFO,WARNING,ERROR,CRITICAL<span class="o">}]</span> <span class="o">[</span>-m MACRO<span class="o">]</span>
@@ -248,9 +248,9 @@ and send them to the instantiated PyDMApplication.</p>
 </table>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">It is not mandatory for you to use the PyDM Launcher to run your screen but keep in mind that not using it means that
-you will need to handle command line arguments, logging setup and the instantiation of the PyDMApplication at your own
-code.</p>
+<p class="last">It is not mandatory to use the PyDM Launcher to run your screen, but keep in
+mind that without it you will need to handle command line arguments, logging
+setup, and the instantiation of the PyDMApplication in your own code.</p>
 </div>
 </div>
 </div>

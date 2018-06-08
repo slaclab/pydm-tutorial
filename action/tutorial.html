@@ -194,9 +194,9 @@ application composed of PyDM widgets for beam positioning and alignment.</p>
 go with number 3.</p>
 <p>This tutorial will also cover the three scenarios above while doing the proposed
 application.</p>
-<p>The application is a beam positioning/alignment application in which the data
-from a camera will be presented along with two motor axis to position the beam
-in X and Y.</p>
+<p>The application is a simulated x-ray beam positioning/alignment application
+in which the data from a camera will be presented along with two mirror motor
+axes to position the beam in X and Y.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/application.png"><img alt="Tutorial Application" src="../_images/application.png" style="width: 836.0px; height: 902.0px;" /></a>
 <p class="caption"><span class="caption-text">Proposed Application Main Screen</span></p>
@@ -207,14 +207,14 @@ in X and Y.</p>
 <a class="reference internal image-reference" href="../_images/components.png"><img alt="Tutorial Application" src="../_images/components.png" style="width: 948.0px; height: 1034.0px;" /></a>
 </div>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">main.ui</span></code> file (Highlighted in Red) uses twice an embedded display
-(Highlighted in Green) which points to <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> for <strong>Motor X</strong>
+<li>The <code class="docutils literal notranslate"><span class="pre">main.ui</span></code> file (Highlighted in Red) uses an embedded display
+(Highlighted in Green) two times, which points to <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> for <strong>Motor X</strong>
 and <strong>Motor Y</strong>.</li>
 <li>Inside of this embedded display there is a related display button (Highlighted
 in Orange) which launches the <code class="docutils literal notranslate"><span class="pre">expert_motor.ui</span></code> for configuration of motor
 parameters.</li>
 <li>Finally, the <strong>View All Motors</strong> related display button (Highlighted in Blue)
-launches the <code class="docutils literal notranslate"><span class="pre">all_motors.py</span></code> screen in which we can list all motor axis
+launches the <code class="docutils literal notranslate"><span class="pre">all_motors.py</span></code> screen in which we can list all motor axes
 available.</li>
 </ul>
 </div>

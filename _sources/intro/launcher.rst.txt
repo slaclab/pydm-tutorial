@@ -1,9 +1,9 @@
 PyDM Launcher
 =============
 
-PyDM provides a launcher that makes it easier for users to quickly run UI files as well as code based screens.
-The launcher is responsible for setting up the Python logging module but it mainly parses the command line parameters
-and send them to the instantiated PyDMApplication.
+PyDM provides a command-line launcher that makes it easier for users to quickly run UI files as well as code based screens.
+The launcher is responsible for setting up the Python logging module but it mainly just parses the command line parameters
+and sends them to the instantiated PyDMApplication.
 
 The Launcher is available for Linux, OSX and Windows and it can be called using the command line:
 
@@ -21,7 +21,7 @@ This will result in the PyDM Main Window being displayed.
 Command Line Arguments
 ----------------------
 
-PyDM Launcher accept many command line arguments, here they are:
+The PyDM Launcher accepts many command line arguments, here they are:
 
 .. code-block:: bash
 
@@ -50,6 +50,6 @@ display_args (positional)  Arguments to be passed to the PyDM client application
 =========================  =============================================================================
 
 .. note::
-   It is not mandatory for you to use the PyDM Launcher to run your screen but keep in mind that not using it means that
-   you will need to handle command line arguments, logging setup and the instantiation of the PyDMApplication at your own
-   code.
+   It is not mandatory to use the PyDM Launcher to run your screen, but keep in
+   mind that without it you will need to handle command line arguments, logging
+   setup, and the instantiation of the PyDMApplication in your own code.

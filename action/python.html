@@ -189,23 +189,25 @@
 <li>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</li>
 </ul>
 </div>
-<p>Like we saw at the <a class="reference internal" href="intro_python.html#python"><span class="std std-ref">A Word About Python Display</span></a> section it is
-possible to make displays using Python but is also possible to make displays
-without using the Qt Designer at all and write the whole code for a user interface.</p>
+<p>As we saw in the <a class="reference internal" href="intro_python.html#python"><span class="std std-ref">A Word About Python Display</span></a> section, it is
+possible to make displays using Python code and a .ui file from Qt Designer.
+It is also possible to make displays without using the Qt Designer at all,
+and write the user interface entirely in code.</p>
 <p>To demonstrate this capability we will describe the steps to create the “All Motors”
 screen described at the <a class="reference internal" href="tutorial.html#app-components"><span class="std std-ref">Components Section</span></a>.</p>
 <p>This screen will have a <code class="docutils literal notranslate"><span class="pre">QLineEdit</span></code> and a <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> that will invoke a
-method to filter our list of motors and present at the frame below a list of
-<code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplays</span></code> pointing to the <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> file that was created
-at the <a class="reference internal" href="designer_inline.html#inline"><span class="std std-ref">Inline Motor Screen</span></a> section of this tutorial.</p>
-<p>Here is how it will look like once we are done:</p>
+method to filter our list of motors and present a list of
+<code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplays</span></code> in the frame below pointing to the
+<code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> file that was created in the
+<a class="reference internal" href="designer_inline.html#inline"><span class="std std-ref">Inline Motor Screen</span></a> section of this tutorial.</p>
+<p>Here is how it will look once we are done:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/all_motors.png"><img alt="All Motors Screen" src="../_images/all_motors.png" style="width: 646.5px; height: 460.5px;" /></a>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">In order to simplify this tutorial, instead of using a database or other type
-of service, the data to populate the list of motors will come to a simple file
+of service, the data to populate the list of motors will come from a simple text file
 named <code class="docutils literal notranslate"><span class="pre">motor_db.txt</span></code> that can be downloaded <a class="reference download internal" href="../_downloads/motor_db.txt" download=""><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
 </div>
 <ul>
@@ -250,14 +252,14 @@ will follow.</p>
         <span class="k">return</span> <span class="bp">None</span>
 </pre></div>
 </div>
-<p>Breaking it down to pieces:</p>
+<p>Breaking it down into pieces:</p>
 <ol class="arabic simple">
 <li>The constructor of the class will call the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method that is
 responsible for opening our database and adding the information to our
 placeholder, <code class="docutils literal notranslate"><span class="pre">self.data</span></code>, for later filtering, as well as the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code>
 method in which the widgets be constructed and configuered.</li>
-<li><code class="docutils literal notranslate"><span class="pre">minimulSizeHint</span></code> returns the suggested minimal dimensions for the display.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> will return <code class="docutils literal notranslate"><span class="pre">None</span></code> as no <code class="docutils literal notranslate"><span class="pre">ui</span></code> file is being used in this
+<li><code class="docutils literal notranslate"><span class="pre">minimumSizeHint</span></code> returns the suggested minimum dimensions for the display.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> will return <code class="docutils literal notranslate"><span class="pre">None</span></code>, as no <code class="docutils literal notranslate"><span class="pre">ui</span></code> file is being used in this
 case.</li>
 </ol>
 <ul>

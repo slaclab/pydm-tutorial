@@ -8,10 +8,10 @@ It provides a system for the drag-and-drop creation of user interfaces using
 Qt Designer, and also allows for the creation of displays driven by Python code.
 
 PyDM is intended to span the range from simple displays without any dynamic
-behavior, to complex high level applications, with the same set of widgets.
+behavior to complex high level applications, with the same set of widgets.
 
 Developers can extend the framework with custom widgets for site-specific
-tasks, and plug-ins for multiple control systems.
+tasks, and data plugins for multiple control systems.
 
 .. toctree::
    :maxdepth: 1

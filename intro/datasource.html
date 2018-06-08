@@ -94,7 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="macros.html">Macro Substitution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Sources</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#epics">Epics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#epics">EPICS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#archiver">Archiver</a></li>
 </ul>
 </li>
@@ -185,11 +185,11 @@
 <h1>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h1>
 <p>PyDM is shipped with a couple of data plugins:</p>
 <ul class="simple">
-<li>Epics</li>
+<li>EPICS</li>
 <li>Archiver</li>
 </ul>
 <div class="section" id="epics">
-<h2>Epics<a class="headerlink" href="#epics" title="Permalink to this headline">¶</a></h2>
+<h2>EPICS<a class="headerlink" href="#epics" title="Permalink to this headline">¶</a></h2>
 <p>This plugin is used to allow PyDM Widgets to access to Channel Access process variables and interact with them.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -210,7 +210,7 @@
 </tr>
 </tbody>
 </table>
-<p>For this particular data plugin two options are available for the Python interface to Channel Access.</p>
+<p>For this particular data plugin, two options are available for the Python interface to Channel Access.</p>
 <ul class="simple">
 <li>PyEpics: <a class="reference external" href="http://pyepics.github.io/pyepics/">http://pyepics.github.io/pyepics/</a></li>
 <li>pyca: <a class="reference external" href="https://github.com/slaclab/pyca">https://github.com/slaclab/pyca</a></li>
@@ -224,9 +224,10 @@
 <div class="section" id="archiver">
 <h2>Archiver<a class="headerlink" href="#archiver" title="Permalink to this headline">¶</a></h2>
 <p>This plugin is used to allow PyDM Widgets to read data from Archiver Appliance.</p>
-<p>While still crude this data plugin works and has been tested against a real instance of the Archiver.</p>
+<p>While still crude, this data plugin works and has been tested against a real instance of the Archiver.</p>
 <p>Basically a HTTP request is sent to the archiver appliance and the address is used to form the parameters for the data
-retrieval.</p>
+retrieval.  Warning: The request is sent synchronously, meaning it will block your application until the request is
+complete.  This limitation will be removed in a future version.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="13%" />
@@ -249,7 +250,8 @@ retrieval.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p>Different facilities must set the <code class="docutils literal notranslate"><span class="pre">PYDM_ARCHIVER_URL</span></code> environment variable to point to their Archiver Appliance
-location or the retrieval application. If not set this variable will point to SLAC’s Archiver Appliance URL.</p>
+location or the retrieval application. If not set, this variable will point to SLAC’s Archiver Appliance URL, which
+is almost certainly not what you want.</p>
 <p>If your Archiver Retrieval is hosted under the following address <code class="docutils literal notranslate"><span class="pre">http://lcls-archapp.slac.stanford.edu/retrieval/...</span></code>
 set the variable to <code class="docutils literal notranslate"><span class="pre">http://lcls-archapp.slac.stanford.edu</span></code>.</p>
 <p class="last">The remaining parts of the URL will be dealt with at the Data Plugin level and should not be a concern.</p>

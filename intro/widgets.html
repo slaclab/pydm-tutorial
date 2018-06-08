@@ -186,17 +186,17 @@
 <h1>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="organization">
 <h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
-<p>PyDM Widgets are divided in 4 main categories:</p>
+<p>PyDM Widgets are divided into 4 main categories:</p>
 <ul>
 <li><dl class="first docutils">
 <dt>Display Widgets</dt>
-<dd><p class="first last">Widgets used for visualization of process variables such as Label, Byte Indicator, Image Viewer, Symbol and others.</p>
+<dd><p class="first last">Widgets used for visualization of channels such as Label, Byte Indicator, Image Viewer, Symbol and others.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Input Widgets</dt>
-<dd><p class="first last">Widgets used to interact with a process variable and write to it, such as Line Edit, Push Button, Combo Box,
+<dd><p class="first last">Widgets used to interact with a channel and write to it, such as Line Edit, Push Button, Combo Box,
 Checkbox, among others.</p>
 </dd>
 </dl>
@@ -213,12 +213,12 @@ Checkbox, among others.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Waveform Plot</dt>
-<dd>Plot waveform (array) values versus index or another waveform (array).</dd>
+<dd>Plot waveform (array) values versus array index, or another waveform (array) of the same length.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Scatter Plot</dt>
-<dd>Plot one scalar channel versus a different scalar channel adding data to a buffer.</dd>
+<dd>Plot one scalar channel versus a different scalar channel, adding each new data point to a ring buffer.</dd>
 </dl>
 </li>
 </ul>
@@ -227,7 +227,7 @@ Checkbox, among others.</p>
 </li>
 <li><dl class="first docutils">
 <dt>Container Widgets</dt>
-<dd><p class="first last">Widgets that group other widgets like Frame, Tab Widget and Embedded Display are part of this category.</p>
+<dd><p class="first last">Widgets that group or wrap other widgets (like Frame, Tab Widget and Embedded Display) are part of this category.</p>
 </dd>
 </dl>
 </li>
@@ -241,7 +241,7 @@ Checkbox, among others.</p>
 </div>
 <div class="section" id="common-properties">
 <h2>Common Properties<a class="headerlink" href="#common-properties" title="Permalink to this headline">¶</a></h2>
-<p>All PyDM Widgets will have the same set of base properties but not every widget use all of them.</p>
+<p>All PyDM Widgets will have the same set of base properties. Not every widget uses all of them.</p>
 <p>As an example, the PyDMEnumComboBox makes no use of the <code class="docutils literal notranslate"><span class="pre">precision</span></code> part of the base properties.</p>
 <table border="1" class="docutils">
 <colgroup>

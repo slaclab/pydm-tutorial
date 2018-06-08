@@ -7,7 +7,7 @@ Data Architecture
 
 * The PyDM application routes data between the widgets and data source plugins.
 
-* A data source plugin speaks to a particular source of data (EPICS, HTTP, databases, etc).
+* A data source plugin speaks to a particular source of data (EPICS, HTTP, modbus, databases, etc).
 
 * This system makes it possible to mix-and-match different data sources within the same display, using the same widget set.
 
