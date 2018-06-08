@@ -45,11 +45,11 @@ As an example, the PyDMEnumComboBox makes no use of the ``precision`` part of th
 =====================   ====    ========================================================================
 Property                Type    Description
 =====================   ====    ========================================================================
-alarmSensitiveContent   bool    Wether or not the content will be affected by an alarm state
-alarmSensitiveBorder    bool    Wether or not the border will be affected by an alarm state
-precisionFromPV         bool    Wether or not to use the precision information from the PV
+alarmSensitiveContent   bool    Whether or not the content will be affected by an alarm state
+alarmSensitiveBorder    bool    Whether or not the border will be affected by an alarm state
+precisionFromPV         bool    Whether or not to use the precision information from the PV
 precision               int     Precision to be used if precisionFromPV is ``False``
-showUnits               bool    Wether or not to display the engineering units information
+showUnits               bool    Whether or not to display the engineering units information
 channel                 str     The :ref:`Channel <Channel>` value for this widget
 =====================   ====    ========================================================================
 
