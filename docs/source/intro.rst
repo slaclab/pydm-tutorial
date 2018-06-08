@@ -14,7 +14,7 @@ be developed during this tutorial.
 You can download the disk using this `Link <https://drive.google.com/file/d/1ZrcDf2oMj_PwVFFQN-y1-ZwR_bp_5aur/view?usp=sharing>`_.
 
 After downloading it, extract the ``.tar.gz`` file and create a new Virtual Machine at the virtualization client of your preference.
-We used `Oracle VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ to create this machine and it is available for Windows, OS X and Linux hosts.
+We used `Oracle VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ to create this machine.  It is available for Windows, OS X and Linux hosts.
 
 Useful Virtual Machine Information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,4 +74,4 @@ Creating your own environment
 
 If you decide to create your own environment and not use the Virtual Machine
 provided please refer to the `PyDM Documentation Website <http://slaclab.github.io/pydm/>`_
-for and up-to-date dependency list as well as detailed installation instructions.
+for an up-to-date dependency list as well as detailed installation instructions.

@@ -12,11 +12,11 @@ Inline Motor Screen
     * That the :ref:`Python environment <PythonEnv>` is set.
     * That all :ref:`three IOCs <IOCS>` are running.
 
-For this screen we will want to present to the user useful information to operate
-the motors but also provide a way for them to access other parameters considered
-**Expert**. Also, to ensure that we can re-use this screen into other displays,
-it will be necessary to use :ref:`Macros` in this screen that will later be
-replaced by the proper information depending on each motor.
+For this screen we will want to present useful information to the user to operate
+the motors, and also provide a way for them to access other parameters considered
+**Expert**. To make this screen re-usable in other displays, it will be necessary
+to use :ref:`Macros` that will later be replaced by the proper information for 
+each motor.
 
 The finished result will look like this:
 
@@ -90,7 +90,7 @@ The finished result will look like this:
     #. Expand the ``minimumSize`` property and set ``Width`` to ``75``.
 
        * This property will indicate the minimum size constrains for the widget and
-         avoid this widget to be hidden or reduced to an unusable size on window resizing.
+         avoid this widget from being hidden or reduced to an unusable size on window resizing.
 
     .. figure:: /_static/action/inline/inline_3_2.gif
        :scale: 100 %
@@ -121,7 +121,7 @@ The finished result will look like this:
 
   * **Step 3.4.**
 
-    The forth widget is a ``PyDMByteIndicator`` which will be used for visual
+    The fourth widget is a ``PyDMByteIndicator`` which will be used for visual
     feedback that the motor is moving:
 
     #. Drag and drop a ``PyDMByteIndicator`` at the ``GridLayout`` on the side of the
@@ -129,7 +129,7 @@ The finished result will look like this:
     #. Set the ``Channel`` property of this line edit to: ``ca://${MOTOR}.MOVN``.
     #. Turn off the ``showLabels`` property since we are only interested on the
        color for this widget.
-    #. Set the ``circles`` property so instead of a square we have a circle.
+    #. Set the ``circles`` property so we have a circle instead of a square.
     #. Expand the ``sizePolicy`` property and set ``Horizontal Policy`` and
        ``Vertical Policy`` to ``Fixed``.
 
@@ -167,7 +167,7 @@ The finished result will look like this:
 
   * **Step 3.6.**
 
-    The sixty widget is also a ``PyDMPushButton`` which will be used to tweak the
+    The sixth widget is also a ``PyDMPushButton`` which will be used to tweak the
     motor a certain distance on the positive direction:
 
     #. Drag and drop a ``PyDMPushButton`` at the ``GridLayout`` on the side of the
@@ -192,7 +192,7 @@ The finished result will look like this:
        previously added ``PyDMPushButton``.
     #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
     #. Set the ``pressValue`` property to ``-10``.
-    #. Set the ``relativeCHange`` property so instead of writting the value the
+    #. Set the ``relativeChange`` property so instead of writting the value the
        new value written to the channel will be relative to the current channel
        value.
     #. Set the ``text`` property to ``Tw -10``.
@@ -210,14 +210,15 @@ The finished result will look like this:
 
        .. note::
 
-          We will create the ``expert_motor.ui`` file on the next section.
+          We will create the ``expert_motor.ui`` file in the next section.
 
     #. Set the ``macros`` property to ``{"MOTOR":"${MOTOR}"}``.
 
        * This macro will use the received macro ``${MOTOR}`` and retransmit it to
-         the new window.
+         the new window.  This is a workaround for a bug - in the future, macros
+         defined on the first display will automatically be passed to new displays.
 
-    #. Set the ``openInNewWindow`` property so the screen show up in a standalone
+    #. Set the ``openInNewWindow`` property so the screen will show up in a standalone
        window.
     #. Expand the ``minimumSize`` property and set ``Width`` to ``125`` and
        ``Height`` to ``24``.
@@ -274,7 +275,7 @@ The finished result will look like this:
 
   .. warning::
      For this tutorial it is important to use this file name as it will be referenced
-     at the other sections. If you change it please remember to also change at the
+     at the other sections. If you change it, please remember to also change it in the
      next steps when referenced.
 
 * **Step 5.**

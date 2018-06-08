@@ -13,10 +13,10 @@ Expert Motor Screen
     * That all :ref:`three IOCs <IOCS>` are running.
 
 
-For this screen we will want to present to the user detailed information for the
-Also, to ensure that we can re-use this screen into other displays, it will be
-necessary to use :ref:`Macros` in this screen that will later be replaced by the
-proper information depending on each motor.
+For this screen we will present detailed information to the user for the motors.
+Also, to ensure that we can re-use this screen in other displays, it will be
+necessary to use :ref:`Macros` that will later be replaced by the proper information
+for each motor.
 
 The finished result will look like this:
 
@@ -39,8 +39,8 @@ The finished result will look like this:
 
 * **Step 2.**
 
-  With the new form available, let's add a ``QVBoxLayout`` widget to it and to make
-  it fill the whole form let's select ``Layout Vertically`` for the Form.
+  With the new form available, let's add a ``QVBoxLayout`` widget and make
+  it fill the whole form. Let's select ``Layout Vertically`` for the Form.
 
   .. figure:: /_static/action/expert/expert_layout.gif
      :scale: 100 %
@@ -59,14 +59,18 @@ The finished result will look like this:
 
     The first ``QLabel`` will be the title of our screen:
 
-    #. Drag and drop a ``QLabel`` at the previously added ``QVBoxLayout``.
+    #. Drag and drop a ``QLabel`` into the previously added ``QVBoxLayout``.
     #. Set the ``text`` property of this label to: ``Configuring Motor: ${MOTOR}``.
 
        .. note::
 
-          :ref:`Macros` are not something exclusive of PyDM Widgets, they can be
-          used with any kind of widget and at any property, in this case we are
-          using it to add the motor ``PV`` name to the title.
+          :ref:`Macros` are not something exclusive to PyDM Widgets, they can be
+          used with any kind of widget and in any property, in this case we are
+          using it to add the motor ``PV`` name to the title.  However, due to
+          limitations in Qt Designer, you cannot specify a macro for a variable
+          that is numeric-only inside designer itself.  An (unfortunate) work-around
+          is to edit the .ui file in a text editor, and insert your macro variable 
+          into the XML that defines the display.
 
     #. In order to make the label look better as a title, add the following to
        the ``stylesheet`` property:
@@ -90,7 +94,7 @@ The finished result will look like this:
     The second widget that we will add is a ``QFrame``, which will be the container
     of the fields in our form:
 
-    #. Drag and drop a ``QFrame`` at the previously added ``QVBoxLayout`` under
+    #. Drag and drop a ``QFrame`` into the previously added ``QVBoxLayout`` under
        the ``QLabel`` that was added at **Step 3.1**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``.
@@ -110,7 +114,7 @@ The finished result will look like this:
     Now to ensure the alignment and positioning of the form content, let's add a
     ``QFormLayout``:
 
-    #. Drag and drop a ``QFormLayout`` at the previously added ``QFrame``.
+    #. Drag and drop a ``QFormLayout`` into the previously added ``QFrame``.
     #. Right-click the ``QFrame`` and select ``Layout > Layout Vertically``.
 
        - This will make the QFormLayout fill the whole space of the ``QFrame``
@@ -130,14 +134,14 @@ The finished result will look like this:
 
   * **Step 3.4.**
 
-    Now that we have our ``QFormLayout`` ready it is time to start adding the form
+    Now that we have our ``QFormLayout`` ready, it is time to start adding the form
     widgets. Let's start with the first pair of ``QLabel`` and ``PyDMLineEdit`` that
     will be used to edit the **Description** of the Motor:
 
-    #. Drag and drop a ``QLabel`` to the the previously added ``QFormLayout``.
+    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout``.
     #. Set the ``text`` property to ``Description:``.
-    #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
-       add it on the side of the previously added ``QLabel``.
+    #. Drag and drop a ``PyDMLineEdit`` into the ``QFormLayout`` paying attention to
+       add it on the right side of the previously added ``QLabel``.
 
        .. note::
 
@@ -153,7 +157,7 @@ The finished result will look like this:
     Let's now add the second pair of ``QLabel`` and ``PyDMLineEdit`` that
     will be used to edit the **Position** of the Motor:
 
-    #. Drag and drop a ``QLabel`` to the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
        under the previously added components.
 
        .. note::
@@ -162,7 +166,7 @@ The finished result will look like this:
           know that the widget will be placed at the expected place.
 
     #. Set the ``text`` property to ``Position:``.
-    #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
+    #. Drag and drop a ``PyDMLineEdit`` into the ``QFormLayout`` paying attention to
        add it on the side of the previously added ``QLabel``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.VAL``.
     #. Set the ``displayFormat`` property to ``Decimal``.
@@ -171,24 +175,24 @@ The finished result will look like this:
 
   * **Step 3.6.**
 
-    Let's now add the another pair of ``QLabel`` and, this time, a ``PyDMLabel`` that
+    Let's now add a ``QLabel``, and this time, a ``PyDMLabel`` that
     will be used to read the **Readback Position** of the Motor:
 
-    #. Drag and drop a ``QLabel`` to the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Readback:``.
     #. Drag and drop a ``PyDMLabel`` to the ``QFormLayout`` paying attention to
-       add it on the side of the previously added ``QLabel``.
+       add it on the right side of the previously added ``QLabel``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.RBV``.
     #. Set the ``displayFormat`` property to ``Decimal``.
     #. Select the ``showUnits`` property.
 
   * **Step 3.7.**
 
-    Let's add another pair of ``QLabel`` and ``PyDMLineEdit`` that will be used
+    Let's add another ``QLabel`` and ``PyDMLineEdit`` pair that will be used
     to edit the **Velocity** of the Motor:
 
-    #. Drag and drop a ``QLabel`` to the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Velocity:``.
     #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
@@ -201,10 +205,10 @@ The finished result will look like this:
 
   * **Step 3.8.**
 
-    And now to the last pair of ``QLabel`` and ``PyDMLineEdit`` that will be used
+    And now to the last ``QLabel`` and ``PyDMLineEdit`` pair that will be used
     to edit the **Acceleration** of the Motor:
 
-    #. Drag and drop a ``QLabel`` to the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Acceleration:``.
     #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
@@ -238,7 +242,7 @@ The finished result will look like this:
        layoutFormAlignment > Vertical      AlignVCenter
        ==================================  ==================
 
-    #. Still with the ``Object Inspector``, now select the ``frame`` object,
+    #. Continuing with the ``Object Inspector``, select the ``frame`` object,
        scroll down the ``Property Editor`` until the end and set the properties
        according to the table below:
 
@@ -262,7 +266,7 @@ The finished result will look like this:
        layoutSpacing                       0
        ==================================  ==================
 
-    #. Finally, with the ``Object Inspector``, now select the ``Form`` object
+    #. Finally, with the ``Object Inspector`` select the ``Form`` object
        set the properties according to the table below:
 
        ==================================  ==================
@@ -288,7 +292,7 @@ The finished result will look like this:
   Save this file as ``expert_motor.ui``.
 
   .. warning::
-     For this tutorial it is important to use this file name as it will be referenced
+     For this tutorial it is important to use this file name, as it will be referenced
      at the other sections. If you change it please remember to also change at the
      next steps when referenced.
 

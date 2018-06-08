@@ -42,8 +42,8 @@ right.
 To make a new PyDM display, go to File->New..., then choose to build a new Widget.
 
 .. note::
-    All PyDM displays must have a Widget for the base - if you try to use
-    MainWindow, your display will not work properly.
+    All PyDM displays must have a Widget for the base - if you try to make 
+    one using a MainWindow, your display will not work properly.
 
 .. figure:: /_static/action/new_widget.png
    :scale: 100 %
@@ -69,6 +69,6 @@ file somewhere.
 
 We launch this screen with the following command::
 
-  $ pydm <your file name>
+  $ pydm <path to your file>
 
-with the .ui file you just saved.  This will open your display in PyDM.
+for the .ui file you just saved.  This will open your display in PyDM.
