@@ -31,5 +31,5 @@ Another example is the Archiver Appliance plugin in which channels are specified
    archiver://pv=test:pv:123&donotchunk
 
 In which everything in the ``channel address`` section is the same as what is sent
-to the ``retrieval`` part of the Archiver as specified at the **Retrieving data **
+to the ``retrieval`` part of the Archiver as specified at the **Retrieving data**
 **using other tools** section of the `Archiver Appliance User Guide <https://slacmshankar.github.io/epicsarchiver_docs/userguide.html>`_

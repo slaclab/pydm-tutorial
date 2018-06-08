@@ -42,7 +42,7 @@ The finished result will look like this:
   With the new form available, let's add a ``QVBoxLayout`` widget and make
   it fill the whole form. Let's select ``Layout Vertically`` for the Form.
 
-  .. figure:: /_static/action/expert/expert_layout.gif
+  .. figure:: /_static/action/inline/inline_layout.gif
      :scale: 100 %
      :align: center
 

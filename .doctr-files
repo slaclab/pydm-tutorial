@@ -2,6 +2,7 @@
 ./_downloads/expert_motor.ui
 ./_downloads/inline_motor.ui
 ./_downloads/main.py
+./_downloads/main.ui
 ./_downloads/motor_db.txt
 ./_images/all_motors.gif
 ./_images/all_motors.png
@@ -11,7 +12,6 @@
 ./_images/designer.png
 ./_images/expert.png
 ./_images/expert_all_widgets_ok.png
-./_images/expert_layout.gif
 ./_images/inline.png
 ./_images/inline_3_2.gif
 ./_images/inline_3_3.gif
@@ -25,12 +25,15 @@
 ./_images/inline_desc.gif
 ./_images/inline_layout.gif
 ./_images/main.gif
+./_images/main.png
+./_images/main_all_widgets_ok.png
 ./_images/main_window.png
 ./_images/new_widget.gif
 ./_images/new_widget.png
 ./_images/pydm_properties.png
 ./_images/widgets.png
 ./_images/widgets1.png
+./_images/widgets2.png
 ./_sources/action/designer.rst.txt
 ./_sources/action/designer_expert.rst.txt
 ./_sources/action/designer_inline.rst.txt
@@ -72,6 +75,9 @@
 ./_static/action/inline/inline_layout.gif
 ./_static/action/inline/widgets.png
 ./_static/action/little_code/main.gif
+./_static/action/main/main.png
+./_static/action/main/main_all_widgets_ok.png
+./_static/action/main/widgets.png
 ./_static/action/new_widget.gif
 ./_static/action/new_widget.png
 ./_static/action/pydm_properties.png
