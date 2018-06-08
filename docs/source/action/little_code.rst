@@ -1,3 +1,5 @@
+.. _LittleCode:
+
 Adding Code into the Main Display
 =================================
 

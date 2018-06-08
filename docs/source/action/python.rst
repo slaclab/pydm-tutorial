@@ -1,3 +1,5 @@
+.. _PurePython:
+
 Making Pure Python Displays
 ===========================
 
