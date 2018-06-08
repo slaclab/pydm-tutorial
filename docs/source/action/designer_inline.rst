@@ -3,6 +3,15 @@
 Inline Motor Screen
 ===================
 
+.. important::
+
+    **Check-list:**
+
+    * Make sure that you have your :ref:`Environment <Environment>` properly configured.
+    * That your :ref:`VirtualMachine` is up and ready.
+    * That the :ref:`Python environment <PythonEnv>` is set.
+    * That all :ref:`three IOCs <IOCS>` are running.
+
 For this screen we will want to present to the user useful information to operate
 the motors but also provide a way for them to access other parameters considered
 **Expert**. Also, to ensure that we can re-use this screen into other displays,
@@ -61,6 +70,7 @@ The finished result will look like this:
     .. figure:: /_static/action/inline/inline_desc.gif
        :scale: 100 %
        :align: center
+
 
   * **Step 3.2.**
 

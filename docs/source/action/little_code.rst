@@ -1,6 +1,15 @@
 Adding Code into the Main Display
 =================================
 
+.. important::
+
+    **Check-list:**
+
+    * Make sure that you have your :ref:`Environment <Environment>` properly configured.
+    * That your :ref:`VirtualMachine` is up and ready.
+    * That the :ref:`Python environment <PythonEnv>` is set.
+    * That all :ref:`three IOCs <IOCS>` are running.
+
 For this particular application it would be of interest to not only see the beam
 image on the screen but to also calculate the maximum point on the image and display
 the coordinates in a label.

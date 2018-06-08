@@ -20,10 +20,13 @@ tasks, and plug-ins for multiple control systems.
    intro.rst
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Introduction
 
-   intro/important_concepts.rst
+   intro/launcher.rst
+   intro/channels.rst
+   intro/data_arch.rst
+   intro/macros.rst
    intro/widgets.rst
    intro/datasource.rst
 
@@ -31,8 +34,8 @@ tasks, and plug-ins for multiple control systems.
    :maxdepth: 2
    :caption: Hands-on
 
-   action/intro_designer.rst
    action/tutorial.rst
+   action/intro_designer.rst
    action/designer.rst
    action/intro_python.rst
    action/little_code.rst

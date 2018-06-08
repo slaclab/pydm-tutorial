@@ -1,6 +1,15 @@
 Making Pure Python Displays
 ===========================
 
+.. important::
+
+    **Check-list:**
+
+    * Make sure that you have your :ref:`Environment <Environment>` properly configured.
+    * That your :ref:`VirtualMachine` is up and ready.
+    * That the :ref:`Python environment <PythonEnv>` is set.
+    * That all :ref:`three IOCs <IOCS>` are running.
+
 Like we saw at the :ref:`A Word About Python Display <Python>` section it is
 possible to make displays using Python but is also possible to make displays
 without using the Qt Designer at all and write the whole code for a user interface.

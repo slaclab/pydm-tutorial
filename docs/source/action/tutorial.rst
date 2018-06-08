@@ -3,11 +3,10 @@
 About the Application
 =====================
 
-In order to demonstrate concepts and capabilities of PyDM in a meaningful way
-other than just jump through a couple of examples demonstrating each widget
-individually it makes more sense to go through a Tutorial in which an
-application is developed adding together widgets to accomplish a certain goal
-and with that be closer to a daily usage of a Display Manager tool.
+
+To demonstrate the concepts and capabilities of PyDM, let's develop an real
+application composed of PyDM widgets for beam positioning and alignment.
+
 
 PyDM allow users to create screens in three ways:
 
@@ -42,12 +41,14 @@ Macro Components
    :align: center
    :alt: Tutorial Application
 
-The ``main.ui`` file (Highlighted in Red) uses twice an embedded display
-(Highlighted in Green) which points to ``inline_motor.ui`` for **Motor X**
-and **Motor Y**.
-Inside of this embedded display there is a related display button (Highlighted
-in Orange) which launches the ``expert_motor.ui`` for configuration of motor
-parameters.
-Finally, the **View All Motors** related display button (Highlighted in Blue)
-launches the ``all_motors.py`` screen in which we can list all motor axis
-available.
+- The ``main.ui`` file (Highlighted in Red) uses twice an embedded display
+  (Highlighted in Green) which points to ``inline_motor.ui`` for **Motor X**
+  and **Motor Y**.
+
+- Inside of this embedded display there is a related display button (Highlighted
+  in Orange) which launches the ``expert_motor.ui`` for configuration of motor
+  parameters.
+
+- Finally, the **View All Motors** related display button (Highlighted in Blue)
+  launches the ``all_motors.py`` screen in which we can list all motor axis
+  available.
