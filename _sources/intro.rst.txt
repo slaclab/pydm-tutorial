@@ -13,8 +13,25 @@ be developed during this tutorial.
 
 You can download the disk using this `Link <https://drive.google.com/file/d/1ZrcDf2oMj_PwVFFQN-y1-ZwR_bp_5aur/view?usp=sharing>`_.
 
-After downloading it, extract the ``.tar.gz`` file and create a new Virtual Machine at the virtualization client of your preference.
-We used `Oracle VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ to create this machine.  It is available for Windows, OS X and Linux hosts.
+Using the Downloaded Disk
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After downloading it, extract the ``.tar.gz`` file, create a new Virtual Machine at the virtualization client of your preference.
+
+The instructions below are for `Oracle VirtualBox <https://www.virtualbox.org/wiki/Downloads>`_ .
+Oracle VirtualBox is available for Windows, OS X and Linux hosts.
+
+This file is not a complete Virtual Machine dump that can be imported but instead a disk.
+
+In order to use this disk, start by creating a new virtual Machine, select Type as ``Linux`` and Version as ``Ubuntu (64-bit)``.
+Configure the amount of memory to use (something greater or equal 2048MB should do it.
+Make sure to select ``Use an existing virtual hard disk file.`` and select the extracted ``.vmdk`` file.
+
+.. figure:: /_static/new_vm.png
+    :scale: 100 %
+    :align: center
+    :alt: Create new VM
+
 
 Useful Virtual Machine Information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

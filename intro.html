@@ -86,6 +86,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up the Environment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#virtual-machine">Virtual Machine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-downloaded-disk">Using the Downloaded Disk</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#useful-virtual-machine-information">Useful Virtual Machine Information</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#user-account">User Account</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#python-environment">Python Environment</a></li>
@@ -196,8 +197,19 @@
 <p>We provide a virtual machine disk that is the base for the application that will
 be developed during this tutorial.</p>
 <p>You can download the disk using this <a class="reference external" href="https://drive.google.com/file/d/1ZrcDf2oMj_PwVFFQN-y1-ZwR_bp_5aur/view?usp=sharing">Link</a>.</p>
-<p>After downloading it, extract the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file and create a new Virtual Machine at the virtualization client of your preference.
-We used <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">Oracle VirtualBox</a> to create this machine.  It is available for Windows, OS X and Linux hosts.</p>
+<div class="section" id="using-the-downloaded-disk">
+<h3>Using the Downloaded Disk<a class="headerlink" href="#using-the-downloaded-disk" title="Permalink to this headline">¶</a></h3>
+<p>After downloading it, extract the <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> file, create a new Virtual Machine at the virtualization client of your preference.</p>
+<p>The instructions below are for <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">Oracle VirtualBox</a> .
+Oracle VirtualBox is available for Windows, OS X and Linux hosts.</p>
+<p>This file is not a complete Virtual Machine dump that can be imported but instead a disk.</p>
+<p>In order to use this disk, start by creating a new virtual Machine, select Type as <code class="docutils literal notranslate"><span class="pre">Linux</span></code> and Version as <code class="docutils literal notranslate"><span class="pre">Ubuntu</span> <span class="pre">(64-bit)</span></code>.
+Configure the amount of memory to use (something greater or equal 2048MB should do it.
+Make sure to select <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">virtual</span> <span class="pre">hard</span> <span class="pre">disk</span> <span class="pre">file.</span></code> and select the extracted <code class="docutils literal notranslate"><span class="pre">.vmdk</span></code> file.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/new_vm.png"><img alt="Create new VM" src="_images/new_vm.png" style="width: 1944.0px; height: 1484.0px;" /></a>
+</div>
+</div>
 <div class="section" id="useful-virtual-machine-information">
 <h3>Useful Virtual Machine Information<a class="headerlink" href="#useful-virtual-machine-information" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="user-account">

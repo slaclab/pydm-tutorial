@@ -4,7 +4,7 @@ Widgets
 Organization
 ------------
 
-PyDM Widgets are divided into 4 main categories:
+PyDM Widgets are divided into 5 main categories:
 
 - Display Widgets
     Widgets used for visualization of channels such as Label, Byte Indicator, Image Viewer, Symbol and others.

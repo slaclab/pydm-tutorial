@@ -28,6 +28,7 @@
 ./_images/main.png
 ./_images/main_all_widgets_ok.png
 ./_images/main_window.png
+./_images/new_vm.png
 ./_images/new_widget.gif
 ./_images/new_widget.png
 ./_images/pydm_properties.png
@@ -137,6 +138,7 @@
 ./_static/js/modernizr.min.js
 ./_static/js/theme.js
 ./_static/minus.png
+./_static/new_vm.png
 ./_static/plus.png
 ./_static/pygments.css
 ./_static/searchtools.js
