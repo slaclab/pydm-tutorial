@@ -35,6 +35,13 @@ The finished result will look like this:
      :scale: 100 %
      :align: center
 
+  Save this file as ``main.ui``.
+
+  .. warning::
+     For this tutorial it is important to use this file name, as it will be referenced
+     at the other sections. If you change it please remember to also change at the
+     next steps when referenced.
+
 * **Step 2.**
 
   With the new form available, let's add a ``QVBoxLayout`` widget and make
@@ -58,8 +65,7 @@ The finished result will look like this:
 
     #. Drag and drop a ``QLabel`` into the previously added ``QVBoxLayout``.
     #. Set the ``text`` property of this label to: ``Beam Alignment``.
-    #. In order to make the label look better as a title, add the following to
-       the ``stylesheet`` property:
+    #. In order to make the label look better as a title, add the following to the ``stylesheet`` property:
 
        .. code-block:: css
 
@@ -75,7 +81,6 @@ The finished result will look like this:
                 font-size: 14px;
             }
 
-
   * **Step 3.2.**
 
     The second widget that we will add is a ``PyDMImageView``, which will display
@@ -83,6 +88,13 @@ The finished result will look like this:
 
     #. Drag and drop a ``PyDMImageView`` into the previously added ``QVBoxLayout`` under
        the ``QLabel`` that was added at **Step 3.1**.
+    #. Set the ``objectName`` property of this widget to ``imageView``.
+
+        .. important::
+
+            It is very important to set the ``objectName`` property of widgets as instructed, using Qt Designer, so that
+            you can refer to them by the Python code you are to add in the later steps.
+
     #. Set the ``imageChannel`` property to ``ca://13SIM1:image1:ArrayData``.
     #. Set the ``widthChannel`` property to ``ca://13SIM1:image1:ArraySize1_RBV``.
     #. Set the ``readingOrder`` property to ``Clike``.
@@ -102,49 +114,27 @@ The finished result will look like this:
     The fourth widget that we will add is a ``QLabel``, which will updated with
     the result of the calculation of beam position at the next section (:ref:`LittleCode`):
 
-    #. Drag and drop a ``QVBoxLayout`` into ``QVBoxLayout`` that was added at
-       **Step 3.3**.
+    #. Drag and drop a ``QLabel`` into ``QVBoxLayout`` that was added at
+       **Step 3.3**. Make sure you drop this ``QLabel`` widget into the ``QVBoxLayout`` at **Step 3.3** and not the
+       ``QVBoxLayout`` added at **Step 3.2**.
     #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
 
        .. important::
 
-          It is very important to set the ``objectName`` property of widgets at
-          the designer that you intend to access them using Code otherwise the
-          names will be automatically assigned and will not make much sense later
-          on.
+            It is very important to set the ``objectName`` property of widgets as instructed, using Qt Designer, so that
+            you can refer to them by the Python code you are to add in the later steps.
 
     #. Set the ``text`` property to empty so this label will only show information
        when we write to it using the code later on.
 
   * **Step 3.5.**
 
-    The fifth widget that we will add is a ``QLabel``, which will updated with
-    the result of the calculation of beam position at the next section (:ref:`LittleCode`):
+    The fifth widget that we will add is another ``QLabel``, which will the title of our controls area:
 
-    #. Drag and drop a ``QVBoxLayout`` into ``QVBoxLayout`` that was added at
-       **Step 3.3**.
-    #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
-
-       .. important::
-
-          It is very important to set the ``objectName`` property of widgets at
-          the designer that you intend to access them using Code otherwise the
-          names will be automatically assigned and will not make much sense later
-          on.
-
-    #. Set the ``text`` property to empty so this label will only show information
-       when we write to it using the code later on.
-
-  * **Step 3.6.**
-
-    The sixty widget that we will add is another ``QLabel``, which will the title
-    of our controls area:
-
-    #. Drag and drop a ``QLabel`` into ``QVBoxLayout`` that was added at
-       **Step 3.3** right under the QLabel added at **Step 3.5**.
+    #. Drag and drop a ``QLabel`` under the QLabel added at **Step 3.4**. The new label should be directly contained by
+       the ``QVBoxLayout`` that was added at **Step 3.3**.
     #. Set the ``text`` property of this label to: ``Controls``.
-    #. In order to make the label look better as a title, add the following to
-       the ``stylesheet`` property:
+    #. In order to make the label look better as a title, add the following to the ``stylesheet`` property:
 
        .. code-block:: css
 
@@ -160,12 +150,12 @@ The finished result will look like this:
                 font-size: 14px;
             }
 
-  * **Step 3.7.**
+  * **Step 3.6.**
 
-    The seventh widget that we will add is a ``QFrame``, which will be the container
+    The sixth widget that we will add is a ``QFrame``, which will be the container
     for our two motors ``Embedded Displays``:
 
-    #. Drag and drop a ``QFrame`` under the QLabel added at **Step 3.6**.
+    #. Drag and drop a ``QFrame`` under the QLabel added at **Step 3.5**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``
     #. Set the ``stylesheet`` property to:
@@ -178,35 +168,36 @@ The finished result will look like this:
                 border-bottom-right-radius: 15px;
             }
 
-  * **Step 3.8.**
+  * **Step 3.7.**
 
-    The eight widget that we will add is a ``PyDMEmbeddedDisplay``, which will
+    The seventh widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our first motor axis:
 
-    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added at **Step 3.7**.
-    #. Right-click at the ``QFrame`` from **Step 3.7** and select ``Layout >> Layout Vertically``.
-    #. Set the ``macros`` property to ``{"MOTOR":"IOC:m1"}``.
-    #. Set the ``filename`` property to ``inline_motor.ui``.
+    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added at **Step 3.6**.
+    #. Right-click at the ``QFrame`` from **Step 3.6** and select ``Layout >> Layout Vertically``.
+    #. Set the embedded display's ``macros`` property to ``{"MOTOR":"IOC:m1"}``.
+    #. Set the embedded display's ``filename`` property to ``inline_motor.ui``.
 
-  * **Step 3.9.**
+  * **Step 3.8.**
 
-    The nineth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
+    The eighth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our second motor axis:
 
     #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added at **Step 3.7**.
-    #. Set the ``macros`` property to ``{"MOTOR":"IOC:m2"}``.
-    #. Set the ``filename`` property to ``inline_motor.ui``.
+    #. Set the embedded display's ``macros`` property to ``{"MOTOR":"IOC:m2"}``.
+    #. Set the embedded display's ``filename`` property to ``inline_motor.ui``.
 
-  * **Step 3.10.**
+  * **Step 3.9.**
 
-    Finally, the tenth widget that we will add is a ``PyDMRelatedDisplayButton``, which will
+    Finally, the ninth widget that we will add is a ``PyDMRelatedDisplayButton``, which will
     open the ``All Motors`` screen that will be developed :ref:`later <PurePython>`:
 
     #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``QVBoxLayout`` added at **Step 2**.
+    #. Set the ``text`` property of this label to ``View All Monitors``.
     #. Set the ``displayFilename`` property to ``all_motors.py``.
     #. Remove the mark at the ``openInNewWindow`` property.
 
-  * **Step 3.11.**
+  * **Step 3.10.**
 
     Once all the widgets are added to the form, it is now time to adjust the layouts
     and make sure that all is well positioned and behaving nicely.
@@ -252,12 +243,7 @@ The finished result will look like this:
 
 * **Step 4.**
 
-  Save this file as ``main.ui``.
-
-  .. warning::
-     For this tutorial it is important to use this file name, as it will be referenced
-     at the other sections. If you change it please remember to also change at the
-     next steps when referenced.
+  Save this file as ``main.ui`` again if necessary.
 
 * **Step 5.**
 

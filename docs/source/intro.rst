@@ -24,7 +24,7 @@ Oracle VirtualBox is available for Windows, OS X and Linux hosts.
 This file is not a complete Virtual Machine dump that can be imported but instead a disk.
 
 In order to use this disk, start by creating a new virtual Machine, select Type as ``Linux`` and Version as ``Ubuntu (64-bit)``.
-Configure the amount of memory to use (something greater or equal 2048MB should do it.
+Configure the amount of memory to use (something greater than or equal to 4096 MB should do it.
 Make sure to select ``Use an existing virtual hard disk file.`` and select the extracted ``.vmdk`` file.
 
 .. figure:: /_static/new_vm.png
@@ -62,7 +62,8 @@ Simulated EPICS IOCs
 ++++++++++++++++++++
 
 This machine comes with simulated motors and cameras.
-The IOCs can be started through their launcher scripts available at:
+The IOCs can be started through their launcher scripts available below. You can run these launcher scripts concurrently.
+Each script can be on either a terminal tab or console.
 
 .. code-block:: bash
 
@@ -76,6 +77,9 @@ The IOCs can be started through their launcher scripts available at:
 
     # For the linking IOC
     ./simLinker
+
+.. note::
+   You must activate the tutorial Python environment before starting the IOCs.
 
 For AreaDetector (cameras):
 

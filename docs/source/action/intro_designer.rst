@@ -28,7 +28,7 @@ building user interfaces.
       C:\> designer
 
 Once you open Designer, you'll be greeted by a mostly
-blank screen, with a list of widgets on the left, and a property inspector on the
+blank screen, with a list of widgets on the left, and a Property Editor on the
 right.
 
 .. figure:: /_static/action/designer.png

@@ -36,10 +36,20 @@ The finished result will look like this:
      :scale: 100 %
      :align: center
 
+  Save this file as ``inline_motor.ui``.
+
+  .. warning::
+     For this tutorial it is important to use this file name as it will be referenced
+     at the other sections. If you change it, please remember to also change it in the
+     next steps when referenced.
+
 * **Step 2.**
 
-  With the new form available, let's add a GridLayout widget to it and to make it
-  fill the whole form let's select ``Layout Vertically`` for the Form.
+  With the new form available, let's add a ``QGridLayout`` widget to it. Look for the "Grid Layout" widget in the Widget
+  Box of Qt Designer.
+
+  To make the ``QGridLayout`` fill the whole form, click the canvas (outside of the widget) and select ``Layout
+  Vertically`` from the Layout context menu.
 
   .. figure:: /_static/action/inline/inline_layout.gif
      :scale: 100 %
@@ -58,19 +68,24 @@ The finished result will look like this:
     The first ``PyDMLabel`` will display the description of the Motor:
 
     #. Drag and drop a ``PyDMLabel`` at the previously added ``GridLayout``.
-    #. Set the ``Channel`` property of this label to: ``ca://${MOTOR}.DESC``.
+    #. Click on the ``PyDMLabel`` and locate the ``channel`` property in the Property Editor. Set the ``channel``
+       property of this label to: ``ca://${MOTOR}.DESC``.
 
        * ${MOTOR} is the macro that will later be replaced by the value sent by screens
          using this widget in embedded displays, related displays or even when launching
          using the command line.
 
-    #. Set the ``displayFormat`` property of this label to: ``String``.
+    #. Locate the ``displayFormat`` property in the Property Editor. Set the ``displayFormat`` property of this label
+       to: ``String``.
     #. Expand the ``Font`` property and mark the checkbox for ``Bold``.
 
     .. figure:: /_static/action/inline/inline_desc.gif
        :scale: 100 %
        :align: center
 
+    .. note::
+        You can type the name of the property you want to look for into the Filter edit box of the Property Editor to
+        quickly jump to that property.
 
   * **Step 3.2.**
 
@@ -80,7 +95,7 @@ The finished result will look like this:
     #. Drag and drop a ``PyDMLineEdit`` at the ``GridLayout`` on the side of the
        previously added ``PyDMLabel`` (**Note**: The border will become blue showing that
        the widget will be placed on the side and not on top or under the other widget).
-    #. Set the ``Channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
+    #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
     #. Change its ``displayFormat`` property to ``Decimal``.
     #. Expand the ``sizePolicy`` property and set ``Horizontal Policy`` and
        ``Vertical Policy`` to ``Fixed``.
@@ -103,7 +118,7 @@ The finished result will look like this:
 
     #. Drag and drop a ``PyDMLabel`` at the ``GridLayout`` on the side of the
        previously added ``PyDMLineEdit``.
-    #. Set the ``Channel`` property of this line edit to: ``ca://${MOTOR}.RBV``.
+    #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.RBV``.
     #. Change its ``displayFormat`` property to ``Decimal``.
     #. Expand the ``sizePolicy`` property and set ``Horizontal Policy`` and
        ``Vertical Policy`` to ``Fixed``.
@@ -126,7 +141,7 @@ The finished result will look like this:
 
     #. Drag and drop a ``PyDMByteIndicator`` at the ``GridLayout`` on the side of the
        previously added ``PyDMLabel``.
-    #. Set the ``Channel`` property of this line edit to: ``ca://${MOTOR}.MOVN``.
+    #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.MOVN``.
     #. Turn off the ``showLabels`` property since we are only interested on the
        color for this widget.
     #. Set the ``circles`` property so we have a circle instead of a square.
@@ -271,12 +286,7 @@ The finished result will look like this:
 
 * **Step 4.**
 
-  Save this file as ``inline_motor.ui``.
-
-  .. warning::
-     For this tutorial it is important to use this file name as it will be referenced
-     at the other sections. If you change it, please remember to also change it in the
-     next steps when referenced.
+  Save this file as ``inline_motor.ui`` again if necessary.
 
 * **Step 5.**
 

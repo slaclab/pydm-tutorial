@@ -29,7 +29,16 @@ That is accomplished by subclassing `Display` (See :ref:`Display` for more detai
    The first thing that we will do is add the imports needed for the code that
    will follow.
 
-   .. code-block:: python
+   Let's create a new file and save this file as ``main.py``.
+
+   .. warning::
+        For this tutorial it is important to use this file name as it will be referenced
+        at the other sections. If you change it please remember to also change in the
+        other steps when referenced.
+
+  Enter the following first lines of code:
+
+  .. code-block:: python
 
        import time
        from os import path
@@ -75,6 +84,7 @@ That is accomplished by subclassing `Display` (See :ref:`Display` for more detai
   #. ``ui_filepath`` method returning the full path to the ``ui_filename`` so PyDM
      can properly load it.
 
+
   * **Step 2.1.**
 
     Adding code to the ``process_image`` callback method so we can calculate the
@@ -102,6 +112,7 @@ That is accomplished by subclassing `Display` (See :ref:`Display` for more detai
     to calculate the coordinates for the maximum spot and save it to ``self.blob``.
     At the end, this method returns the unmodified image, which the ImageView will display.
 
+
   * **Step 2.2.**
 
     Adding code to the ``show_blob`` method so we update the ``QLabel`` with the
@@ -123,12 +134,7 @@ That is accomplished by subclassing `Display` (See :ref:`Display` for more detai
 
 * **Step 3.**
 
-  Save this file as ``main.py``.
-
-  .. warning::
-     For this tutorial it is important to use this file name as it will be referenced
-     at the other sections. If you change it please remember to also change in the
-     other steps when referenced.
+  Save this file as ``main.py`` again if necessary.
 
 * **Step 4.**
 
