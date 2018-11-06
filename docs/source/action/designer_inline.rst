@@ -210,12 +210,6 @@ The finished result will look like this:
 
           We will create the ``expert_motor.ui`` file in the next section.
 
-    #. Set the ``macros`` property to ``{"MOTOR":"${MOTOR}"}``.
-
-       * This macro will use the received macro ``${MOTOR}`` and retransmit it to
-         the new window.  This is a workaround for a bug - in the future, macros
-         defined on the first display will automatically be passed to new displays.
-
     #. Set the ``openInNewWindow`` property so the screen will show up in a standalone
        window.
     #. Expand the ``minimumSize`` property and set ``Width`` to ``125`` and
