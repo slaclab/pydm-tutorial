@@ -4,20 +4,20 @@ About the Application
 =====================
 
 
-To demonstrate the concepts and capabilities of PyDM, let's develop an real
+To demonstrate the concepts and capabilities of PyDM, let's develop a real
 application composed of PyDM widgets for beam positioning and alignment.
 
 
-PyDM allow users to create screens in three ways:
+PyDM allows users to create screens in three ways:
 
-#. Using only the Qt Designer (.ui file)
-#. Using the Qt Designer and Python Code (.ui and .py files)
+#. Using only the Qt Designer application (.ui file)
+#. Using Qt Designer and Python Code (.ui and .py files)
 #. Using only Python code (.py file)
 
 In most of the cases users will choose between numbers 1 and 2 and in rare cases
 go with number 3.
 
-This tutorial will also cover the three scenarios above while doing the proposed
+This tutorial will also cover the three scenarios above while building the proposed
 application.
 
 The application is a simulated x-ray beam positioning/alignment application

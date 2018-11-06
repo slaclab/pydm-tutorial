@@ -96,7 +96,7 @@ Here is how it will look once we are done:
 
   * **Step 2.1.**
 
-    Adding the code to the ``load_data`` method.
+    Add the code to the ``load_data`` method.
 
     .. note::
 
@@ -118,7 +118,7 @@ Here is how it will look once we are done:
 
   * **Step 2.2.**
 
-    Adding the code to the ``setup_ui`` method.
+    Add the code to the ``setup_ui`` method.
 
     .. note::
 
@@ -197,7 +197,7 @@ Here is how it will look once we are done:
 
   * **Step 2.3.**
 
-    Adding the code to connect the ``QPushButton`` click and perform the search
+    Add the code to connect the ``QPushButton`` click and perform the search
     on our data.
 
     .. note::
