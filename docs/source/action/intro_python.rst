@@ -44,8 +44,8 @@ Your display must subclass Display, and implement a few required methods::
   from os import path
   from pydm import Display
   class MyDisplay(Display):
-    def __init__(self, parent=None, args=[]):
-      super(MyDisplay, self).__init__(parent=parent, args=args)
+    def __init__(self, parent=None, args=None, macros=None):
+      super(MyDisplay, self).__init__(parent=parent, args=args, macros=macros)
 
     def ui_filename(self):
       return 'my_display.ui'
@@ -98,7 +98,7 @@ Handling Command Line Arguments
 Displays can accept command line arguments supplied at launch.  Your display's
 initializer has a named argument called 'args'::
 
-  def __init__(self, parent=None, args=[]):
+  def __init__(self, parent=None, args=None, macros=None):
 
 It is recommended to use python's `argparse` module to parse your arguments.
 For example, you could write a method like this in your display to do this::
@@ -112,6 +112,13 @@ For example, you could write a method like this in your display to do this::
 Using command line arguments can be a good way to make displays that generate
 themselves dynamically: you could accept a filename argument, and read the contents
 of that file to add widgets to your display.
+
+Handling Macros
+^^^^^^^^^^^^^^^
+You can also use PyDM's macro system as a way to get user data into your display.
+All macros passed into your display are available as a dictionary in the initializer.
+In addition, macro substitution will always be performed on the .ui file for
+your display.
 
 Building Your Interface Dynamically
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
