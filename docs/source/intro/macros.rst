@@ -25,7 +25,7 @@ variable using the '-m' flag on the command line:
 
 .. code-block:: bash
 
-  python pydm.py -m '{"variable": "value"}' my_file.ui
+  python pydm.py -m 'variable1=value, variable2=another_value' my_file.ui
 
 Macros in Python-based Displays
 -------------------------------

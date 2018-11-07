@@ -18,16 +18,18 @@ ca          ca://<PV NAME>  ca://MTEST:Float
 ========    ==============  ================
 
 
-For this particular data plugin, two options are available for the Python interface to Channel Access.
+For this particular data plugin, three options are available for the Python interface to Channel Access.
 
 - PyEpics: http://pyepics.github.io/pyepics/
 
 - pyca: https://github.com/slaclab/pyca
 
+- caproto: https://nsls-ii.github.io/caproto/
+
 .. warning::
    By default, PyEpics is selected unless configured through the ``PYDM_EPICS_LIB`` environment variable.
 
-   Possible values are ``PYEPICS`` and ``PYCA``.
+   Possible values are ``PYEPICS``,  ``PYCA``, and ``CAPROTO``.
 
 Archiver
 --------

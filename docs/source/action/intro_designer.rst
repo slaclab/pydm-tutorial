@@ -54,7 +54,7 @@ To make a new PyDM display, go to File->New..., then choose to build a new Widge
 
 Now you should see a blank form on which you can drag widgets.
 If you drag a PyDMLabel (in the 'PyDM Display Widgets' section) onto the form,
-on the right side of the screen, you can see all the properties for this widget.
+on the right side of the screen you can see all the properties for this widget.
 At the bottom of the properties list are the PyDM-specific properties.
 
 .. figure:: /_static/action/pydm_properties.png
@@ -67,7 +67,7 @@ At the bottom of the properties list are the PyDM-specific properties.
 Once you are done with the screen design, go to File->Save... and save the .ui
 file somewhere.
 
-We launch this screen with the following command::
+We can launch this screen with the following command::
 
   $ pydm <path to your file>
 

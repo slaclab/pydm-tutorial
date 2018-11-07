@@ -13,10 +13,10 @@ the 'image_processing' example is a good place to start.
 Building Your UI In Designer
 ----------------------------
 
-When you make a Python-based display, you will still use Qt Designer to lay out
+When you make a Python-based display, you can still use Qt Designer to lay out
 your user interface.  In addition to the PyDM widget set, you may want to consider
 using some of Qt's base widgets like Line Edit, Push Button, etc, if your display
-will have some internal functionality that does not depend on a data source (like EPICS).
+will have some internal functionality that does not depend on a data source.
 
 For example, the 'positioner' example uses normal (non-PyDM) Line Edits to take
 user input, performs some math on the input, and outputs the result to PVs, which
@@ -24,8 +24,6 @@ are displayed with PyDMLabels.  If you want to dynamically generate your display
 when it launches, you should still build a UI file, but it might only have an empty
 container (like a Vertical Layout, or a Scroll Area), which you will fill with
 widgets later in your code.
-
-Once you are satisfied with your interface, save it to a .ui file.
 
 Writing The Code For Your Display
 ---------------------------------
@@ -46,8 +44,8 @@ Your display must subclass Display, and implement a few required methods::
   from os import path
   from pydm import Display
   class MyDisplay(Display):
-    def __init__(self, parent=None, args=[]):
-      super(MyDisplay, self).__init__(parent=parent, args=args)
+    def __init__(self, parent=None, args=None, macros=None):
+      super(MyDisplay, self).__init__(parent=parent, args=args, macros=macros)
 
     def ui_filename(self):
       return 'my_display.ui'
@@ -90,8 +88,9 @@ the path of the display's .py file to the filename of the .ui file.  Unfortunate
 at the time of writing you must include this yourself, it cannot be done automatically
 by PyDM.
 
-PyDM will expose all the widgets from the .ui file as a variable called 'ui'.
-To access the widgets in your code, call `self.ui.widgetName`
+PyDM will expose all the widgets from the .ui file as a variable called 'ui'
+in your display class.  To access a widget in your code, call
+`self.ui.widgetName`
 
 Handling Command Line Arguments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -99,7 +98,7 @@ Handling Command Line Arguments
 Displays can accept command line arguments supplied at launch.  Your display's
 initializer has a named argument called 'args'::
 
-  def __init__(self, parent=None, args=[]):
+  def __init__(self, parent=None, args=None, macros=None):
 
 It is recommended to use python's `argparse` module to parse your arguments.
 For example, you could write a method like this in your display to do this::
@@ -113,6 +112,13 @@ For example, you could write a method like this in your display to do this::
 Using command line arguments can be a good way to make displays that generate
 themselves dynamically: you could accept a filename argument, and read the contents
 of that file to add widgets to your display.
+
+Handling Macros
+^^^^^^^^^^^^^^^
+You can also use PyDM's macro system as a way to get user data into your display.
+All macros passed into your display are available as a dictionary in the initializer.
+In addition, macro substitution will always be performed on the .ui file for
+your display.
 
 Building Your Interface Dynamically
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

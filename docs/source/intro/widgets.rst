@@ -19,10 +19,10 @@ PyDM Widgets are divided into 5 main categories:
     Currently we offer three plot types:
 
     - Time Plot
-       Plot scalar values versus time in a synchronous or asynchronous fashion.
+       Plot scalar values versus time.
 
     - Waveform Plot
-       Plot waveform (array) values versus array index, or another waveform (array) of the same length.
+       Plot waveform (array) values versus either array index, or another waveform (array) of the same length.
 
     - Scatter Plot
        Plot one scalar channel versus a different scalar channel, adding each new data point to a ring buffer.

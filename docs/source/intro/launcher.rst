@@ -26,10 +26,10 @@ The PyDM Launcher accepts many command line arguments, here they are:
 .. code-block:: bash
 
    pydm [-h] [--perfmon] [--hide-nav-bar] [--hide-menu-bar]
-        [--hide-status-bar] [--read-only]
-        [--log_level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [-m MACRO]
+        [--hide-status-bar] [--fullscreen] [--read-only]
+        [--log_level {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [--version]
+        [-m MACRO] [--stylesheet STYLESHEET]
         [displayfile] ...
-
 
 
 Where:
@@ -42,9 +42,12 @@ Argument                   Description
 --hide-nav-bar             Start PyDM with the navigation bar hidden
 --hide-menu-bar            Start PyDM with the menu bar hidden
 --hide-status-bar          Start PyDM with the status bar hidden
+--fullscreen               Start PyDM in full screen mode.
 --read-only                Start PyDM in a Read-Only mode
 --log_level                Configure the level of the display logger.
+--version                  Show PyDM's version number and exit
 -m MACRO, --macro MACRO    Specify macro replacements to use, in JSON object format
+--stylesheet STYLESHEET    Provide the full path to a CSS stylesheet file, which contains styles to be applied to specific Qt/PyDM widgets.
 displayfile (positional)   A PyDM file to display. Can be either a Qt (.ui) file or a Python (.py) file
 display_args (positional)  Arguments to be passed to the PyDM client application and displays.
 =========================  =============================================================================

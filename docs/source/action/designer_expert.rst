@@ -48,7 +48,8 @@ The finished result will look like this:
 
 * **Step 3.**
 
-  Now that we have a layout, let's take a look at the widgets on this screen:
+  Now that we have a layout, let's take a look at the widgets we'll use on this
+  screen:
 
   .. figure:: /_static/action/expert/widgets.png
      :scale: 70 %
@@ -65,12 +66,13 @@ The finished result will look like this:
        .. note::
 
           :ref:`Macros` are not something exclusive to PyDM Widgets, they can be
-          used with any kind of widget and in any property, in this case we are
-          using it to add the motor ``PV`` name to the title.  However, due to
-          limitations in Qt Designer, you cannot specify a macro for a variable
-          that is numeric-only inside designer itself.  An (unfortunate) work-around
-          is to edit the .ui file in a text editor, and insert your macro variable 
-          into the XML that defines the display.
+          used with any kind of widget (even the basic Qt widgets) and in any
+          property. In this case we are using it to add the motor ``PV`` name
+          to the title.  However, due to limitations in Qt Designer, you cannot
+          specify a macro for a variable that is numeric-only inside Designer
+          itself.  An (unfortunate) work-around is to edit the .ui file in a
+          text editor, and insert your macro variable into the XML that defines
+          the display.
 
     #. In order to make the label look better as a title, add the following to
        the ``stylesheet`` property:
@@ -222,7 +224,7 @@ The finished result will look like this:
   * **Step 3.9.**
 
     Once all the widgets are added to the form, it is now time to adjust the layouts
-    and make sure that all is well positioned and behaving nicely.
+    and make sure that everything is well-positioned and behaving nicely.
 
     #. Using the ``Object Inspector`` at the top-right corner of the Qt Designer
        window, select the ``formLayout`` object and set the properties according
@@ -293,7 +295,7 @@ The finished result will look like this:
 
   .. warning::
      For this tutorial it is important to use this file name, as it will be referenced
-     at the other sections. If you change it please remember to also change at the
+     at the other sections. If you change it please remember to also change it in the
      next steps when referenced.
 
 * **Step 5.**
