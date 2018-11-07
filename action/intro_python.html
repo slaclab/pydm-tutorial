@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#writing-the-code-for-your-display">Writing The Code For Your Display</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subclassing-display">Subclassing Display</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#handling-command-line-arguments">Handling Command Line Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-macros">Handling Macros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-your-interface-dynamically">Building Your Interface Dynamically</a></li>
 </ul>
 </li>
@@ -196,17 +197,16 @@ PyDM’s bundled examples to see how a script-based display works.  In particula
 the ‘image_processing’ example is a good place to start.</p>
 <div class="section" id="building-your-ui-in-designer">
 <h2>Building Your UI In Designer<a class="headerlink" href="#building-your-ui-in-designer" title="Permalink to this headline">¶</a></h2>
-<p>When you make a Python-based display, you will still use Qt Designer to lay out
+<p>When you make a Python-based display, you can still use Qt Designer to lay out
 your user interface.  In addition to the PyDM widget set, you may want to consider
 using some of Qt’s base widgets like Line Edit, Push Button, etc, if your display
-will have some internal functionality that does not depend on a data source (like EPICS).</p>
+will have some internal functionality that does not depend on a data source.</p>
 <p>For example, the ‘positioner’ example uses normal (non-PyDM) Line Edits to take
 user input, performs some math on the input, and outputs the result to PVs, which
 are displayed with PyDMLabels.  If you want to dynamically generate your display
 when it launches, you should still build a UI file, but it might only have an empty
 container (like a Vertical Layout, or a Scroll Area), which you will fill with
 widgets later in your code.</p>
-<p>Once you are satisfied with your interface, save it to a .ui file.</p>
 </div>
 <div class="section" id="writing-the-code-for-your-display">
 <h2>Writing The Code For Your Display<a class="headerlink" href="#writing-the-code-for-your-display" title="Permalink to this headline">¶</a></h2>
@@ -221,8 +221,8 @@ Your display must subclass Display, and implement a few required methods:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
 <span class="kn">from</span> <span class="nn">pydm</span> <span class="k">import</span> <span class="n">Display</span>
 <span class="k">class</span> <span class="nc">MyDisplay</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
-  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[]):</span>
-    <span class="nb">super</span><span class="p">(</span><span class="n">MyDisplay</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">MyDisplay</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="n">macros</span><span class="p">)</span>
 
   <span class="k">def</span> <span class="nf">ui_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="s1">&#39;my_display.ui&#39;</span>
@@ -263,14 +263,15 @@ here can probably be copied and pasted into your display verbatim: it just joins
 the path of the display’s .py file to the filename of the .ui file.  Unfortunately,
 at the time of writing you must include this yourself, it cannot be done automatically
 by PyDM.</p>
-<p>PyDM will expose all the widgets from the .ui file as a variable called ‘ui’.
-To access the widgets in your code, call <cite>self.ui.widgetName</cite></p>
+<p>PyDM will expose all the widgets from the .ui file as a variable called ‘ui’
+in your display class.  To access a widget in your code, call
+<cite>self.ui.widgetName</cite></p>
 </div>
 <div class="section" id="handling-command-line-arguments">
 <h3>Handling Command Line Arguments<a class="headerlink" href="#handling-command-line-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Displays can accept command line arguments supplied at launch.  Your display’s
 initializer has a named argument called ‘args’:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[]):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>It is recommended to use python’s <cite>argparse</cite> module to parse your arguments.
@@ -285,6 +286,13 @@ For example, you could write a method like this in your display to do this:</p>
 <p>Using command line arguments can be a good way to make displays that generate
 themselves dynamically: you could accept a filename argument, and read the contents
 of that file to add widgets to your display.</p>
+</div>
+<div class="section" id="handling-macros">
+<h3>Handling Macros<a class="headerlink" href="#handling-macros" title="Permalink to this headline">¶</a></h3>
+<p>You can also use PyDM’s macro system as a way to get user data into your display.
+All macros passed into your display are available as a dictionary in the initializer.
+In addition, macro substitution will always be performed on the .ui file for
+your display.</p>
 </div>
 <div class="section" id="building-your-interface-dynamically">
 <h3>Building Your Interface Dynamically<a class="headerlink" href="#building-your-interface-dynamically" title="Permalink to this headline">¶</a></h3>
@@ -326,7 +334,7 @@ happens when the display launches.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, mgibbs, hhslepicka.
+        &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
@@ -345,20 +353,14 @@ happens when the display launches.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

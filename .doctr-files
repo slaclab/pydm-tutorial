@@ -1,9 +1,9 @@
-./_downloads/all_motors.py
-./_downloads/expert_motor.ui
-./_downloads/inline_motor.ui
-./_downloads/main.py
-./_downloads/main.ui
-./_downloads/motor_db.txt
+./_downloads/12ddf67795e0cb32992221001b38b0f5/motor_db.txt
+./_downloads/5e65105299251f28f36cd1e7bc273f4b/inline_motor.ui
+./_downloads/852b73bf69df85158f205431e006c7a1/main.py
+./_downloads/89e812dae01d46393cec3a1b182c7a4c/expert_motor.ui
+./_downloads/b465144a9f3460f3aaf0abe211cc303e/main.ui
+./_downloads/d64dd3f9195c1b7a925ef08d916ca03f/all_motors.py
 ./_images/all_motors.gif
 ./_images/all_motors.png
 ./_images/application.png
@@ -102,6 +102,11 @@
 ./_static/down-pressed.png
 ./_static/down.png
 ./_static/file.png
+./_static/fonts/Inconsolata-Bold.ttf
+./_static/fonts/Inconsolata-Regular.ttf
+./_static/fonts/Inconsolata.ttf
+./_static/fonts/Lato-Bold.ttf
+./_static/fonts/Lato-Regular.ttf
 ./_static/fonts/Lato/lato-bold.eot
 ./_static/fonts/Lato/lato-bold.ttf
 ./_static/fonts/Lato/lato-bold.woff
@@ -118,6 +123,8 @@
 ./_static/fonts/Lato/lato-regular.ttf
 ./_static/fonts/Lato/lato-regular.woff
 ./_static/fonts/Lato/lato-regular.woff2
+./_static/fonts/RobotoSlab-Bold.ttf
+./_static/fonts/RobotoSlab-Regular.ttf
 ./_static/fonts/RobotoSlab/roboto-slab-v7-bold.eot
 ./_static/fonts/RobotoSlab/roboto-slab-v7-bold.ttf
 ./_static/fonts/RobotoSlab/roboto-slab-v7-bold.woff

@@ -221,7 +221,8 @@ it fill the whole form. Let’s select <code class="docutils literal notranslate
 </div>
 </li>
 <li><p class="first"><strong>Step 3.</strong></p>
-<p>Now that we have a layout, let’s take a look at the widgets on this screen:</p>
+<p>Now that we have a layout, let’s take a look at the widgets we’ll use on this
+screen:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/widgets.png"><img alt="../_images/widgets.png" src="../_images/widgets.png" style="width: 489.99999999999994px; height: 165.2px;" /></a>
 </div>
@@ -235,12 +236,13 @@ it fill the whole form. Let’s select <code class="docutils literal notranslate
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><a class="reference internal" href="../intro/macros.html#macros"><span class="std std-ref">Macro Substitution</span></a> are not something exclusive to PyDM Widgets, they can be
-used with any kind of widget and in any property, in this case we are
-using it to add the motor <code class="docutils literal notranslate"><span class="pre">PV</span></code> name to the title.  However, due to
-limitations in Qt Designer, you cannot specify a macro for a variable
-that is numeric-only inside designer itself.  An (unfortunate) work-around
-is to edit the .ui file in a text editor, and insert your macro variable
-into the XML that defines the display.</p>
+used with any kind of widget (even the basic Qt widgets) and in any
+property. In this case we are using it to add the motor <code class="docutils literal notranslate"><span class="pre">PV</span></code> name
+to the title.  However, due to limitations in Qt Designer, you cannot
+specify a macro for a variable that is numeric-only inside Designer
+itself.  An (unfortunate) work-around is to edit the .ui file in a
+text editor, and insert your macro variable into the XML that defines
+the display.</p>
 </div>
 </li>
 <li><p class="first">In order to make the label look better as a title, add the following to
@@ -407,7 +409,7 @@ add it on the side of the previously added <code class="docutils literal notrans
 </li>
 <li><p class="first"><strong>Step 3.9.</strong></p>
 <p>Once all the widgets are added to the form, it is now time to adjust the layouts
-and make sure that all is well positioned and behaving nicely.</p>
+and make sure that everything is well-positioned and behaving nicely.</p>
 <ol class="arabic">
 <li><p class="first">Using the <code class="docutils literal notranslate"><span class="pre">Object</span> <span class="pre">Inspector</span></code> at the top-right corner of the Qt Designer
 window, select the <code class="docutils literal notranslate"><span class="pre">formLayout</span></code> object and set the properties according
@@ -555,7 +557,7 @@ set the properties according to the table below:</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">For this tutorial it is important to use this file name, as it will be referenced
-at the other sections. If you change it please remember to also change at the
+at the other sections. If you change it please remember to also change it in the
 next steps when referenced.</p>
 </div>
 </li>
@@ -571,7 +573,7 @@ next steps when referenced.</p>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can download this file using <a class="reference download internal" href="../_downloads/expert_motor.ui" download=""><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+<p class="last">You can download this file using <a class="reference download internal" download="" href="../_downloads/89e812dae01d46393cec3a1b182c7a4c/expert_motor.ui"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
 </div>
 </div>
 
@@ -595,7 +597,7 @@ next steps when referenced.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, mgibbs, hhslepicka.
+        &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
@@ -614,20 +616,14 @@ next steps when referenced.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

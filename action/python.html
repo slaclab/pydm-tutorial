@@ -208,7 +208,7 @@ method to filter our list of motors and present a list of
 <p class="first admonition-title">Important</p>
 <p class="last">In order to simplify this tutorial, instead of using a database or other type
 of service, the data to populate the list of motors will come from a simple text file
-named <code class="docutils literal notranslate"><span class="pre">motor_db.txt</span></code> that can be downloaded <a class="reference download internal" href="../_downloads/motor_db.txt" download=""><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+named <code class="docutils literal notranslate"><span class="pre">motor_db.txt</span></code> that can be downloaded <a class="reference download internal" download="" href="../_downloads/12ddf67795e0cb32992221001b38b0f5/motor_db.txt"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
 </div>
 <ul>
 <li><p class="first"><strong>Step 1.</strong></p>
@@ -224,6 +224,7 @@ will follow.</p>
     <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">pydm.widgets</span> <span class="kn">import</span> <span class="n">PyDMEmbeddedDisplay</span>
+<span class="kn">from</span> <span class="nn">pydm.utilities</span> <span class="kn">import</span> <span class="n">connection</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -264,7 +265,7 @@ case.</li>
 </ol>
 <ul>
 <li><p class="first"><strong>Step 2.1.</strong></p>
-<p>Adding the code to the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method.</p>
+<p>Add the code to the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Look at the comments over the lines for explanation on what they do.</p>
@@ -284,7 +285,7 @@ case.</li>
 </div>
 </li>
 <li><p class="first"><strong>Step 2.2.</strong></p>
-<p>Adding the code to the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code> method.</p>
+<p>Add the code to the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code> method.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Look at the comments over the lines for explanation on what they do.</p>
@@ -361,7 +362,7 @@ case.</li>
 </div>
 </li>
 <li><p class="first"><strong>Step 2.3.</strong></p>
-<p>Adding the code to connect the <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> click and perform the search
+<p>Add the code to connect the <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> click and perform the search
 on our data.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -395,16 +396,16 @@ on our data.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">results_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
     <span class="c1"># Recursively establish the connection for widgets</span>
     <span class="c1"># inside the Results Frame</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">establish_widget_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">establish_widget_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>When constructing PyDM Widgets on the fly outside of the class constructor
-it is mandatory that you invoke <code class="docutils literal notranslate"><span class="pre">PyDMApplication.establish_widget_connections</span></code>
+it is mandatory that you invoke <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.establish_widget_connections</span></code>
 for the widgets or parent widget in order to create the link between the
 <code class="docutils literal notranslate"><span class="pre">channels</span></code> used on this widget and the proper Data Plugins. (See <a class="reference internal" href="../intro/data_arch.html#dataarchitecture"><span class="std std-ref">Data Architecture</span></a>).</p>
-<p class="last">The opposite is also available, to close connections call <code class="docutils literal notranslate"><span class="pre">PyDMApplication.close_widget_connections</span></code>.</p>
+<p class="last">The opposite is also available: to close connections, call <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.close_widget_connections</span></code>.</p>
 </div>
 </li>
 </ul>
@@ -430,7 +431,7 @@ other steps when referenced.</p>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can download this file using <a class="reference download internal" href="../_downloads/all_motors.py" download=""><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+<p class="last">You can download this file using <a class="reference download internal" download="" href="../_downloads/d64dd3f9195c1b7a925ef08d916ca03f/all_motors.py"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
 </div>
 </div>
 
@@ -454,7 +455,7 @@ other steps when referenced.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, mgibbs, hhslepicka.
+        &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
@@ -473,20 +474,14 @@ other steps when referenced.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

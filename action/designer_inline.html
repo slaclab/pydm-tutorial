@@ -196,9 +196,8 @@
 <li>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</li>
 </ul>
 </div>
-<p>For this screen we will want to present useful information to the user to operate
-the motors, and also provide a way for them to access other parameters considered
-<strong>Expert</strong>. To make this screen re-usable in other displays, it will be necessary
+<p>For this screen, we want to present useful information to the user to operate
+the motors, and also provide a way for them to access other less-commonly-used parameters via an “Expert” screen. To make this screen re-usable in other displays, it will be necessary
 to use <a class="reference internal" href="../intro/macros.html#macros"><span class="std std-ref">Macro Substitution</span></a> that will later be replaced by the proper information for
 each motor.</p>
 <p>The finished result will look like this:</p>
@@ -208,15 +207,15 @@ each motor.</p>
 </div>
 <ul>
 <li><p class="first"><strong>Step 1.</strong></p>
-<p>Let’s start by opening the <a class="reference internal" href="intro_designer.html#designer"><span class="std std-ref">Qt Designer</span></a>
+<p>Let’s start by opening <a class="reference internal" href="intro_designer.html#designer"><span class="std std-ref">Qt Designer</span></a>
 and creating a new <code class="docutils literal notranslate"><span class="pre">Widget</span></code>.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/new_widget.gif"><img alt="../_images/new_widget.gif" src="../_images/new_widget.gif" style="width: 552.0px; height: 340.0px;" /></a>
 </div>
 </li>
 <li><p class="first"><strong>Step 2.</strong></p>
-<p>With the new form available, let’s add a GridLayout widget to it and to make it
-fill the whole form let’s select <code class="docutils literal notranslate"><span class="pre">Layout</span> <span class="pre">Vertically</span></code> for the Form.</p>
+<p>With the new form available, let’s add a GridLayout widget to it.  To make it
+fill the whole form let’s select <code class="docutils literal notranslate"><span class="pre">Layout</span> <span class="pre">Vertically</span></code> for the form.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/inline_layout.gif"><img alt="../_images/inline_layout.gif" src="../_images/inline_layout.gif" style="width: 557.0px; height: 344.0px;" /></a>
 </div>
@@ -228,12 +227,12 @@ fill the whole form let’s select <code class="docutils literal notranslate"><s
 </div>
 <ul>
 <li><p class="first"><strong>Step 3.1.</strong></p>
-<p>The first <code class="docutils literal notranslate"><span class="pre">PyDMLabel</span></code> will display the description of the Motor:</p>
+<p>The first <code class="docutils literal notranslate"><span class="pre">PyDMLabel</span></code> will display the description of the motor:</p>
 <ol class="arabic simple">
 <li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMLabel</span></code> at the previously added <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">Channel</span></code> property of this label to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.DESC</span></code>.<ul>
-<li>${MOTOR} is the macro that will later be replaced by the value sent by screens
-using this widget in embedded displays, related displays or even when launching
+<li>${MOTOR} is a macro that will later be replaced by a value sent by screens
+using this widget in embedded displays, related displays, or when launching
 using the command line.</li>
 </ul>
 </li>
@@ -248,7 +247,7 @@ using the command line.</li>
 <p>The second widget is a <code class="docutils literal notranslate"><span class="pre">PyDMLineEdit</span></code> which will be used to set the desired
 position for the motor:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMLineEdit</span></code> at the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMLineEdit</span></code> into the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
 previously added <code class="docutils literal notranslate"><span class="pre">PyDMLabel</span></code> (<strong>Note</strong>: The border will become blue showing that
 the widget will be placed on the side and not on top or under the other widget).</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">Channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.VAL</span></code>.</li>
@@ -282,8 +281,9 @@ previously added <code class="docutils literal notranslate"><span class="pre">Py
 </ul>
 </li>
 <li>Expand the <code class="docutils literal notranslate"><span class="pre">minimumSize</span></code> property and set <code class="docutils literal notranslate"><span class="pre">Width</span></code> to <code class="docutils literal notranslate"><span class="pre">75</span></code>.<ul>
-<li>This property will indicate the minimum size constrains for the widget and
-avoid this widget to be hidden or reduced to an unusable size on window resizing.</li>
+<li>This property will indicate the minimum size constraints for the widget and
+avoid this widget becoming hidden or reduced to an unusable size when a user
+resizes the window.</li>
 </ul>
 </li>
 </ol>
@@ -295,7 +295,7 @@ avoid this widget to be hidden or reduced to an unusable size on window resizing
 <p>The fourth widget is a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> which will be used for visual
 feedback that the motor is moving:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> at the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMByteIndicator</span></code> into the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
 previously added <code class="docutils literal notranslate"><span class="pre">PyDMLabel</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">Channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.MOVN</span></code>.</li>
 <li>Turn off the <code class="docutils literal notranslate"><span class="pre">showLabels</span></code> property since we are only interested on the
@@ -335,15 +335,14 @@ of emergency.</li>
 </li>
 <li><p class="first"><strong>Step 3.6.</strong></p>
 <p>The sixth widget is also a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to tweak the
-motor a certain distance on the positive direction:</p>
+motor a certain distance in the positive direction:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> at the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> into the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
 previously added <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.VAL</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">pressValue</span></code> property to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</li>
-<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeChange</span></code> property so instead of writing the value the
-new value written to the channel will be relative to the current channel
-value.</li>
+<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeChange</span></code> property so the new value written to the
+channel will be relative to the channel’s current value.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">text</span></code> property to <code class="docutils literal notranslate"><span class="pre">Tw</span> <span class="pre">+10</span></code>.</li>
 </ol>
 <div class="figure align-center">
@@ -352,15 +351,14 @@ value.</li>
 </li>
 <li><p class="first"><strong>Step 3.7.</strong></p>
 <p>The seventh widget is also a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> which will be used to tweak the
-motor a certain distance on the negative direction:</p>
+motor a certain distance in the negative direction:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> at the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code> into the <code class="docutils literal notranslate"><span class="pre">GridLayout</span></code> on the side of the
 previously added <code class="docutils literal notranslate"><span class="pre">PyDMPushButton</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">channel</span></code> property of this line edit to: <code class="docutils literal notranslate"><span class="pre">ca://${MOTOR}.VAL</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">pressValue</span></code> property to <code class="docutils literal notranslate"><span class="pre">-10</span></code>.</li>
-<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeChange</span></code> property so instead of writting the value the
-new value written to the channel will be relative to the current channel
-value.</li>
+<li>Set the <code class="docutils literal notranslate"><span class="pre">relativeChange</span></code> property so the new value written to the
+channel will be relative to the channel’s current value.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">text</span></code> property to <code class="docutils literal notranslate"><span class="pre">Tw</span> <span class="pre">-10</span></code>.</li>
 </ol>
 </li>
@@ -379,13 +377,6 @@ side of the previously added <code class="docutils literal notranslate"><span cl
 <p class="first admonition-title">Note</p>
 <p class="last">We will create the <code class="docutils literal notranslate"><span class="pre">expert_motor.ui</span></code> file in the next section.</p>
 </div>
-</li>
-<li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">macros</span></code> property to <code class="docutils literal notranslate"><span class="pre">{&quot;MOTOR&quot;:&quot;${MOTOR}&quot;}</span></code>.</p>
-<ul class="simple">
-<li>This macro will use the received macro <code class="docutils literal notranslate"><span class="pre">${MOTOR}</span></code> and retransmit it to
-the new window.  This is a workaround for a bug - in the future, macros
-defined on the first display will automatically be passed to new displays.</li>
-</ul>
 </li>
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">openInNewWindow</span></code> property so the screen will show up in a standalone
 window.</p>
@@ -460,7 +451,7 @@ next steps when referenced.</p>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can download this file using <a class="reference download internal" href="../_downloads/inline_motor.ui" download=""><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+<p class="last">You can download this file using <a class="reference download internal" download="" href="../_downloads/5e65105299251f28f36cd1e7bc273f4b/inline_motor.ui"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
 </div>
 </div>
 
@@ -484,7 +475,7 @@ next steps when referenced.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, mgibbs, hhslepicka.
+        &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
@@ -503,20 +494,14 @@ next steps when referenced.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

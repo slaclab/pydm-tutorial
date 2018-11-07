@@ -12,9 +12,8 @@ Inline Motor Screen
     * That the :ref:`Python environment <PythonEnv>` is set.
     * That all :ref:`three IOCs <IOCS>` are running.
 
-For this screen we will want to present useful information to the user to operate
-the motors, and also provide a way for them to access other parameters considered
-**Expert**. To make this screen re-usable in other displays, it will be necessary
+For this screen, we want to present useful information to the user to operate
+the motors, and also provide a way for them to access other less-commonly-used parameters via an "Expert" screen. To make this screen re-usable in other displays, it will be necessary
 to use :ref:`Macros` that will later be replaced by the proper information for 
 each motor.
 
@@ -29,7 +28,7 @@ The finished result will look like this:
 
 * **Step 1.**
 
-  Let's start by opening the :ref:`Qt Designer <Designer>`
+  Let's start by opening :ref:`Qt Designer <Designer>`
   and creating a new ``Widget``.
 
   .. figure:: /_static/action/new_widget.gif
@@ -38,8 +37,8 @@ The finished result will look like this:
 
 * **Step 2.**
 
-  With the new form available, let's add a GridLayout widget to it and to make it
-  fill the whole form let's select ``Layout Vertically`` for the Form.
+  With the new form available, let's add a GridLayout widget to it.  To make it
+  fill the whole form let's select ``Layout Vertically`` for the form.
 
   .. figure:: /_static/action/inline/inline_layout.gif
      :scale: 100 %
@@ -55,13 +54,13 @@ The finished result will look like this:
 
   * **Step 3.1.**
 
-    The first ``PyDMLabel`` will display the description of the Motor:
+    The first ``PyDMLabel`` will display the description of the motor:
 
     #. Drag and drop a ``PyDMLabel`` at the previously added ``GridLayout``.
     #. Set the ``Channel`` property of this label to: ``ca://${MOTOR}.DESC``.
 
-       * ${MOTOR} is the macro that will later be replaced by the value sent by screens
-         using this widget in embedded displays, related displays or even when launching
+       * ${MOTOR} is a macro that will later be replaced by a value sent by screens
+         using this widget in embedded displays, related displays, or when launching
          using the command line.
 
     #. Set the ``displayFormat`` property of this label to: ``String``.
@@ -77,7 +76,7 @@ The finished result will look like this:
     The second widget is a ``PyDMLineEdit`` which will be used to set the desired
     position for the motor:
 
-    #. Drag and drop a ``PyDMLineEdit`` at the ``GridLayout`` on the side of the
+    #. Drag and drop a ``PyDMLineEdit`` into the ``GridLayout`` on the side of the
        previously added ``PyDMLabel`` (**Note**: The border will become blue showing that
        the widget will be placed on the side and not on top or under the other widget).
     #. Set the ``Channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
@@ -112,8 +111,9 @@ The finished result will look like this:
 
     #. Expand the ``minimumSize`` property and set ``Width`` to ``75``.
 
-       * This property will indicate the minimum size constrains for the widget and
-         avoid this widget to be hidden or reduced to an unusable size on window resizing.
+       * This property will indicate the minimum size constraints for the widget and
+         avoid this widget becoming hidden or reduced to an unusable size when a user
+         resizes the window.
 
     .. figure:: /_static/action/inline/inline_3_3.gif
        :scale: 100 %
@@ -124,7 +124,7 @@ The finished result will look like this:
     The fourth widget is a ``PyDMByteIndicator`` which will be used for visual
     feedback that the motor is moving:
 
-    #. Drag and drop a ``PyDMByteIndicator`` at the ``GridLayout`` on the side of the
+    #. Drag and drop a ``PyDMByteIndicator`` into the ``GridLayout`` on the side of the
        previously added ``PyDMLabel``.
     #. Set the ``Channel`` property of this line edit to: ``ca://${MOTOR}.MOVN``.
     #. Turn off the ``showLabels`` property since we are only interested on the
@@ -168,15 +168,14 @@ The finished result will look like this:
   * **Step 3.6.**
 
     The sixth widget is also a ``PyDMPushButton`` which will be used to tweak the
-    motor a certain distance on the positive direction:
+    motor a certain distance in the positive direction:
 
-    #. Drag and drop a ``PyDMPushButton`` at the ``GridLayout`` on the side of the
+    #. Drag and drop a ``PyDMPushButton`` into the ``GridLayout`` on the side of the
        previously added ``PyDMPushButton``.
     #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
     #. Set the ``pressValue`` property to ``10``.
-    #. Set the ``relativeChange`` property so instead of writing the value the
-       new value written to the channel will be relative to the current channel
-       value.
+    #. Set the ``relativeChange`` property so the new value written to the
+       channel will be relative to the channel's current value.
     #. Set the ``text`` property to ``Tw +10``.
 
     .. figure:: /_static/action/inline/inline_3_6.gif
@@ -186,15 +185,14 @@ The finished result will look like this:
   * **Step 3.7.**
 
     The seventh widget is also a ``PyDMPushButton`` which will be used to tweak the
-    motor a certain distance on the negative direction:
+    motor a certain distance in the negative direction:
 
-    #. Drag and drop a ``PyDMPushButton`` at the ``GridLayout`` on the side of the
+    #. Drag and drop a ``PyDMPushButton`` into the ``GridLayout`` on the side of the
        previously added ``PyDMPushButton``.
     #. Set the ``channel`` property of this line edit to: ``ca://${MOTOR}.VAL``.
     #. Set the ``pressValue`` property to ``-10``.
-    #. Set the ``relativeChange`` property so instead of writting the value the
-       new value written to the channel will be relative to the current channel
-       value.
+    #. Set the ``relativeChange`` property so the new value written to the
+       channel will be relative to the channel's current value.
     #. Set the ``text`` property to ``Tw -10``.
 
   * **Step 3.8.**
@@ -211,12 +209,6 @@ The finished result will look like this:
        .. note::
 
           We will create the ``expert_motor.ui`` file in the next section.
-
-    #. Set the ``macros`` property to ``{"MOTOR":"${MOTOR}"}``.
-
-       * This macro will use the received macro ``${MOTOR}`` and retransmit it to
-         the new window.  This is a workaround for a bug - in the future, macros
-         defined on the first display will automatically be passed to new displays.
 
     #. Set the ``openInNewWindow`` property so the screen will show up in a standalone
        window.

@@ -13,7 +13,7 @@ Main Screen
     * That all :ref:`three IOCs <IOCS>` are running.
 
 
-This will be the main point of our Beam Positioning application and will group all the other
+This will be the main piece of our Beam Positioning application and will group the other
 components of this tutorial.
 
 The finished result will look like this:
@@ -99,18 +99,18 @@ The finished result will look like this:
 
   * **Step 3.4.**
 
-    The fourth widget that we will add is a ``QLabel``, which will updated with
-    the result of the calculation of beam position at the next section (:ref:`LittleCode`):
+    The fourth widget that we will add is a ``QLabel``, which will be updated with
+    the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
-    #. Drag and drop a ``QVBoxLayout`` into ``QVBoxLayout`` that was added at
+    #. Drag and drop a ``QVBoxLayout`` into the ``QVBoxLayout`` that was added in
        **Step 3.3**.
     #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
 
        .. important::
 
-          It is very important to set the ``objectName`` property of widgets at
-          the designer that you intend to access them using Code otherwise the
-          names will be automatically assigned and will not make much sense later
+          It is very important to set the ``objectName`` property of widgets in
+          the designer if you intend to access them using code, otherwise the
+          names will be automatically assigned, and will not make much sense later
           on.
 
     #. Set the ``text`` property to empty so this label will only show information
@@ -118,18 +118,18 @@ The finished result will look like this:
 
   * **Step 3.5.**
 
-    The fifth widget that we will add is a ``QLabel``, which will updated with
-    the result of the calculation of beam position at the next section (:ref:`LittleCode`):
+    The fifth widget that we will add is a ``QLabel``, which will be updated with
+    the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
-    #. Drag and drop a ``QVBoxLayout`` into ``QVBoxLayout`` that was added at
+    #. Drag and drop a ``QVBoxLayout`` into the ``QVBoxLayout`` that was added in
        **Step 3.3**.
     #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
 
        .. important::
 
-          It is very important to set the ``objectName`` property of widgets at
-          the designer that you intend to access them using Code otherwise the
-          names will be automatically assigned and will not make much sense later
+          It is very important to set the ``objectName`` property of widgets in
+          the designer if you intend to access them using code, otherwise the
+          names will be automatically assigned, and will not make much sense later
           on.
 
     #. Set the ``text`` property to empty so this label will only show information
@@ -137,11 +137,11 @@ The finished result will look like this:
 
   * **Step 3.6.**
 
-    The sixty widget that we will add is another ``QLabel``, which will the title
+    The sixth widget that we will add is another ``QLabel``, which will show the title
     of our controls area:
 
-    #. Drag and drop a ``QLabel`` into ``QVBoxLayout`` that was added at
-       **Step 3.3** right under the QLabel added at **Step 3.5**.
+    #. Drag and drop a ``QLabel`` into the ``QVBoxLayout`` that was added in
+       **Step 3.3** right under the QLabel added in **Step 3.5**.
     #. Set the ``text`` property of this label to: ``Controls``.
     #. In order to make the label look better as a title, add the following to
        the ``stylesheet`` property:
@@ -163,9 +163,9 @@ The finished result will look like this:
   * **Step 3.7.**
 
     The seventh widget that we will add is a ``QFrame``, which will be the container
-    for our two motors ``Embedded Displays``:
+    for our two motors' ``Embedded Displays``:
 
-    #. Drag and drop a ``QFrame`` under the QLabel added at **Step 3.6**.
+    #. Drag and drop a ``QFrame`` under the QLabel added in **Step 3.6**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``
     #. Set the ``stylesheet`` property to:
@@ -183,17 +183,17 @@ The finished result will look like this:
     The eight widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our first motor axis:
 
-    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added at **Step 3.7**.
-    #. Right-click at the ``QFrame`` from **Step 3.7** and select ``Layout >> Layout Vertically``.
+    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added in **Step 3.7**.
+    #. Right-click the ``QFrame`` from **Step 3.7** and select ``Layout >> Layout Vertically``.
     #. Set the ``macros`` property to ``{"MOTOR":"IOC:m1"}``.
     #. Set the ``filename`` property to ``inline_motor.ui``.
 
   * **Step 3.9.**
 
-    The nineth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
+    The ninth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our second motor axis:
 
-    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added at **Step 3.7**.
+    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added in **Step 3.7**.
     #. Set the ``macros`` property to ``{"MOTOR":"IOC:m2"}``.
     #. Set the ``filename`` property to ``inline_motor.ui``.
 
@@ -202,9 +202,9 @@ The finished result will look like this:
     Finally, the tenth widget that we will add is a ``PyDMRelatedDisplayButton``, which will
     open the ``All Motors`` screen that will be developed :ref:`later <PurePython>`:
 
-    #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``QVBoxLayout`` added at **Step 2**.
+    #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``QVBoxLayout`` added in **Step 2**.
     #. Set the ``displayFilename`` property to ``all_motors.py``.
-    #. Remove the mark at the ``openInNewWindow`` property.
+    #. Uncheck the ``openInNewWindow`` property.
 
   * **Step 3.11.**
 

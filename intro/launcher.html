@@ -197,16 +197,17 @@ and sends them to the instantiated PyDMApplication.</p>
 <h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
 <p>The PyDM Launcher accepts many command line arguments, here they are:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--perfmon<span class="o">]</span> <span class="o">[</span>--hide-nav-bar<span class="o">]</span> <span class="o">[</span>--hide-menu-bar<span class="o">]</span>
-     <span class="o">[</span>--hide-status-bar<span class="o">]</span> <span class="o">[</span>--read-only<span class="o">]</span>
-     <span class="o">[</span>--log_level <span class="o">{</span>DEBUG,INFO,WARNING,ERROR,CRITICAL<span class="o">}]</span> <span class="o">[</span>-m MACRO<span class="o">]</span>
+     <span class="o">[</span>--hide-status-bar<span class="o">]</span> <span class="o">[</span>--fullscreen<span class="o">]</span> <span class="o">[</span>--read-only<span class="o">]</span>
+     <span class="o">[</span>--log_level <span class="o">{</span>DEBUG,INFO,WARNING,ERROR,CRITICAL<span class="o">}]</span> <span class="o">[</span>--version<span class="o">]</span>
+     <span class="o">[</span>-m MACRO<span class="o">]</span> <span class="o">[</span>--stylesheet STYLESHEET<span class="o">]</span>
      <span class="o">[</span>displayfile<span class="o">]</span> ...
 </pre></div>
 </div>
 <p>Where:</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col width="18%" />
+<col width="82%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Argument</th>
@@ -229,19 +230,28 @@ and sends them to the instantiated PyDMApplication.</p>
 <tr class="row-even"><td>–hide-status-bar</td>
 <td>Start PyDM with the status bar hidden</td>
 </tr>
-<tr class="row-odd"><td>–read-only</td>
+<tr class="row-odd"><td>–fullscreen</td>
+<td>Start PyDM in full screen mode.</td>
+</tr>
+<tr class="row-even"><td>–read-only</td>
 <td>Start PyDM in a Read-Only mode</td>
 </tr>
-<tr class="row-even"><td>–log_level</td>
+<tr class="row-odd"><td>–log_level</td>
 <td>Configure the level of the display logger.</td>
+</tr>
+<tr class="row-even"><td>–version</td>
+<td>Show PyDM’s version number and exit</td>
 </tr>
 <tr class="row-odd"><td>-m MACRO, –macro MACRO</td>
 <td>Specify macro replacements to use, in JSON object format</td>
 </tr>
-<tr class="row-even"><td>displayfile (positional)</td>
+<tr class="row-even"><td>–stylesheet STYLESHEET</td>
+<td>Provide the full path to a CSS stylesheet file, which contains styles to be applied to specific Qt/PyDM widgets.</td>
+</tr>
+<tr class="row-odd"><td>displayfile (positional)</td>
 <td>A PyDM file to display. Can be either a Qt (.ui) file or a Python (.py) file</td>
 </tr>
-<tr class="row-odd"><td>display_args (positional)</td>
+<tr class="row-even"><td>display_args (positional)</td>
 <td>Arguments to be passed to the PyDM client application and displays.</td>
 </tr>
 </tbody>
@@ -275,7 +285,7 @@ setup, and the instantiation of the PyDMApplication in your own code.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, mgibbs, hhslepicka.
+        &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
@@ -294,20 +304,14 @@ setup, and the instantiation of the PyDMApplication in your own code.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

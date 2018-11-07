@@ -196,7 +196,7 @@
 <li>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</li>
 </ul>
 </div>
-<p>This will be the main point of our Beam Positioning application and will group all the other
+<p>This will be the main piece of our Beam Positioning application and will group the other
 components of this tutorial.</p>
 <p>The finished result will look like this:</p>
 <div class="figure align-center" id="id1">
@@ -271,18 +271,18 @@ the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</
 </ol>
 </li>
 <li><p class="first"><strong>Step 3.4.</strong></p>
-<p>The fourth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, which will updated with
-the result of the calculation of beam position at the next section (<a class="reference internal" href="little_code.html#littlecode"><span class="std std-ref">Adding Code into the Main Display</span></a>):</p>
+<p>The fourth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, which will be updated with
+the result of the calculation of beam position in the next section (<a class="reference internal" href="little_code.html#littlecode"><span class="std std-ref">Adding Code into the Main Display</span></a>):</p>
 <ol class="arabic">
-<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> into <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> that was added at
+<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> into the <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> that was added in
 <strong>Step 3.3</strong>.</p>
 </li>
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">objectName</span></code> property of this widget to <code class="docutils literal notranslate"><span class="pre">lbl_blobs</span></code>.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">It is very important to set the <code class="docutils literal notranslate"><span class="pre">objectName</span></code> property of widgets at
-the designer that you intend to access them using Code otherwise the
-names will be automatically assigned and will not make much sense later
+<p class="last">It is very important to set the <code class="docutils literal notranslate"><span class="pre">objectName</span></code> property of widgets in
+the designer if you intend to access them using code, otherwise the
+names will be automatically assigned, and will not make much sense later
 on.</p>
 </div>
 </li>
@@ -292,18 +292,18 @@ when we write to it using the code later on.</p>
 </ol>
 </li>
 <li><p class="first"><strong>Step 3.5.</strong></p>
-<p>The fifth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, which will updated with
-the result of the calculation of beam position at the next section (<a class="reference internal" href="little_code.html#littlecode"><span class="std std-ref">Adding Code into the Main Display</span></a>):</p>
+<p>The fifth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, which will be updated with
+the result of the calculation of beam position in the next section (<a class="reference internal" href="little_code.html#littlecode"><span class="std std-ref">Adding Code into the Main Display</span></a>):</p>
 <ol class="arabic">
-<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> into <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> that was added at
+<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> into the <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> that was added in
 <strong>Step 3.3</strong>.</p>
 </li>
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">objectName</span></code> property of this widget to <code class="docutils literal notranslate"><span class="pre">lbl_blobs</span></code>.</p>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">It is very important to set the <code class="docutils literal notranslate"><span class="pre">objectName</span></code> property of widgets at
-the designer that you intend to access them using Code otherwise the
-names will be automatically assigned and will not make much sense later
+<p class="last">It is very important to set the <code class="docutils literal notranslate"><span class="pre">objectName</span></code> property of widgets in
+the designer if you intend to access them using code, otherwise the
+names will be automatically assigned, and will not make much sense later
 on.</p>
 </div>
 </li>
@@ -313,11 +313,11 @@ when we write to it using the code later on.</p>
 </ol>
 </li>
 <li><p class="first"><strong>Step 3.6.</strong></p>
-<p>The sixty widget that we will add is another <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, which will the title
+<p>The sixth widget that we will add is another <code class="docutils literal notranslate"><span class="pre">QLabel</span></code>, which will show the title
 of our controls area:</p>
 <ol class="arabic">
-<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QLabel</span></code> into <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> that was added at
-<strong>Step 3.3</strong> right under the QLabel added at <strong>Step 3.5</strong>.</p>
+<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QLabel</span></code> into the <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> that was added in
+<strong>Step 3.3</strong> right under the QLabel added in <strong>Step 3.5</strong>.</p>
 </li>
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">text</span></code> property of this label to: <code class="docutils literal notranslate"><span class="pre">Controls</span></code>.</p>
 </li>
@@ -341,9 +341,9 @@ the <code class="docutils literal notranslate"><span class="pre">stylesheet</spa
 </li>
 <li><p class="first"><strong>Step 3.7.</strong></p>
 <p>The seventh widget that we will add is a <code class="docutils literal notranslate"><span class="pre">QFrame</span></code>, which will be the container
-for our two motors <code class="docutils literal notranslate"><span class="pre">Embedded</span> <span class="pre">Displays</span></code>:</p>
+for our two motors’ <code class="docutils literal notranslate"><span class="pre">Embedded</span> <span class="pre">Displays</span></code>:</p>
 <ol class="arabic">
-<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> under the QLabel added at <strong>Step 3.6</strong>.</p>
+<li><p class="first">Drag and drop a <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> under the QLabel added in <strong>Step 3.6</strong>.</p>
 </li>
 <li><p class="first">Set the <code class="docutils literal notranslate"><span class="pre">frameShape</span></code> property to <code class="docutils literal notranslate"><span class="pre">StyledPanel</span></code>.</p>
 </li>
@@ -364,17 +364,17 @@ for our two motors <code class="docutils literal notranslate"><span class="pre">
 <p>The eight widget that we will add is a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code>, which will
 display the <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> with information for our first motor axis:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code> into the <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> added at <strong>Step 3.7</strong>.</li>
-<li>Right-click at the <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> from <strong>Step 3.7</strong> and select <code class="docutils literal notranslate"><span class="pre">Layout</span> <span class="pre">&gt;&gt;</span> <span class="pre">Layout</span> <span class="pre">Vertically</span></code>.</li>
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code> into the <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> added in <strong>Step 3.7</strong>.</li>
+<li>Right-click the <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> from <strong>Step 3.7</strong> and select <code class="docutils literal notranslate"><span class="pre">Layout</span> <span class="pre">&gt;&gt;</span> <span class="pre">Layout</span> <span class="pre">Vertically</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">macros</span></code> property to <code class="docutils literal notranslate"><span class="pre">{&quot;MOTOR&quot;:&quot;IOC:m1&quot;}</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">filename</span></code> property to <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code>.</li>
 </ol>
 </li>
 <li><p class="first"><strong>Step 3.9.</strong></p>
-<p>The nineth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code>, which will
+<p>The ninth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code>, which will
 display the <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> with information for our second motor axis:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code> into the <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> added at <strong>Step 3.7</strong>.</li>
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMEmbeddedDisplay</span></code> into the <code class="docutils literal notranslate"><span class="pre">QFrame</span></code> added in <strong>Step 3.7</strong>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">macros</span></code> property to <code class="docutils literal notranslate"><span class="pre">{&quot;MOTOR&quot;:&quot;IOC:m2&quot;}</span></code>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">filename</span></code> property to <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code>.</li>
 </ol>
@@ -383,9 +383,9 @@ display the <code class="docutils literal notranslate"><span class="pre">inline_
 <p>Finally, the tenth widget that we will add is a <code class="docutils literal notranslate"><span class="pre">PyDMRelatedDisplayButton</span></code>, which will
 open the <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">Motors</span></code> screen that will be developed <a class="reference internal" href="python.html#purepython"><span class="std std-ref">later</span></a>:</p>
 <ol class="arabic simple">
-<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMRelatedDisplayButton</span></code> into the <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> added at <strong>Step 2</strong>.</li>
+<li>Drag and drop a <code class="docutils literal notranslate"><span class="pre">PyDMRelatedDisplayButton</span></code> into the <code class="docutils literal notranslate"><span class="pre">QVBoxLayout</span></code> added in <strong>Step 2</strong>.</li>
 <li>Set the <code class="docutils literal notranslate"><span class="pre">displayFilename</span></code> property to <code class="docutils literal notranslate"><span class="pre">all_motors.py</span></code>.</li>
-<li>Remove the mark at the <code class="docutils literal notranslate"><span class="pre">openInNewWindow</span></code> property.</li>
+<li>Uncheck the <code class="docutils literal notranslate"><span class="pre">openInNewWindow</span></code> property.</li>
 </ol>
 </li>
 <li><p class="first"><strong>Step 3.11.</strong></p>
@@ -492,7 +492,7 @@ next steps when referenced.</p>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">You can download this file using <a class="reference download internal" href="../_downloads/main.ui" download=""><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+<p class="last">You can download this file using <a class="reference download internal" download="" href="../_downloads/b465144a9f3460f3aaf0abe211cc303e/main.ui"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
 </div>
 </div>
 
@@ -516,7 +516,7 @@ next steps when referenced.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, mgibbs, hhslepicka.
+        &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
@@ -535,20 +535,14 @@ next steps when referenced.</p>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

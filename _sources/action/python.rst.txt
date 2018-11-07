@@ -55,6 +55,7 @@ Here is how it will look once we are done:
           QApplication, QWidget)
 
       from pydm.widgets import PyDMEmbeddedDisplay
+      from pydm.utilities import connection
 
 
 * **Step 2.**
@@ -96,7 +97,7 @@ Here is how it will look once we are done:
 
   * **Step 2.1.**
 
-    Adding the code to the ``load_data`` method.
+    Add the code to the ``load_data`` method.
 
     .. note::
 
@@ -118,7 +119,7 @@ Here is how it will look once we are done:
 
   * **Step 2.2.**
 
-    Adding the code to the ``setup_ui`` method.
+    Add the code to the ``setup_ui`` method.
 
     .. note::
 
@@ -197,7 +198,7 @@ Here is how it will look once we are done:
 
   * **Step 2.3.**
 
-    Adding the code to connect the ``QPushButton`` click and perform the search
+    Add the code to connect the ``QPushButton`` click and perform the search
     on our data.
 
     .. note::
@@ -234,16 +235,16 @@ Here is how it will look once we are done:
                self.results_layout.addWidget(disp)
            # Recursively establish the connection for widgets
            # inside the Results Frame
-           self.app.establish_widget_connections(self.frm_result)
+           connection.establish_widget_connections(self.frm_result)
 
     .. important::
 
        When constructing PyDM Widgets on the fly outside of the class constructor
-       it is mandatory that you invoke ``PyDMApplication.establish_widget_connections``
+       it is mandatory that you invoke ``pydm.utilities.connection.establish_widget_connections``
        for the widgets or parent widget in order to create the link between the
        ``channels`` used on this widget and the proper Data Plugins. (See :ref:`DataArchitecture`).
 
-       The opposite is also available, to close connections call ``PyDMApplication.close_widget_connections``.
+       The opposite is also available: to close connections, call ``pydm.utilities.connection.close_widget_connections``.
 
 * **Step 3.**
 
