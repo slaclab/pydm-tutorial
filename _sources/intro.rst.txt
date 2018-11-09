@@ -11,7 +11,7 @@ Virtual Machine
 We provide a virtual machine disk that is the base for the application that will
 be developed during this tutorial.
 
-You can download the disk using this `Link <https://drive.google.com/file/d/1ZrcDf2oMj_PwVFFQN-y1-ZwR_bp_5aur/view?usp=sharing>`_.
+You can download the disk using this `Link <https://drive.google.com/a/stanford.edu/file/d/1SE4_oDF2wg_7ltKOIdJuZIqkpHzLUkbm/view?usp=sharing>`_.
 
 Using the Downloaded Disk
 ^^^^^^^^^^^^^^^^^^^^^^^^^
