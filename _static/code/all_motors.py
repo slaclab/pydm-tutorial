@@ -1,10 +1,10 @@
 import os
 import json
 from pydm import Display
-from pydm.PyQt.QtGui import (QVBoxLayout, QHBoxLayout, QGroupBox,
+from qtpy.QtWidgets import (QVBoxLayout, QHBoxLayout, QGroupBox,
     QLabel, QLineEdit, QPushButton, QScrollArea, QFrame,
     QApplication, QWidget)
-from pydm.PyQt import QtCore
+from qtpy import QtCore
 from pydm.widgets import PyDMEmbeddedDisplay
 
 class AllMotorsDisplay(Display):
@@ -110,9 +110,6 @@ class AllMotorsDisplay(Display):
                 self.data.append(entry[:-1])
 
     def do_search(self):
-        # First lets clear the old connections
-        self.app.close_widget_connections(self.frm_result)
-
         # For each widget inside the results frame, lets destroy them
         for widget in self.frm_result.findChildren(QWidget):
             widget.setParent(None)
@@ -135,7 +132,4 @@ class AllMotorsDisplay(Display):
             disp.setMaximumHeight(100)
             # Add the Embedded Display to the Results Layout
             self.results_layout.addWidget(disp)
-        # Recursively establish the connection for widgets
-        # inside the Results Frame
-        self.app.establish_widget_connections(self.frm_result)
 

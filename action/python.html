@@ -217,9 +217,9 @@ named <code class="docutils literal notranslate"><span class="pre">motor_db.txt<
 will follow.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">pydm.PyQt</span> <span class="kn">import</span> <span class="n">QtCore</span>
+<span class="kn">from</span> <span class="nn">qtpy</span> <span class="kn">import</span> <span class="n">QtCore</span>
 <span class="kn">from</span> <span class="nn">pydm</span> <span class="kn">import</span> <span class="n">Display</span>
-<span class="kn">from</span> <span class="nn">pydm.PyQt.QtGui</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span>
+<span class="kn">from</span> <span class="nn">qtpy.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span>
     <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QScrollArea</span><span class="p">,</span> <span class="n">QFrame</span><span class="p">,</span>
     <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">)</span>
 
@@ -369,9 +369,6 @@ on our data.</p>
 <p class="last">Look at the comments over the lines for explanation on what they do.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_search</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="c1"># First lets clear the old connections</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">close_widget_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
-
     <span class="c1"># For each widget inside the results frame, lets destroy them</span>
     <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
         <span class="n">widget</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
@@ -394,18 +391,12 @@ on our data.</p>
         <span class="n">disp</span><span class="o">.</span><span class="n">setMaximumHeight</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
         <span class="c1"># Add the Embedded Display to the Results Layout</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">results_layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
-    <span class="c1"># Recursively establish the connection for widgets</span>
-    <span class="c1"># inside the Results Frame</span>
-    <span class="n">connection</span><span class="o">.</span><span class="n">establish_widget_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p>When constructing PyDM Widgets on the fly outside of the class constructor
-it is mandatory that you invoke <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.establish_widget_connections</span></code>
-for the widgets or parent widget in order to create the link between the
-<code class="docutils literal notranslate"><span class="pre">channels</span></code> used on this widget and the proper Data Plugins. (See <a class="reference internal" href="../intro/data_arch.html#dataarchitecture"><span class="std std-ref">Data Architecture</span></a>).</p>
-<p class="last">The opposite is also available: to close connections, call <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.close_widget_connections</span></code>.</p>
+<p class="last">Since <a class="reference external" href="https://github.com/slaclab/pydm/releases/tag/v1.6.0">PyDM v1.6.0</a> it is no longer required to call <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.establish_widget_connections</span></code>
+and <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.close_widget_connections</span></code>.</p>
 </div>
 </li>
 </ul>
@@ -480,7 +471,6 @@ other steps when referenced.</p>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
   
