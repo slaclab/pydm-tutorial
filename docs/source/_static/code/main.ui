@@ -95,7 +95,7 @@
         <string>ca://13SIM1:image1:ArrayData</string>
        </property>
        <property name="widthChannel" stdset="0">
-        <string>ca://13SIM1:image1:ArraySize1_RBV</string>
+        <string>ca://13SIM1:image1:ArraySize0_RBV</string>
        </property>
        <property name="maxRedrawRate" stdset="0">
         <number>30</number>
