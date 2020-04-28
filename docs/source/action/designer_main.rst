@@ -37,7 +37,7 @@ The finished result will look like this:
 
 * **Step 2.**
 
-  With the new form available, let's add a ``QVBoxLayout`` widget and make
+  With the new form available, let's add a ``Vertical Layout`` widget and make
   it fill the whole form. Let's select ``Layout Vertically`` for the Form.
 
   .. figure:: /_static/action/inline/inline_layout.gif
@@ -56,7 +56,7 @@ The finished result will look like this:
 
     The first ``QLabel`` will be the title of our screen:
 
-    #. Drag and drop a ``QLabel`` into the previously added ``QVBoxLayout``.
+    #. Drag and drop a ``QLabel`` into the previously added ``Vertical Layout``.
     #. Set the ``text`` property of this label to: ``Beam Alignment``.
     #. In order to make the label look better as a title, add the following to
        the ``stylesheet`` property:
@@ -81,7 +81,7 @@ The finished result will look like this:
     The second widget that we will add is a ``PyDMImageView``, which will display
     the image coming from our camera:
 
-    #. Drag and drop a ``PyDMImageView`` into the previously added ``QVBoxLayout`` under
+    #. Drag and drop a ``PyDMImageView`` into the previously added ``Vertical Layout`` under
        the ``QLabel`` that was added at **Step 3.1**.
     #. Set the ``imageChannel`` property to ``ca://13SIM1:image1:ArrayData``.
     #. Set the ``widthChannel`` property to ``ca://13SIM1:image1:ArraySize1_RBV``.
@@ -91,10 +91,10 @@ The finished result will look like this:
 
   * **Step 3.3.**
 
-    The third widget that we will add is a ``QVBoxLayout``, which will be the
+    The third widget that we will add is a ``Vertical Layout``, which will be the
     placeholder for the controls area of the screen:
 
-    #. Drag and drop a ``QVBoxLayout`` into the previously added ``QVBoxLayout`` under
+    #. Drag and drop a ``Vertical Layout`` into the previously added ``Vertical Layout`` under
        the ``PyDMImageView`` that was added at **Step 3.2**.
 
   * **Step 3.4.**
@@ -102,7 +102,7 @@ The finished result will look like this:
     The fourth widget that we will add is a ``QLabel``, which will be updated with
     the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
-    #. Drag and drop a ``QVBoxLayout`` into the ``QVBoxLayout`` that was added in
+    #. Drag and drop a ``Vertical Layout`` into the ``Vertical Layout`` that was added in
        **Step 3.3**.
     #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
 
@@ -121,7 +121,7 @@ The finished result will look like this:
     The fifth widget that we will add is a ``QLabel``, which will be updated with
     the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
-    #. Drag and drop a ``QVBoxLayout`` into the ``QVBoxLayout`` that was added in
+    #. Drag and drop a ``Vertical Layout`` into the ``Vertical Layout`` that was added in
        **Step 3.3**.
     #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
 
@@ -140,7 +140,7 @@ The finished result will look like this:
     The sixth widget that we will add is another ``QLabel``, which will show the title
     of our controls area:
 
-    #. Drag and drop a ``QLabel`` into the ``QVBoxLayout`` that was added in
+    #. Drag and drop a ``QLabel`` into the ``Vertical Layout`` that was added in
        **Step 3.3** right under the QLabel added in **Step 3.5**.
     #. Set the ``text`` property of this label to: ``Controls``.
     #. In order to make the label look better as a title, add the following to
@@ -202,8 +202,8 @@ The finished result will look like this:
     Finally, the tenth widget that we will add is a ``PyDMRelatedDisplayButton``, which will
     open the ``All Motors`` screen that will be developed :ref:`later <PurePython>`:
 
-    #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``QVBoxLayout`` added in **Step 2**.
-    #. Set the ``displayFilename`` property to ``all_motors.py``.
+    #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``Vertical Layout`` added in **Step 2**.
+    #. Add the string ``all_motors.py`` to the ``filenames`` property.
     #. Uncheck the ``openInNewWindow`` property.
 
   * **Step 3.11.**
