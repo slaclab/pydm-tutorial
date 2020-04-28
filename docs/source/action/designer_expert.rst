@@ -114,12 +114,12 @@ The finished result will look like this:
   * **Step 3.3.**
 
     Now to ensure the alignment and positioning of the form content, let's add a
-    ``QFormLayout``:
+    ``Form Layout``:
 
-    #. Drag and drop a ``QFormLayout`` into the previously added ``Frame``.
+    #. Drag and drop a ``Form Layout`` into the previously added ``Frame``.
     #. Right-click the ``Frame`` and select ``Layout > Layout Vertically``.
 
-       - This will make the QFormLayout fill the whole space of the ``Frame``
+       - This will make the ``Form Layout`` fill the whole space of the ``Frame``
          and make our form behave better when resizing.
 
     #. Set the ``frameShadow`` property to ``Raised``.
@@ -136,13 +136,13 @@ The finished result will look like this:
 
   * **Step 3.4.**
 
-    Now that we have our ``QFormLayout`` ready, it is time to start adding the form
+    Now that we have our ``Form Layout`` ready, it is time to start adding the form
     widgets. Let's start with the first pair of ``Label`` and ``PyDMLineEdit`` that
     will be used to edit the **Description** of the Motor:
 
-    #. Drag and drop a ``Label`` into the the previously added ``QFormLayout``.
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout``.
     #. Set the ``text`` property to ``Description:``.
-    #. Drag and drop a ``PyDMLineEdit`` into the ``QFormLayout`` paying attention to
+    #. Drag and drop a ``PyDMLineEdit`` into the ``Form Layout`` paying attention to
        add it on the right side of the previously added ``Label``.
 
        .. note::
@@ -159,7 +159,7 @@ The finished result will look like this:
     Let's now add the second pair of ``Label`` and ``PyDMLineEdit`` that
     will be used to edit the **Position** of the Motor:
 
-    #. Drag and drop a ``Label`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
 
        .. note::
@@ -168,7 +168,7 @@ The finished result will look like this:
           know that the widget will be placed at the expected place.
 
     #. Set the ``text`` property to ``Position:``.
-    #. Drag and drop a ``PyDMLineEdit`` into the ``QFormLayout`` paying attention to
+    #. Drag and drop a ``PyDMLineEdit`` into the ``Form Layout`` paying attention to
        add it on the side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.VAL``.
     #. Set the ``displayFormat`` property to ``Decimal``.
@@ -180,10 +180,10 @@ The finished result will look like this:
     Let's now add a ``Label``, and this time, a ``PyDMLabel`` that
     will be used to read the **Readback Position** of the Motor:
 
-    #. Drag and drop a ``Label`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Readback:``.
-    #. Drag and drop a ``PyDMLabel`` to the ``QFormLayout`` paying attention to
+    #. Drag and drop a ``PyDMLabel`` to the ``Form Layout`` paying attention to
        add it on the right side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.RBV``.
     #. Set the ``displayFormat`` property to ``Decimal``.
@@ -194,10 +194,10 @@ The finished result will look like this:
     Let's add another ``Label`` and ``PyDMLineEdit`` pair that will be used
     to edit the **Velocity** of the Motor:
 
-    #. Drag and drop a ``Label`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Velocity:``.
-    #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
+    #. Drag and drop a ``PyDMLineEdit`` to the ``Form Layout`` paying attention to
        add it on the side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.VELO``.
     #. Set the ``displayFormat`` property to ``Decimal``.
@@ -210,10 +210,10 @@ The finished result will look like this:
     And now to the last ``Label`` and ``PyDMLineEdit`` pair that will be used
     to edit the **Acceleration** of the Motor:
 
-    #. Drag and drop a ``Label`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Acceleration:``.
-    #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
+    #. Drag and drop a ``PyDMLineEdit`` to the ``Form Layout`` paying attention to
        add it on the side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.ACCL``.
     #. Set the ``displayFormat`` property to ``Decimal``.
