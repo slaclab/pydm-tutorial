@@ -205,6 +205,7 @@ The finished result will look like this:
     #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``Vertical Layout`` added in **Step 2**.
     #. Add the string ``all_motors.py`` to the ``filenames`` property.
     #. Uncheck the ``openInNewWindow`` property.
+    #. Set the ``text`` property to: ``View All Motors``
 
   * **Step 3.11.**
 
