@@ -39,7 +39,7 @@ The finished result will look like this:
 
 * **Step 2.**
 
-  With the new form available, let's add a ``QVBoxLayout`` widget and make
+  With the new form available, let's add a ``Vertical Layout`` widget and make
   it fill the whole form. Let's select ``Layout Vertically`` for the Form.
 
   .. figure:: /_static/action/inline/inline_layout.gif
@@ -60,7 +60,7 @@ The finished result will look like this:
 
     The first ``Label`` will be the title of our screen:
 
-    #. Drag and drop a ``Label`` into the previously added ``QVBoxLayout``.
+    #. Drag and drop a ``Label`` into the previously added ``Vertical Layout``.
     #. Set the ``text`` property of this label to: ``Configuring Motor: ${MOTOR}``.
 
        .. note::
@@ -96,7 +96,7 @@ The finished result will look like this:
     The second widget that we will add is a ``Frame``, which will be the container
     of the fields in our form:
 
-    #. Drag and drop a ``Frame`` into the previously added ``QVBoxLayout`` under
+    #. Drag and drop a ``Frame`` into the previously added ``Vertical Layout`` under
        the ``Label`` that was added at **Step 3.1**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``.
