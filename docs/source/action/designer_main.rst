@@ -54,9 +54,9 @@ The finished result will look like this:
 
   * **Step 3.1.**
 
-    The first ``QLabel`` will be the title of our screen:
+    The first ``Label`` will be the title of our screen:
 
-    #. Drag and drop a ``QLabel`` into the previously added ``Vertical Layout``.
+    #. Drag and drop a ``Label`` into the previously added ``Vertical Layout``.
     #. Set the ``text`` property of this label to: ``Beam Alignment``.
     #. In order to make the label look better as a title, add the following to
        the ``stylesheet`` property:
@@ -82,7 +82,7 @@ The finished result will look like this:
     the image coming from our camera:
 
     #. Drag and drop a ``PyDMImageView`` into the previously added ``Vertical Layout`` under
-       the ``QLabel`` that was added at **Step 3.1**.
+       the ``Label`` that was added at **Step 3.1**.
     #. Set the ``imageChannel`` property to ``ca://13SIM1:image1:ArrayData``.
     #. Set the ``widthChannel`` property to ``ca://13SIM1:image1:ArraySize1_RBV``.
     #. Set the ``readingOrder`` property to ``Clike``.
@@ -99,7 +99,7 @@ The finished result will look like this:
 
   * **Step 3.4.**
 
-    The fourth widget that we will add is a ``QLabel``, which will be updated with
+    The fourth widget that we will add is a ``Label``, which will be updated with
     the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
     #. Drag and drop a ``Label`` into the ``Vertical Layout`` that was added in
@@ -118,7 +118,7 @@ The finished result will look like this:
 
   * **Step 3.5.**
 
-    The fifth widget that we will add is a ``QLabel``, which will be updated with
+    The fifth widget that we will add is a ``Label``, which will be updated with
     the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
     #. Drag and drop a ``Vertical Layout`` into the ``Vertical Layout`` that was added in
@@ -137,11 +137,11 @@ The finished result will look like this:
 
   * **Step 3.6.**
 
-    The sixth widget that we will add is another ``QLabel``, which will show the title
+    The sixth widget that we will add is another ``Label``, which will show the title
     of our controls area:
 
-    #. Drag and drop a ``QLabel`` into the ``Vertical Layout`` that was added in
-       **Step 3.3** right under the QLabel added in **Step 3.5**.
+    #. Drag and drop a ``Label`` into the ``Vertical Layout`` that was added in
+       **Step 3.3** right under the ``Label`` added in **Step 3.5**.
     #. Set the ``text`` property of this label to: ``Controls``.
     #. In order to make the label look better as a title, add the following to
        the ``stylesheet`` property:
@@ -162,10 +162,10 @@ The finished result will look like this:
 
   * **Step 3.7.**
 
-    The seventh widget that we will add is a ``QFrame``, which will be the container
+    The seventh widget that we will add is a ``Frame``, which will be the container
     for our two motors' ``Embedded Displays``:
 
-    #. Drag and drop a ``QFrame`` under the QLabel added in **Step 3.6**.
+    #. Drag and drop a ``Frame`` under the ``Label`` added in **Step 3.6**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``
     #. Set the ``stylesheet`` property to:
@@ -183,8 +183,8 @@ The finished result will look like this:
     The eight widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our first motor axis:
 
-    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added in **Step 3.7**.
-    #. Right-click the ``QFrame`` from **Step 3.7** and select ``Layout >> Layout Vertically``.
+    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``Frame`` added in **Step 3.7**.
+    #. Right-click the ``Frame`` from **Step 3.7** and select ``Layout >> Layout Vertically``.
     #. Set the ``macros`` property to ``{"MOTOR":"IOC:m1"}``.
     #. Set the ``filename`` property to ``inline_motor.ui``.
 
@@ -193,7 +193,7 @@ The finished result will look like this:
     The ninth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our second motor axis:
 
-    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``QFrame`` added in **Step 3.7**.
+    #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``Frame`` added in **Step 3.7**.
     #. Set the ``macros`` property to ``{"MOTOR":"IOC:m2"}``.
     #. Set the ``filename`` property to ``inline_motor.ui``.
 
