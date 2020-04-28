@@ -93,10 +93,10 @@ The finished result will look like this:
 
   * **Step 3.2.**
 
-    The second widget that we will add is a ``QFrame``, which will be the container
+    The second widget that we will add is a ``Frame``, which will be the container
     of the fields in our form:
 
-    #. Drag and drop a ``QFrame`` into the previously added ``QVBoxLayout`` under
+    #. Drag and drop a ``Frame`` into the previously added ``QVBoxLayout`` under
        the ``Label`` that was added at **Step 3.1**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``.
@@ -116,10 +116,10 @@ The finished result will look like this:
     Now to ensure the alignment and positioning of the form content, let's add a
     ``QFormLayout``:
 
-    #. Drag and drop a ``QFormLayout`` into the previously added ``QFrame``.
-    #. Right-click the ``QFrame`` and select ``Layout > Layout Vertically``.
+    #. Drag and drop a ``QFormLayout`` into the previously added ``Frame``.
+    #. Right-click the ``Frame`` and select ``Layout > Layout Vertically``.
 
-       - This will make the QFormLayout fill the whole space of the ``QFrame``
+       - This will make the QFormLayout fill the whole space of the ``Frame``
          and make our form behave better when resizing.
 
     #. Set the ``frameShadow`` property to ``Raised``.
