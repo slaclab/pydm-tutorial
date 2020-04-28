@@ -102,7 +102,7 @@ The finished result will look like this:
     The fourth widget that we will add is a ``QLabel``, which will be updated with
     the result of the calculation of beam position in the next section (:ref:`LittleCode`):
 
-    #. Drag and drop a ``Vertical Layout`` into the ``Vertical Layout`` that was added in
+    #. Drag and drop a ``Label`` into the ``Vertical Layout`` that was added in
        **Step 3.3**.
     #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
 
