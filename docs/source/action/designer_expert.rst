@@ -39,7 +39,7 @@ The finished result will look like this:
 
 * **Step 2.**
 
-  With the new form available, let's add a ``QVBoxLayout`` widget and make
+  With the new form available, let's add a ``Vertical Layout`` widget and make
   it fill the whole form. Let's select ``Layout Vertically`` for the Form.
 
   .. figure:: /_static/action/inline/inline_layout.gif
@@ -58,9 +58,9 @@ The finished result will look like this:
 
   * **Step 3.1.**
 
-    The first ``QLabel`` will be the title of our screen:
+    The first ``Label`` will be the title of our screen:
 
-    #. Drag and drop a ``QLabel`` into the previously added ``QVBoxLayout``.
+    #. Drag and drop a ``Label`` into the previously added ``Vertical Layout``.
     #. Set the ``text`` property of this label to: ``Configuring Motor: ${MOTOR}``.
 
        .. note::
@@ -93,11 +93,11 @@ The finished result will look like this:
 
   * **Step 3.2.**
 
-    The second widget that we will add is a ``QFrame``, which will be the container
+    The second widget that we will add is a ``Frame``, which will be the container
     of the fields in our form:
 
-    #. Drag and drop a ``QFrame`` into the previously added ``QVBoxLayout`` under
-       the ``QLabel`` that was added at **Step 3.1**.
+    #. Drag and drop a ``Frame`` into the previously added ``Vertical Layout`` under
+       the ``Label`` that was added at **Step 3.1**.
     #. Set the ``frameShape`` property to ``StyledPanel``.
     #. Set the ``frameShadow`` property to ``Raised``.
     #. In order to add some nice rounded corners to this frame, add the following
@@ -114,12 +114,12 @@ The finished result will look like this:
   * **Step 3.3.**
 
     Now to ensure the alignment and positioning of the form content, let's add a
-    ``QFormLayout``:
+    ``Form Layout``:
 
-    #. Drag and drop a ``QFormLayout`` into the previously added ``QFrame``.
-    #. Right-click the ``QFrame`` and select ``Layout > Layout Vertically``.
+    #. Drag and drop a ``Form Layout`` into the previously added ``Frame``.
+    #. Right-click the ``Frame`` and select ``Layout > Layout Vertically``.
 
-       - This will make the QFormLayout fill the whole space of the ``QFrame``
+       - This will make the ``Form Layout`` fill the whole space of the ``Frame``
          and make our form behave better when resizing.
 
     #. Set the ``frameShadow`` property to ``Raised``.
@@ -136,18 +136,18 @@ The finished result will look like this:
 
   * **Step 3.4.**
 
-    Now that we have our ``QFormLayout`` ready, it is time to start adding the form
-    widgets. Let's start with the first pair of ``QLabel`` and ``PyDMLineEdit`` that
+    Now that we have our ``Form Layout`` ready, it is time to start adding the form
+    widgets. Let's start with the first pair of ``Label`` and ``PyDMLineEdit`` that
     will be used to edit the **Description** of the Motor:
 
-    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout``.
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout``.
     #. Set the ``text`` property to ``Description:``.
-    #. Drag and drop a ``PyDMLineEdit`` into the ``QFormLayout`` paying attention to
-       add it on the right side of the previously added ``QLabel``.
+    #. Drag and drop a ``PyDMLineEdit`` into the ``Form Layout`` paying attention to
+       add it on the right side of the previously added ``Label``.
 
        .. note::
 
-          The area that will match the ``QLabel`` will be highlighted with red
+          The area that will match the ``Label`` will be highlighted with red
           borders. When that happens you will know that the widget will be placed
           at the expected place.
 
@@ -156,10 +156,10 @@ The finished result will look like this:
 
   * **Step 3.5.**
 
-    Let's now add the second pair of ``QLabel`` and ``PyDMLineEdit`` that
+    Let's now add the second pair of ``Label`` and ``PyDMLineEdit`` that
     will be used to edit the **Position** of the Motor:
 
-    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
 
        .. note::
@@ -168,8 +168,8 @@ The finished result will look like this:
           know that the widget will be placed at the expected place.
 
     #. Set the ``text`` property to ``Position:``.
-    #. Drag and drop a ``PyDMLineEdit`` into the ``QFormLayout`` paying attention to
-       add it on the side of the previously added ``QLabel``.
+    #. Drag and drop a ``PyDMLineEdit`` into the ``Form Layout`` paying attention to
+       add it on the side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.VAL``.
     #. Set the ``displayFormat`` property to ``Decimal``.
     #. Select the ``showUnits`` property.
@@ -177,28 +177,28 @@ The finished result will look like this:
 
   * **Step 3.6.**
 
-    Let's now add a ``QLabel``, and this time, a ``PyDMLabel`` that
+    Let's now add a ``Label``, and this time, a ``PyDMLabel`` that
     will be used to read the **Readback Position** of the Motor:
 
-    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Readback:``.
-    #. Drag and drop a ``PyDMLabel`` to the ``QFormLayout`` paying attention to
-       add it on the right side of the previously added ``QLabel``.
+    #. Drag and drop a ``PyDMLabel`` to the ``Form Layout`` paying attention to
+       add it on the right side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.RBV``.
     #. Set the ``displayFormat`` property to ``Decimal``.
     #. Select the ``showUnits`` property.
 
   * **Step 3.7.**
 
-    Let's add another ``QLabel`` and ``PyDMLineEdit`` pair that will be used
+    Let's add another ``Label`` and ``PyDMLineEdit`` pair that will be used
     to edit the **Velocity** of the Motor:
 
-    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Velocity:``.
-    #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
-       add it on the side of the previously added ``QLabel``.
+    #. Drag and drop a ``PyDMLineEdit`` to the ``Form Layout`` paying attention to
+       add it on the side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.VELO``.
     #. Set the ``displayFormat`` property to ``Decimal``.
     #. Select the ``showUnits`` property.
@@ -207,14 +207,14 @@ The finished result will look like this:
 
   * **Step 3.8.**
 
-    And now to the last ``QLabel`` and ``PyDMLineEdit`` pair that will be used
+    And now to the last ``Label`` and ``PyDMLineEdit`` pair that will be used
     to edit the **Acceleration** of the Motor:
 
-    #. Drag and drop a ``QLabel`` into the the previously added ``QFormLayout`` right
+    #. Drag and drop a ``Label`` into the the previously added ``Form Layout`` right
        under the previously added components.
     #. Set the ``text`` property to ``Acceleration:``.
-    #. Drag and drop a ``PyDMLineEdit`` to the ``QFormLayout`` paying attention to
-       add it on the side of the previously added ``QLabel``.
+    #. Drag and drop a ``PyDMLineEdit`` to the ``Form Layout`` paying attention to
+       add it on the side of the previously added ``Label``.
     #. Set the ``channel`` property to ``ca://${MOTOR}.ACCL``.
     #. Set the ``displayFormat`` property to ``Decimal``.
     #. Select the ``showUnits`` property.
