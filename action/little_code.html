@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Making Pure Python Displays" href="python.html" />
     <link rel="prev" title="A Word About Python Displays" href="intro_python.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> PyDM Tutorial
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> PyDM Tutorial
           
 
           
@@ -75,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -118,6 +122,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -156,7 +161,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Adding Code into the Main Display</li>
     
@@ -180,13 +185,13 @@
   <div class="section" id="adding-code-into-the-main-display">
 <span id="littlecode"></span><h1>Adding Code into the Main Display<a class="headerlink" href="#adding-code-into-the-main-display" title="Permalink to this headline">¶</a></h1>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
+<p class="admonition-title">Important</p>
 <p><strong>Check-list:</strong></p>
-<ul class="last simple">
-<li>Make sure that you have your <a class="reference internal" href="../intro.html#environment"><span class="std std-ref">Environment</span></a> properly configured.</li>
-<li>That your <a class="reference internal" href="../intro.html#virtualmachine"><span class="std std-ref">Virtual Machine</span></a> is up and ready.</li>
-<li>That the <a class="reference internal" href="../intro.html#pythonenv"><span class="std std-ref">Python environment</span></a> is set.</li>
-<li>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</li>
+<ul class="simple">
+<li><p>Make sure that you have your <a class="reference internal" href="../intro.html#environment"><span class="std std-ref">Environment</span></a> properly configured.</p></li>
+<li><p>That your <a class="reference internal" href="../intro.html#virtualmachine"><span class="std std-ref">Virtual Machine</span></a> is up and ready.</p></li>
+<li><p>That the <a class="reference internal" href="../intro.html#pythonenv"><span class="std std-ref">Python environment</span></a> is set.</p></li>
+<li><p>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</p></li>
 </ul>
 </div>
 <p>For this particular application it would be of interest to not only see the beam
@@ -198,7 +203,7 @@ the <a class="reference internal" href="designer_main.html#main"><span class="st
 our Python-based display, and hook up code to interact with widgets.</p>
 <p>This is accomplished by subclassing <cite>pydm.Display</cite> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a> for more details).</p>
 <ul>
-<li><p class="first"><strong>Step 1.</strong></p>
+<li><p><strong>Step 1.</strong></p>
 <blockquote>
 <div><p>Open a new text file.  The first thing that we will do is add the imports
 needed for the code that will follow.</p>
@@ -210,12 +215,12 @@ needed for the code that will follow.</p>
 </div>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>Step 2.</strong></p>
+<li><p><strong>Step 2.</strong></p>
 <p>Let’s create our Python class that will inherit from <code class="docutils literal notranslate"><span class="pre">Display</span></code> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BeamPositioning</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">BeamPositioning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BeamPositioning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="c1"># Attach our custom process_image method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">imageView</span><span class="o">.</span><span class="n">process_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_image</span>
         <span class="c1"># Hook up to the newImageSignal so we can update</span>
@@ -235,26 +240,26 @@ needed for the code that will follow.</p>
 </div>
 <p>Breaking the class constructor code into pieces, we have:</p>
 <ol class="arabic simple">
-<li>Replaced the default <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> method <code class="docutils literal notranslate"><span class="pre">process_image</span></code> with our
-own custom method.</li>
-<li>Hooked up our <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method to the <code class="docutils literal notranslate"><span class="pre">newImageSignal</span></code> that is emitted
-by the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> every time a new image is displayed.</li>
-<li>Initialized the <code class="docutils literal notranslate"><span class="pre">self.blob</span></code> variable with <cite>(0, 0)</cite>.</li>
-<li>Implemented a <code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> method returning the name of the <code class="docutils literal notranslate"><span class="pre">UI</span></code> file to be used and
-compose the screen.</li>
-<li>Implemented a <code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> method returning the full path to the <code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> so PyDM
-can properly load it.</li>
+<li><p>Replaced the default <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> method <code class="docutils literal notranslate"><span class="pre">process_image</span></code> with our
+own custom method.</p></li>
+<li><p>Hooked up our <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method to the <code class="docutils literal notranslate"><span class="pre">newImageSignal</span></code> that is emitted
+by the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> every time a new image is displayed.</p></li>
+<li><p>Initialized the <code class="docutils literal notranslate"><span class="pre">self.blob</span></code> variable with <cite>(0, 0)</cite>.</p></li>
+<li><p>Implemented a <code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> method returning the name of the <code class="docutils literal notranslate"><span class="pre">UI</span></code> file to be used and
+compose the screen.</p></li>
+<li><p>Implemented a <code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> method returning the full path to the <code class="docutils literal notranslate"><span class="pre">ui_filename</span></code> so PyDM
+can properly load it.</p></li>
 </ol>
 <ul>
-<li><p class="first"><strong>Step 2.1.</strong></p>
+<li><p><strong>Step 2.1.</strong></p>
 <p>Add code to the <code class="docutils literal notranslate"><span class="pre">process_image</span></code> callback method so we can calculate the
 blob position.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
+<p class="admonition-title">Important</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">process_image</span></code> method is defined in the <code class="docutils literal notranslate"><span class="pre">PyDMImageView</span></code> widget
 and more information about it can be found at the
 <a class="reference external" href="https://slaclab.github.io/pydm/widgets/image.html">PyDMImage widget documentation page</a>.</p>
-<p class="last">Since this method runs in a separated <code class="docutils literal notranslate"><span class="pre">QThread</span></code>, we shouldn’t
+<p>Since this method runs in a separated <code class="docutils literal notranslate"><span class="pre">QThread</span></code>, we shouldn’t
 manipulate widgets in this method, since this code runs outside of the
 <strong>Qt Main Thread</strong>.</p>
 </div>
@@ -272,14 +277,14 @@ At the end, this method returns the unmodified image, which the ImageView
 will display.  If you’d like to manipulate the image before displaying it,
 you can do so in this method, and return the manipulated version.</p>
 </li>
-<li><p class="first"><strong>Step 2.2.</strong></p>
+<li><p><strong>Step 2.2.</strong></p>
 <p>Add code to the <code class="docutils literal notranslate"><span class="pre">show_blob</span></code> method so we update the <code class="docutils literal notranslate"><span class="pre">QLabel</span></code> with the
 new blob position calculated in <code class="docutils literal notranslate"><span class="pre">process_image</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_blob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c1"># If we have a blob, present the coordinates in label</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">blob_txt</span> <span class="o">=</span> <span class="s2">&quot;Blob Found:&quot;</span>
-        <span class="n">blob_txt</span> <span class="o">+=</span> <span class="s2">&quot; ({}, {})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blob</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">blob_txt</span> <span class="o">+=</span> <span class="s2">&quot; (</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blob</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">blob</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># If no blob was found, present the &quot;Not Found&quot; message</span>
         <span class="n">blob_txt</span> <span class="o">=</span> <span class="s2">&quot;Blob Not Found&quot;</span>
@@ -290,16 +295,16 @@ new blob position calculated in <code class="docutils literal notranslate"><span
 </li>
 </ul>
 </li>
-<li><p class="first"><strong>Step 3.</strong></p>
+<li><p><strong>Step 3.</strong></p>
 <p>Save this file as <code class="docutils literal notranslate"><span class="pre">main.py</span></code>.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">For this tutorial it is important to use this file name as it will be referenced
+<p class="admonition-title">Warning</p>
+<p>For this tutorial it is important to use this file name as it will be referenced
 at the other sections. If you change it please remember to also change in the
 other steps when referenced.</p>
 </div>
 </li>
-<li><p class="first"><strong>Step 4.</strong></p>
+<li><p><strong>Step 4.</strong></p>
 <p>Test the Main Screen:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm main.py
 </pre></div>
@@ -310,8 +315,8 @@ other steps when referenced.</p>
 </li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can download this file using <a class="reference download internal" download="" href="../_downloads/852b73bf69df85158f205431e006c7a1/main.py"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+<p class="admonition-title">Note</p>
+<p>You can download this file using <a class="reference download internal" download="" href="../_downloads/b72e1ab56a3cf8e9334c47dc4e3bfabc/main.py"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
 </div>
 </div>
 
@@ -326,7 +331,7 @@ other steps when referenced.</p>
         <a href="python.html" class="btn btn-neutral float-right" title="Making Pure Python Displays" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="intro_python.html" class="btn btn-neutral" title="A Word About Python Displays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="intro_python.html" class="btn btn-neutral float-left" title="A Word About Python Displays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -335,11 +340,19 @@ other steps when referenced.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -351,27 +364,16 @@ other steps when referenced.</p>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -204,7 +204,7 @@ The finished result will look like this:
     #. Drag and drop a ``PyDMRelatedDisplayButton`` at the ``GridLayout`` on the
        side of the previously added ``PyDMPushButton``.
     #. Set the ``text`` property to ``Engineer...``.
-    #. Set the ``displayFilename`` property to ``expert_motor.ui``.
+    #. Add the string ``exper_motor.ui`` to the ``filenames`` property.
 
        .. note::
 

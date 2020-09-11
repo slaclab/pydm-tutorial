@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Getting Help With PyDM" href="../contrib/help.html" />
     <link rel="prev" title="Adding Code into the Main Display" href="little_code.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> PyDM Tutorial
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> PyDM Tutorial
           
 
           
@@ -75,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -118,6 +122,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -156,7 +161,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Making Pure Python Displays</li>
     
@@ -180,13 +185,13 @@
   <div class="section" id="making-pure-python-displays">
 <span id="purepython"></span><h1>Making Pure Python Displays<a class="headerlink" href="#making-pure-python-displays" title="Permalink to this headline">¶</a></h1>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
+<p class="admonition-title">Important</p>
 <p><strong>Check-list:</strong></p>
-<ul class="last simple">
-<li>Make sure that you have your <a class="reference internal" href="../intro.html#environment"><span class="std std-ref">Environment</span></a> properly configured.</li>
-<li>That your <a class="reference internal" href="../intro.html#virtualmachine"><span class="std std-ref">Virtual Machine</span></a> is up and ready.</li>
-<li>That the <a class="reference internal" href="../intro.html#pythonenv"><span class="std std-ref">Python environment</span></a> is set.</li>
-<li>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</li>
+<ul class="simple">
+<li><p>Make sure that you have your <a class="reference internal" href="../intro.html#environment"><span class="std std-ref">Environment</span></a> properly configured.</p></li>
+<li><p>That your <a class="reference internal" href="../intro.html#virtualmachine"><span class="std std-ref">Virtual Machine</span></a> is up and ready.</p></li>
+<li><p>That the <a class="reference internal" href="../intro.html#pythonenv"><span class="std std-ref">Python environment</span></a> is set.</p></li>
+<li><p>That all <a class="reference internal" href="../intro.html#iocs"><span class="std std-ref">three IOCs</span></a> are running.</p></li>
 </ul>
 </div>
 <p>As we saw in the <a class="reference internal" href="intro_python.html#python"><span class="std std-ref">A Word About Python Display</span></a> section, it is
@@ -205,13 +210,13 @@ method to filter our list of motors and present a list of
 <a class="reference internal image-reference" href="../_images/all_motors.png"><img alt="All Motors Screen" src="../_images/all_motors.png" style="width: 646.5px; height: 460.5px;" /></a>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">In order to simplify this tutorial, instead of using a database or other type
+<p class="admonition-title">Important</p>
+<p>In order to simplify this tutorial, instead of using a database or other type
 of service, the data to populate the list of motors will come from a simple text file
-named <code class="docutils literal notranslate"><span class="pre">motor_db.txt</span></code> that can be downloaded <a class="reference download internal" download="" href="../_downloads/12ddf67795e0cb32992221001b38b0f5/motor_db.txt"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+named <code class="docutils literal notranslate"><span class="pre">motor_db.txt</span></code> that can be downloaded <a class="reference download internal" download="" href="../_downloads/afad300a138ae10a4b3c2d8395536842/motor_db.txt"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
 </div>
 <ul>
-<li><p class="first"><strong>Step 1.</strong></p>
+<li><p><strong>Step 1.</strong></p>
 <blockquote>
 <div><p>The first thing that we will do is add the imports needed for the code that
 will follow.</p>
@@ -229,11 +234,11 @@ will follow.</p>
 </div>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>Step 2.</strong></p>
+<li><p><strong>Step 2.</strong></p>
 <p>Let’s create our Python Class that will inherit from <code class="docutils literal notranslate"><span class="pre">Display</span></code> (See <a class="reference internal" href="intro_python.html#display"><span class="std std-ref">Subclassing Display</span></a>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AllMotorsDisplay</span><span class="p">(</span><span class="n">Display</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[],</span> <span class="n">macros</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">AllMotorsDisplay</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[],</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AllMotorsDisplay</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">macros</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
         <span class="c1"># Placeholder for data to filter</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1"># Reference to the PyDMApplication</span>
@@ -250,25 +255,25 @@ will follow.</p>
 
     <span class="k">def</span> <span class="nf">ui_filepath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># No UI file is being used</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="kc">None</span>
 </pre></div>
 </div>
 <p>Breaking it down into pieces:</p>
 <ol class="arabic simple">
-<li>The constructor of the class will call the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method that is
+<li><p>The constructor of the class will call the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method that is
 responsible for opening our database and adding the information to our
 placeholder, <code class="docutils literal notranslate"><span class="pre">self.data</span></code>, for later filtering, as well as the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code>
-method in which the widgets be constructed and configuered.</li>
-<li><code class="docutils literal notranslate"><span class="pre">minimumSizeHint</span></code> returns the suggested minimum dimensions for the display.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> will return <code class="docutils literal notranslate"><span class="pre">None</span></code>, as no <code class="docutils literal notranslate"><span class="pre">ui</span></code> file is being used in this
-case.</li>
+method in which the widgets be constructed and configuered.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimumSizeHint</span></code> returns the suggested minimum dimensions for the display.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ui_filepath</span></code> will return <code class="docutils literal notranslate"><span class="pre">None</span></code>, as no <code class="docutils literal notranslate"><span class="pre">ui</span></code> file is being used in this
+case.</p></li>
 </ol>
 <ul>
-<li><p class="first"><strong>Step 2.1.</strong></p>
+<li><p><strong>Step 2.1.</strong></p>
 <p>Add the code to the <code class="docutils literal notranslate"><span class="pre">load_data</span></code> method.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Look at the comments over the lines for explanation on what they do.</p>
+<p class="admonition-title">Note</p>
+<p>Look at the comments over the lines for explanation on what they do.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="c1"># Extract the directory of this file...</span>
@@ -284,11 +289,11 @@ case.</li>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>Step 2.2.</strong></p>
+<li><p><strong>Step 2.2.</strong></p>
 <p>Add the code to the <code class="docutils literal notranslate"><span class="pre">setup_ui</span></code> method.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Look at the comments over the lines for explanation on what they do.</p>
+<p class="admonition-title">Note</p>
+<p>Look at the comments over the lines for explanation on what they do.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="c1"># Create the main layout</span>
@@ -351,7 +356,7 @@ case.</li>
     <span class="n">scroll_area</span> <span class="o">=</span> <span class="n">QScrollArea</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
     <span class="n">scroll_area</span><span class="o">.</span><span class="n">setVerticalScrollBarPolicy</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOn</span><span class="p">)</span>
     <span class="n">scroll_area</span><span class="o">.</span><span class="n">setHorizontalScrollBarPolicy</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">Qt</span><span class="o">.</span><span class="n">ScrollBarAlwaysOff</span><span class="p">)</span>
-    <span class="n">scroll_area</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">scroll_area</span><span class="o">.</span><span class="n">setWidgetResizable</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Add the Frame to the scroll area</span>
     <span class="n">scroll_area</span><span class="o">.</span><span class="n">setWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="p">)</span>
@@ -361,17 +366,17 @@ case.</li>
 </pre></div>
 </div>
 </li>
-<li><p class="first"><strong>Step 2.3.</strong></p>
+<li><p><strong>Step 2.3.</strong></p>
 <p>Add the code to connect the <code class="docutils literal notranslate"><span class="pre">QPushButton</span></code> click and perform the search
 on our data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Look at the comments over the lines for explanation on what they do.</p>
+<p class="admonition-title">Note</p>
+<p>Look at the comments over the lines for explanation on what they do.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_search</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="c1"># For each widget inside the results frame, lets destroy them</span>
     <span class="k">for</span> <span class="n">widget</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">frm_result</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
-        <span class="n">widget</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="n">widget</span><span class="o">.</span><span class="n">setParent</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="n">widget</span><span class="o">.</span><span class="n">deleteLater</span><span class="p">()</span>
 
     <span class="c1"># Grab the filter text</span>
@@ -394,23 +399,23 @@ on our data.</p>
 </pre></div>
 </div>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">Since <a class="reference external" href="https://github.com/slaclab/pydm/releases/tag/v1.6.0">PyDM v1.6.0</a> it is no longer required to call <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.establish_widget_connections</span></code>
+<p class="admonition-title">Important</p>
+<p>Since <a class="reference external" href="https://github.com/slaclab/pydm/releases/tag/v1.6.0">PyDM v1.6.0</a> it is no longer required to call <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.establish_widget_connections</span></code>
 and <code class="docutils literal notranslate"><span class="pre">pydm.utilities.connection.close_widget_connections</span></code>.</p>
 </div>
 </li>
 </ul>
 </li>
-<li><p class="first"><strong>Step 3.</strong></p>
+<li><p><strong>Step 3.</strong></p>
 <p>Save this file as <code class="docutils literal notranslate"><span class="pre">all_motors.py</span></code>.</p>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">For this tutorial it is important to use this file name as it will be referenced
+<p class="admonition-title">Warning</p>
+<p>For this tutorial it is important to use this file name as it will be referenced
 at the other sections. If you change it please remember to also change at the
 other steps when referenced.</p>
 </div>
 </li>
-<li><p class="first"><strong>Step 4.</strong></p>
+<li><p><strong>Step 4.</strong></p>
 <p>Test the All Motors Screen:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pydm all_motors.py
 </pre></div>
@@ -421,8 +426,8 @@ other steps when referenced.</p>
 </li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can download this file using <a class="reference download internal" download="" href="../_downloads/d64dd3f9195c1b7a925ef08d916ca03f/all_motors.py"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
+<p class="admonition-title">Note</p>
+<p>You can download this file using <a class="reference download internal" download="" href="../_downloads/cfdc9d463c1ac3d4f8bb4bc28c23e8ea/all_motors.py"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.</p>
 </div>
 </div>
 
@@ -437,7 +442,7 @@ other steps when referenced.</p>
         <a href="../contrib/help.html" class="btn btn-neutral float-right" title="Getting Help With PyDM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="little_code.html" class="btn btn-neutral" title="Adding Code into the Main Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="little_code.html" class="btn btn-neutral float-left" title="Adding Code into the Main Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -446,11 +451,19 @@ other steps when referenced.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -462,27 +475,16 @@ other steps when referenced.</p>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

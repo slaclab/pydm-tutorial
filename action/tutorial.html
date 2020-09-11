@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction to Qt Designer" href="intro_designer.html" />
     <link rel="prev" title="Data Sources" href="../intro/datasource.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> PyDM Tutorial
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> PyDM Tutorial
           
 
           
@@ -75,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -121,6 +125,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -159,7 +164,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>About the Application</li>
     
@@ -186,9 +191,9 @@
 application composed of PyDM widgets for beam positioning and alignment.</p>
 <p>PyDM allows users to create screens in three ways:</p>
 <ol class="arabic simple">
-<li>Using only the Qt Designer application (.ui file)</li>
-<li>Using Qt Designer and Python Code (.ui and .py files)</li>
-<li>Using only Python code (.py file)</li>
+<li><p>Using only the Qt Designer application (.ui file)</p></li>
+<li><p>Using Qt Designer and Python Code (.ui and .py files)</p></li>
+<li><p>Using only Python code (.py file)</p></li>
 </ol>
 <p>In most of the cases users will choose between numbers 1 and 2 and in rare cases
 go with number 3.</p>
@@ -199,7 +204,7 @@ in which the data from a camera will be presented along with two mirror motor
 axes to position the beam in X and Y.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/application.png"><img alt="Tutorial Application" src="../_images/application.png" style="width: 836.0px; height: 902.0px;" /></a>
-<p class="caption"><span class="caption-text">Proposed Application Main Screen</span></p>
+<p class="caption"><span class="caption-text">Proposed Application Main Screen</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="macro-components">
 <span id="app-components"></span><h2>Macro Components<a class="headerlink" href="#macro-components" title="Permalink to this headline">¶</a></h2>
@@ -207,15 +212,15 @@ axes to position the beam in X and Y.</p>
 <a class="reference internal image-reference" href="../_images/components.png"><img alt="Tutorial Application" src="../_images/components.png" style="width: 948.0px; height: 1034.0px;" /></a>
 </div>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">main.ui</span></code> file (Highlighted in Red) uses an embedded display
+<li><p>The <code class="docutils literal notranslate"><span class="pre">main.ui</span></code> file (Highlighted in Red) uses an embedded display
 (Highlighted in Green) two times, which points to <code class="docutils literal notranslate"><span class="pre">inline_motor.ui</span></code> for <strong>Motor X</strong>
-and <strong>Motor Y</strong>.</li>
-<li>Inside of this embedded display there is a related display button (Highlighted
+and <strong>Motor Y</strong>.</p></li>
+<li><p>Inside of this embedded display there is a related display button (Highlighted
 in Orange) which launches the <code class="docutils literal notranslate"><span class="pre">expert_motor.ui</span></code> for configuration of motor
-parameters.</li>
-<li>Finally, the <strong>View All Motors</strong> related display button (Highlighted in Blue)
+parameters.</p></li>
+<li><p>Finally, the <strong>View All Motors</strong> related display button (Highlighted in Blue)
 launches the <code class="docutils literal notranslate"><span class="pre">all_motors.py</span></code> screen in which we can list all motor axes
-available.</li>
+available.</p></li>
 </ul>
 </div>
 </div>
@@ -231,7 +236,7 @@ available.</li>
         <a href="intro_designer.html" class="btn btn-neutral float-right" title="Introduction to Qt Designer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../intro/datasource.html" class="btn btn-neutral" title="Data Sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../intro/datasource.html" class="btn btn-neutral float-left" title="Data Sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -240,11 +245,19 @@ available.</li>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -256,27 +269,16 @@ available.</li>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

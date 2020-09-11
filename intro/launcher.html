@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,43 +11,47 @@
   
 
   
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Channels" href="channels.html" />
     <link rel="prev" title="Setting up the Environment" href="../intro.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> PyDM Tutorial
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> PyDM Tutorial
           
 
           
@@ -75,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -121,6 +125,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -159,7 +164,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>PyDM Launcher</li>
     
@@ -204,61 +209,61 @@ and sends them to the instantiated PyDMApplication.</p>
 </pre></div>
 </div>
 <p>Where:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="18%" />
-<col width="82%" />
+<col style="width: 18%" />
+<col style="width: 82%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Argument</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>-h, –help</td>
-<td>Show the help message and exit</td>
+<tbody>
+<tr class="row-even"><td><p>-h, –help</p></td>
+<td><p>Show the help message and exit</p></td>
 </tr>
-<tr class="row-odd"><td>–perfmon</td>
-<td>Enable performance monitoring, and print CPU usage to the terminal</td>
+<tr class="row-odd"><td><p>–perfmon</p></td>
+<td><p>Enable performance monitoring, and print CPU usage to the terminal</p></td>
 </tr>
-<tr class="row-even"><td>–hide-nav-bar</td>
-<td>Start PyDM with the navigation bar hidden</td>
+<tr class="row-even"><td><p>–hide-nav-bar</p></td>
+<td><p>Start PyDM with the navigation bar hidden</p></td>
 </tr>
-<tr class="row-odd"><td>–hide-menu-bar</td>
-<td>Start PyDM with the menu bar hidden</td>
+<tr class="row-odd"><td><p>–hide-menu-bar</p></td>
+<td><p>Start PyDM with the menu bar hidden</p></td>
 </tr>
-<tr class="row-even"><td>–hide-status-bar</td>
-<td>Start PyDM with the status bar hidden</td>
+<tr class="row-even"><td><p>–hide-status-bar</p></td>
+<td><p>Start PyDM with the status bar hidden</p></td>
 </tr>
-<tr class="row-odd"><td>–fullscreen</td>
-<td>Start PyDM in full screen mode.</td>
+<tr class="row-odd"><td><p>–fullscreen</p></td>
+<td><p>Start PyDM in full screen mode.</p></td>
 </tr>
-<tr class="row-even"><td>–read-only</td>
-<td>Start PyDM in a Read-Only mode</td>
+<tr class="row-even"><td><p>–read-only</p></td>
+<td><p>Start PyDM in a Read-Only mode</p></td>
 </tr>
-<tr class="row-odd"><td>–log_level</td>
-<td>Configure the level of the display logger.</td>
+<tr class="row-odd"><td><p>–log_level</p></td>
+<td><p>Configure the level of the display logger.</p></td>
 </tr>
-<tr class="row-even"><td>–version</td>
-<td>Show PyDM’s version number and exit</td>
+<tr class="row-even"><td><p>–version</p></td>
+<td><p>Show PyDM’s version number and exit</p></td>
 </tr>
-<tr class="row-odd"><td>-m MACRO, –macro MACRO</td>
-<td>Specify macro replacements to use, in JSON object format</td>
+<tr class="row-odd"><td><p>-m MACRO, –macro MACRO</p></td>
+<td><p>Specify macro replacements to use, in JSON object format</p></td>
 </tr>
-<tr class="row-even"><td>–stylesheet STYLESHEET</td>
-<td>Provide the full path to a CSS stylesheet file, which contains styles to be applied to specific Qt/PyDM widgets.</td>
+<tr class="row-even"><td><p>–stylesheet STYLESHEET</p></td>
+<td><p>Provide the full path to a CSS stylesheet file, which contains styles to be applied to specific Qt/PyDM widgets.</p></td>
 </tr>
-<tr class="row-odd"><td>displayfile (positional)</td>
-<td>A PyDM file to display. Can be either a Qt (.ui) file or a Python (.py) file</td>
+<tr class="row-odd"><td><p>displayfile (positional)</p></td>
+<td><p>A PyDM file to display. Can be either a Qt (.ui) file or a Python (.py) file</p></td>
 </tr>
-<tr class="row-even"><td>display_args (positional)</td>
-<td>Arguments to be passed to the PyDM client application and displays.</td>
+<tr class="row-even"><td><p>display_args (positional)</p></td>
+<td><p>Arguments to be passed to the PyDM client application and displays.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">It is not mandatory to use the PyDM Launcher to run your screen, but keep in
+<p class="admonition-title">Note</p>
+<p>It is not mandatory to use the PyDM Launcher to run your screen, but keep in
 mind that without it you will need to handle command line arguments, logging
 setup, and the instantiation of the PyDMApplication in your own code.</p>
 </div>
@@ -276,7 +281,7 @@ setup, and the instantiation of the PyDMApplication in your own code.</p>
         <a href="channels.html" class="btn btn-neutral float-right" title="Channels" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../intro.html" class="btn btn-neutral" title="Setting up the Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../intro.html" class="btn btn-neutral float-left" title="Setting up the Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -285,11 +290,19 @@ setup, and the instantiation of the PyDMApplication in your own code.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2018, mgibbs, hhslepicka
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -301,27 +314,16 @@ setup, and the instantiation of the PyDMApplication in your own code.</p>
   </div>
   
 
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
