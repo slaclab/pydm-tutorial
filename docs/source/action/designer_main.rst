@@ -83,6 +83,7 @@ The finished result will look like this:
 
     #. Drag and drop a ``PyDMImageView`` into the previously added ``Vertical Layout`` under
        the ``Label`` that was added at **Step 3.1**.
+    #. Set the ``objectName`` property to ``imageView``.
     #. Set the ``imageChannel`` property to ``ca://13SIM1:image1:ArrayData``.
     #. Set the ``widthChannel`` property to ``ca://13SIM1:image1:ArraySize1_RBV``.
     #. Set the ``readingOrder`` property to ``Clike``.
@@ -118,26 +119,7 @@ The finished result will look like this:
 
   * **Step 3.5.**
 
-    The fifth widget that we will add is a ``Label``, which will be updated with
-    the result of the calculation of beam position in the next section (:ref:`LittleCode`):
-
-    #. Drag and drop a ``Vertical Layout`` into the ``Vertical Layout`` that was added in
-       **Step 3.3**.
-    #. Set the ``objectName`` property of this widget to ``lbl_blobs``.
-
-       .. important::
-
-          It is very important to set the ``objectName`` property of widgets in
-          the designer if you intend to access them using code, otherwise the
-          names will be automatically assigned, and will not make much sense later
-          on.
-
-    #. Set the ``text`` property to empty so this label will only show information
-       when we write to it using the code later on.
-
-  * **Step 3.6.**
-
-    The sixth widget that we will add is another ``Label``, which will show the title
+    The fifth widget that we will add is another ``Label``, which will show the title
     of our controls area:
 
     #. Drag and drop a ``Label`` into the ``Vertical Layout`` that was added in
@@ -160,9 +142,9 @@ The finished result will look like this:
                 font-size: 14px;
             }
 
-  * **Step 3.7.**
+  * **Step 3.6.**
 
-    The seventh widget that we will add is a ``Frame``, which will be the container
+    The sixth widget that we will add is a ``Frame``, which will be the container
     for our two motors' ``Embedded Displays``:
 
     #. Drag and drop a ``Frame`` under the ``Label`` added in **Step 3.6**.
@@ -178,9 +160,9 @@ The finished result will look like this:
                 border-bottom-right-radius: 15px;
             }
 
-  * **Step 3.8.**
+  * **Step 3.7.**
 
-    The eight widget that we will add is a ``PyDMEmbeddedDisplay``, which will
+    The seventh widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our first motor axis:
 
     #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``Frame`` added in **Step 3.7**.
@@ -188,18 +170,18 @@ The finished result will look like this:
     #. Set the ``macros`` property to ``{"MOTOR":"IOC:m1"}``.
     #. Set the ``filename`` property to ``inline_motor.ui``.
 
-  * **Step 3.9.**
+  * **Step 3.8.**
 
-    The ninth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
+    The eigth widget that we will add is a ``PyDMEmbeddedDisplay``, which will
     display the ``inline_motor.ui`` with information for our second motor axis:
 
     #. Drag and drop a ``PyDMEmbeddedDisplay`` into the ``Frame`` added in **Step 3.7**.
     #. Set the ``macros`` property to ``{"MOTOR":"IOC:m2"}``.
     #. Set the ``filename`` property to ``inline_motor.ui``.
 
-  * **Step 3.10.**
+  * **Step 3.9.**
 
-    Finally, the tenth widget that we will add is a ``PyDMRelatedDisplayButton``, which will
+    Finally, the ninth widget that we will add is a ``PyDMRelatedDisplayButton``, which will
     open the ``All Motors`` screen that will be developed :ref:`later <PurePython>`:
 
     #. Drag and drop a ``PyDMRelatedDisplayButton`` into the ``Vertical Layout`` added in **Step 2**.
@@ -207,7 +189,7 @@ The finished result will look like this:
     #. Uncheck the ``openInNewWindow`` property.
     #. Set the ``text`` property to: ``View All Motors``
 
-  * **Step 3.11.**
+  * **Step 3.10.**
 
     Once all the widgets are added to the form, it is now time to adjust the layouts
     and make sure that all is well positioned and behaving nicely.
