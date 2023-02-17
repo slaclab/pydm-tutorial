@@ -1,9 +1,9 @@
 Features
-============
+========
 
 
 Adding Menu Actions
------
+-------------------
 
 You can add actions to the default menu bar in 2 ways: 
 
