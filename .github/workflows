@@ -3,7 +3,6 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
       - turn_into_redirect_page
 
 jobs:
